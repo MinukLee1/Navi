@@ -26,11 +26,13 @@
  https://developers.google.com/maps?hl=ko   https://developers.kakao.com/   <br><br><br>
 
 Google map API 시연 AVD <br>
-![image](https://user-images.githubusercontent.com/74412438/114548044-2f749c00-9c9a-11eb-8443-33d029c5141d.png)
+![image](https://user-images.githubusercontent.com/74412438/114548106-46b38980-9c9a-11eb-973d-fdef221ba0c2.png)
 
-<br><br>
+
+<br>
 Kakao map API 시연 AVD <br>
-![image](https://user-images.githubusercontent.com/74412438/114547975-1c61cc00-9c9a-11eb-9fd1-a4904a12da68.png)
+![image](https://user-images.githubusercontent.com/74412438/114548204-68ad0c00-9c9a-11eb-98a0-8bde0cbd3aa3.png)
+
 
         
 
