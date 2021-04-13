@@ -12,7 +12,7 @@
 
 <br><br>
 
- <strong> - 앱 개발전 프로젝트 계획기간( week05 )까지는 Discord를 통하여 실시간으로 회의 및 weekly report를 작성하였기에, 하나의 Github 계정(MinukLee1)으로 commit 하였음을 알립니다. <br><br> - 추후 앱개발단계인 week06 부터는 개발현황에따른 각 계정별 commit이 진행될 예정입니다. </strong>
+<strong> - 앱 개발전 프로젝트 계획기간( week05 )까지는 Discord를 통하여 실시간으로 회의 및 weekly report를 작성하였기에, 하나의 Github 계정(MinukLee1)으로 commit 하였음을 알립니다. <br><br> - 추후 앱개발단계인 week06 부터는 개발현황에따른 각 계정별 commit이 진행될 예정입니다. </strong>
         
 <br><br>
      
