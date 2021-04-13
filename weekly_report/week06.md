@@ -81,7 +81,7 @@ public class SplashActivity extends AppCompatActivity {
         finish();
     }
 }
-     
+     <br><br><br>
      
 ## 6. 프로젝트 기획서 및 스토리보드 
    <br><br>
