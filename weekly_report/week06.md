@@ -41,7 +41,7 @@ KAKAO MAP API는 상당히 여러가지 기능과 인터페이스를 제공한�
 <br><br>
 ![image](https://user-images.githubusercontent.com/74412438/114549519-110fa000-9c9c-11eb-9cc9-1573df648bb6.png)
 
-<br><br><br>
+<br><br>
 ### <strong>-최종 선정 API </strong><br><br>
 Kakao Map API <br><br>
 ### <strong>-선정 이유 </strong><br><br>
@@ -86,8 +86,11 @@ Kakao Map API <br><br>
          }
    
 
-<br><br><br>
-     
+<br><br>
+
+![2021-04-13 21-52-34 (online-video-cutter com)](https://user-images.githubusercontent.com/74412438/114555926-250ad000-9ca3-11eb-9e54-9df23e8fb42c.gif)
+
+<br> <br><br>
 ## 6. 프로젝트 기획서 및 스토리보드 
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
