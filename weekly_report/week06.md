@@ -27,12 +27,11 @@
 
 Google map API 시연 AVD <br>
 ![image](https://user-images.githubusercontent.com/74412438/114548106-46b38980-9c9a-11eb-973d-fdef221ba0c2.png)
-
+![image](https://user-images.githubusercontent.com/74412438/114548265-811d2680-9c9a-11eb-83d4-999a5f171616.png)
 
 <br>
 Kakao map API 시연 AVD <br>
 ![image](https://user-images.githubusercontent.com/74412438/114548265-811d2680-9c9a-11eb-83d4-999a5f171616.png)
-![image](https://user-images.githubusercontent.com/74412438/114548106-46b38980-9c9a-11eb-973d-fdef221ba0c2.png)
 
 
 
