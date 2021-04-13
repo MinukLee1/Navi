@@ -12,11 +12,9 @@
 
 <br><br>
 
-<strong> -역할분담 : 안드로이드 스튜디오 :
-                  : 서버               :
-                  :  DB                :
-   
-   <br><br> - 추후 앱개발단계인 week06 부터는 개발현황에따른 각 계정별 commit이 진행될 예정입니다. </strong>
+## 2. 팀원별 역할분담 <br><br>
+<strong> -역할분담 : 개발 ( 기능, XML, UI ) : 성주현 이민욱 황성택 
+                  : 서버, DB ( GoLand / Firebase.. 중 선택예정 ) : 박예진 최수빈 <br><br> </strong>
         
 <br><br>
      
