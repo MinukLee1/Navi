@@ -23,9 +23,9 @@
    대표적인 Map기반 API인 Kakao & Google 두가지를 별도 프로젝트에서 시연해보고, 지원해주는 기능이 더 많고 호환성이 좋은 API를 선정. <br> <br>
 ![image](https://user-images.githubusercontent.com/74412438/114547275-3353ee80-9c99-11eb-9ca7-70cb57604df3.png)
  ![image](https://user-images.githubusercontent.com/74412438/114547131-043d7d00-9c99-11eb-90e2-6d913145d521.png) <br><br>
- https://developers.google.com/maps?hl=ko   https://developers.kakao.com/   <br><br><br>
+ https://developers.google.com/maps?hl=ko   https://developers.kakao.com/   <br><br><br><br>
 
-Google map 및 Kakao map API 시연 AVD <br>
+<strong>Google map 및 Kakao map API 시연 AVD  </strong><br><br>
 ![image](https://user-images.githubusercontent.com/74412438/114548106-46b38980-9c9a-11eb-973d-fdef221ba0c2.png)
 ![image](https://user-images.githubusercontent.com/74412438/114548265-811d2680-9c9a-11eb-83d4-999a5f171616.png)
 
