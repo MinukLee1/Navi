@@ -18,7 +18,7 @@
         
 <br><br>
      
-## 3. Import할 API 시연 및 선정 <br><br>
+## 3. Import할 Map API 시연 및 선정 <br><br>
 
    대표적인 Map기반 API인 Kakao & Google 두가지를 별도 프로젝트에서 시연해보고, 지원해주는 기능이 더 많고 호환성이 좋은 API를 선정. <br> <br>
 ![image](https://user-images.githubusercontent.com/74412438/114547275-3353ee80-9c99-11eb-9ca7-70cb57604df3.png)
@@ -41,9 +41,11 @@ KAKAO MAP API는 상당히 여러가지 기능과 인터페이스를 제공한�
 <br><br>
 ![image](https://user-images.githubusercontent.com/74412438/114549519-110fa000-9c9c-11eb-9cc9-1573df648bb6.png)
 
-
-
-phpstorm
+<br><br>
+<strong>최종 선정 API </strong>
+Kakao Map API <br><br>
+<strong>선정 이유 </strong>
+더 높은 직관성 , 지원하는 기능의 폭넓음, 국내에 최적화된 API, MarkUp기능지원  
         
 
    <br><br><br>
