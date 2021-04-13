@@ -67,10 +67,11 @@ Kakao Map API <br><br>
 
    
 ## 5. Project 생성 및 Splash screen 구현 <br><br>
-- Navi_Project 생성 <br><br>
-- 
+- Navi_Project 생성 및 최초 github commit <br><br>
+ 
+ 
 - Splash 기능 구현<br>
-- 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
+ 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
 
 
       public class SplashActivity extends AppCompatActivity {
