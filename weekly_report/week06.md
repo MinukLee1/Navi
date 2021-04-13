@@ -67,12 +67,11 @@ Kakao Map API <br><br>
 
    
 ## 5. Project 생성 및 Splash screen 구현 <br><br>
-- Navi_Project 생성 <br>
-    ![image](https://user-images.githubusercontent.com/74412438/114552814-f17a7680-9c9f-11eb-8162-2d1652353c44.png) <br><br>
+- Navi_Project 생성 <br><br>
+- 
 - Splash 기능 구현<br>
 - 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
 
-public class SplashActivity extends AppCompatActivity {
  @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +79,7 @@ public class SplashActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-}
+
      <br><br><br>
      
 ## 6. 프로젝트 기획서 및 스토리보드 
