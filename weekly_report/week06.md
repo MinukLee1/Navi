@@ -88,7 +88,8 @@ Kakao Map API <br><br>
 
 <br><br>
 
-![2021-04-13 21-52-34 (online-video-cutter com)](https://user-images.githubusercontent.com/74412438/114555926-250ad000-9ca3-11eb-9e54-9df23e8fb42c.gif)
+ Splash screen 구현장면<br>
+   ![2021-04-13 21-52-34 (online-video-cutter com)](https://user-images.githubusercontent.com/74412438/114555926-250ad000-9ca3-11eb-9e54-9df23e8fb42c.gif)
 
 <br> <br><br>
 ## 6. 프로젝트 기획서 및 스토리보드 
