@@ -110,7 +110,7 @@ Kakao Map API <br><br>
 
 
     
-## 6. 다음 주 목표
+## 7. 다음 주 목표
    <br>
     역할분담에 따른 App Project 진행 ( 서버, DB 구축 및 기능구현 )
 <br><br>
