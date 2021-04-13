@@ -13,7 +13,7 @@
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-<strong> -역할분담 : 개발 ( 기능, XML, UI ) : 성주현 이민욱 황성택 
+<strong> -역할분담 : 개발 ( 기능, XML, UI ) : 성주현 이민욱 황성택 <br><br>
                   : 서버, DB ( GoLand / Firebase.. 중 선택예정 ) : 박예진 최수빈 <br><br> </strong>
         
 <br><br>
