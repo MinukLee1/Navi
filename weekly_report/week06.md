@@ -21,7 +21,8 @@
 ## 3. Import할 API 시연 및 선정 <br><br>
 
    대표적인 Map기반 API인 Kakao & Google 두가지를 별도 프로젝트에서 시연해보고, 지원해주는 기능이 더 많고 호환성이 좋은 API를 선정.
-   ![image](https://user-images.githubusercontent.com/74412438/114546941-b9bc0080-9c98-11eb-8bb5-4c9a4f0543ba.png)
+  ![image](https://user-images.githubusercontent.com/74412438/114547056-e53eeb00-9c98-11eb-9561-324a1b2cdd5b.png)
+
 
    https://developers.kakao.com/ https://developers.google.com/maps?hl=ko
    
