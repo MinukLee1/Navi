@@ -44,7 +44,7 @@ KAKAO MAP API는 상당히 여러가지 기능과 인터페이스를 제공한�
 <br><br><br>
 ### <strong>-최종 선정 API </strong><br><br>
 Kakao Map API <br><br>
-###<strong>-선정 이유 </strong><br><br>
+### <strong>-선정 이유 </strong><br><br>
 더 높은 직관성 , 지원하는 기능의 폭넓음, 국내에 최적화된 API, MarkUp기능지원  
         
 
