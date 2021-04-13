@@ -42,34 +42,31 @@ KAKAO MAP API는 상당히 여러가지 기능과 인터페이스를 제공한�
 ![image](https://user-images.githubusercontent.com/74412438/114549519-110fa000-9c9c-11eb-9cc9-1573df648bb6.png)
 
 <br><br>
-<strong>-최종 선정 API </strong>
+<strong>-최종 선정 API </strong><br>
 Kakao Map API <br><br>
-<strong>-선정 이유 </strong>
+<strong>-선정 이유 </strong><br>
 더 높은 직관성 , 지원하는 기능의 폭넓음, 국내에 최적화된 API, MarkUp기능지원  
         
 
    <br><br><br>
 
 
- ## 3. 시장조사 앱과의 차별성  <br><br>
+ ## 4. 필터(filter) 기능에 대하여 <br><br>
 
-   - 시장조사 결과, 비슷한 주제의 기존앱이 몇가지 존재 <br> 
-   - 각 어플별 사용자 만족도가 높은 사용자 위치기반 주변 명소, 편의시설 등을 추천하는 기능을 기본으로 제공하며 다음과 같은 차별성을 둠 <br>
+   - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
    <br>
    
-   <strong>차별성</strong>
    
-   1.  해시태그(#)를 통한 추천장소 필터링 기능을 제공<br>
-   2.  사용자가 직접 코스를 구상하여 저장 및 공유하는 기능을 제공<br>
-   3.  SNS 기능제공으로 개인 피드에 장소 공유 및 저장 <br> 
-   4.  사용자별 관심사 키워드 선택을 통한 추천장소 정렬<br>
-   5.  조회수 및 추천순에 비례한 상위노출 서비스를 제공<br><br><br>
+   1.  해시태그(#)를 통한 키워드별 필터링 기능을 제공<br>
+   2.  조회수 및 추천순에 비례한 상위노출(Descend) 필터링 제공<br>
+   3.  사용자별 관심사 키워드 선택을 통한 추천장소 정렬<br><br>
+   
+   - DB에 해시태그(#) 조건에 맞는 table 관리 및 검색 키워드에 따른 연동을 지원한다. <br><br>
 
 
 
 
-
- ## 4. 프로젝트 주제  <br><br>
+ ## 5. <고정> 프로젝트 주제 <br><br>
 
    ### 나비(Navi)  [나만아는 비밀장소]
    <br>
@@ -94,7 +91,7 @@ Kakao Map API <br><br>
      
      
      
-## 5. 프로젝트 기획서 및 스토리보드 
+## 6. <고정> 프로젝트 기획서 및 스토리보드 
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
@@ -114,7 +111,7 @@ Kakao Map API <br><br>
     
 ## 6. 다음 주 목표
    <br>
-    App Project 생성 및 구현 / 기능별 역할분담
+    역할분담에 따른 App Project 진행 ( 서버, DB 구축 및 기능구현 )
 <br><br>
 
 
