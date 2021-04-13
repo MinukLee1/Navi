@@ -65,33 +65,28 @@ Kakao Map API <br><br>
 
 
 
+   
+## 5. Project 생성 및 Splash screen 구현 <br><br>
+- Navi_Project 생성 <br>
+    ![image](https://user-images.githubusercontent.com/74412438/114552814-f17a7680-9c9f-11eb-8162-2d1652353c44.png) <br><br>
+- Splash 기능 구현<br>
+- 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
+ ![image](https://user-images.githubusercontent.com/74412438/114553547-b462b400-9ca0-11eb-9106-b2c08e96922f.png)
 
- ## 5. <고정> 프로젝트 주제 <br><br>
+public class SplashActivity extends AppCompatActivity {
 
-   ### 나비(Navi)  [나만아는 비밀장소]
-   <br>
-- 사용자들이 올린 전국 장소 리뷰
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-- 실제 사용자들의 솔직한 리뷰
-
-- 전국 어디든 친구들이 다녀온 장소, 나만의 장소를 손쉽게 공유
-
-- 카페, 문화생활, 맛집 등의 추천 큐레이션
-
-- 지도 위에 표시되는 현재 내 위치와 근처 장소들
-
-- 사용자 위치기반 장소리스트 안내
-<br><br>
-     <strong>구상 및 구현계획</strong><br>
-   - google map API를 이용한 위치서비스 제공 
-   - 사용자 정보 및 앱 데이터 저장을 위한 DB 서버 구축 
-   - UI 구현 및 디자인 구상 
-   - etc..
-   <br><br><br>
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}
      
      
-     
-## 6. <고정> 프로젝트 기획서 및 스토리보드 
+## 6. 프로젝트 기획서 및 스토리보드 
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
