@@ -31,11 +31,11 @@
 
 <br><br><br>
 <strong>각 API의 대표적인 특징</strong> <br><br>
-Google MAP API : (payment required.. : 200,000won credit free when creating an account.)
+- Google MAP API : (payment required.. : 200,000won credit free when creating an account.)
 결제계정 생성 시 대충 20여만원의 크레딧을 제공한다. 이후로는 유료로 책정.
 
 
-KAKAO MAP API : (1day, 300000 call, dev guide is perfect)
+- KAKAO MAP API : (1day, 300000 call, dev guide is perfect)
 KAKAO MAP API는 상당히 여러가지 기능과 인터페이스를 제공한다. 심지어 30만콜이 무료이며 가이드가 상당히 잘 짜여져있다.
 
 <br><br>
