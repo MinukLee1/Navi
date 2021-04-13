@@ -72,15 +72,19 @@ Kakao Map API <br><br>
 - Splash 기능 구현<br>
 - 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
 
- @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
- Intent intent = new Intent(this, MainActivity.class);
+
+      public class SplashActivity extends AppCompatActivity {
+       @Override
+       protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
         finish();
-    }
+          }
+         }
+   
 
-     <br><br><br>
+<br><br><br>
      
 ## 6. 프로젝트 기획서 및 스토리보드 
    <br><br>
