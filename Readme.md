@@ -1,10 +1,10 @@
 # Navi - 나만아는 비밀장소<br><br>
 
-1주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week01.md
-2주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week02.md
-3주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week03.md
-4주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week04.md
-5주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week05.md
+1주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week01.md<br>
+2주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week02.md<br>
+3주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week03.md<br>
+4주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week04.md<br>
+5주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week05.md<br>
 6주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week06.md
 
 <br><br>
