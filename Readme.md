@@ -1,5 +1,9 @@
 # Navi - 나만아는 비밀장소
 
+
+6주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week06.md
+
+
 ## 1. 회의 방식
 <br>
    <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 5주차의 경우 일정을 맞추어 4/5(월) 진행하였음. </strong><br>
