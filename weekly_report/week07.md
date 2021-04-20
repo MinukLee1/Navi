@@ -166,29 +166,7 @@
 
 5. 로그인후 프로필을 보여주기 위한 액티비티를 구현해준다.
 
-## 3.4. 박예진 CODE Review <br><br>
-
-1. fastAPI 구축을 필요한 파일 다운 코드
-
-               $ pip install fastapi
-               $ pip install uvicorn[standard]
-2. fastAPI로 JSON파일을 받을 수 있는 간단한 API구축 
-
-                     from typing import Optional
-                     from fastapi import FastAPI
-
-                     app = FastAPI()
-
-                    @app.get("/")  #경로/
-                    def read_root():
-                    return {"Hello": "World"} #출력
-
-                    @app.get("/items/{item_id}") #경로/items/item_id_int?q="str"
-                    def read_item(item_id: int, q: Optional[str] = None): #item_id는 int형식, q는 str형식 
-                    return {"item_id": item_id, "q": q} #출력
-                    
-                    
-## 3.1. 최수빈 CODE Review <br><br>
+## 3.3. 최수빈 CODE Review <br><br>
     <EditText
         android:id="@+id/join_name"
         android:layout_width="220dp"
@@ -218,9 +196,31 @@
         app:layout_constraintEnd_toEndOf="parent" />
        
  2.로그인/회원가입, 가입/취소 버튼 생성
- 3.
- 4.아직 적절한 테마나  화면 구성을 정하지 못하였지만 
-join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정이다.
+
+ 4.아직 적절한 테마나  화면 구성을 정하지 못하였지만 join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정이다.
+
+## 3.4. 박예진 CODE Review <br><br>
+
+1. fastAPI 구축을 필요한 파일 다운 코드
+
+               $ pip install fastapi
+               $ pip install uvicorn[standard]
+2. fastAPI로 JSON파일을 받을 수 있는 간단한 API구축 
+
+                     from typing import Optional
+                     from fastapi import FastAPI
+
+                     app = FastAPI()
+
+                    @app.get("/")  #경로/
+                    def read_root():
+                    return {"Hello": "World"} #출력
+
+                    @app.get("/items/{item_id}") #경로/items/item_id_int?q="str"
+                    def read_item(item_id: int, q: Optional[str] = None): #item_id는 int형식, q는 str형식 
+                    return {"item_id": item_id, "q": q} #출력
+                    
+                    
 
 ## 3.5. 이민욱 CODE Review <br><br>
 
