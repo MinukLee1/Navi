@@ -50,7 +50,8 @@
 
 
 
- protected void onCreate(Bundle savedInstanceState){
+  @Override
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.naverloginactivity);
 
@@ -68,7 +69,6 @@
         mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
         mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     }
-
 3. initData를 통해 메소드 초기화
 
  ## 4. 필터(filter) 기능에 대하여 <br><br>
