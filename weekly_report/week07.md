@@ -15,18 +15,17 @@
 
 ## 2. 팀원별 역할분담 <br><br>
 기능<br> 
-   -프로트앤드<br> 
-   <tab>•기능<br>
-               -성택: <br>
-               -주현: <br><br>
-            •디자인 및 레이아웃<br>
-               -수빈: <br><br>
-       
-  <strong> -백앤드<br></strong> 
-             •데이터 베이스 및 서버<br>
-                 -민욱: <br>
-                 -예진: <br>
-        
+   -프로트앤드<br></strong>  
+      •기능<br>
+         -성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면), kakaO 로그인 구현 (Developer)<br>
+         -주현: naver 로그인 구현 (Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB로 데이터를 보내기 전)<br>
+      •디자인 및 레이아웃<br>
+         -수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작<br>
+   -백앤드<br></strong> 
+      •데이터 베이스<br>
+         -민욱 : Account_Table 구현(Attribute : NickName, ID, PassWord, ), Post_Table 구현(posNum, Title, Contents, NickName-"Account_Table의 외래키") <br>
+      •서버구축<br>
+         -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축 (임시 서버), DB_tool(MySQL Workbench)와 Sever_tool(Pycham)연결 <br>
 <br><br>
      
 ## 3. Import할 Map API 시연 및 선정 <br><br>
