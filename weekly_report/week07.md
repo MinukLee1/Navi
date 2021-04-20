@@ -45,9 +45,9 @@
 1. 네이버 로그인 버튼 생성해준다.
 
 
-    private static String OAUTH_CLIENT_ID = "VN_A3mzSi0LfCZXXCr7w";
-    private static String OAUTH_CLIENT_SECRET = "8xkYrJhLFd";
-    private static String OAUTH_CLIENT_NAME =  " 네아로 테스트";
+        private static String OAUTH_CLIENT_ID = "VN_A3mzSi0LfCZXXCr7w";
+        private static String OAUTH_CLIENT_SECRET = "8xkYrJhLFd";
+        private static String OAUTH_CLIENT_NAME =  " 네아로 테스트";
     <br> <br>
 
 2. Naver Developer에서 사용자가 할당 받은 Client ID, Client Secret 그리고 사용자가지정한 Client Name을 입력해준다.
