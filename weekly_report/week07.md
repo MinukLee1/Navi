@@ -233,7 +233,7 @@
                   `pw` varchar(20) NOT NULL,
                    PRIMARY KEY (`nickname`)
                      ) 
-2. 작성 게시글에 대한 post table 생성 
+2. 작성 게시글에 대한 post table 생성 (foreign key 참조)
 
                      CREATE TABLE `post` (
                          `postNum` int NOT NULL,
