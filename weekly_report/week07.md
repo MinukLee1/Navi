@@ -51,17 +51,16 @@
 
 
   
-     public void onCreate(Bundle savedInstanceState){
+           public void onCreate(Bundle savedInstanceState){
            super.onCreate(savedInstanceState);
            setContentView(R.layout.naverloginactivity);
            mContext = this;
            initDate();
-     }
-      private void initDate(){
-         mOAuthLoginInstance = OAuthLogin.getInstance();
-          mOAuthLoginInstance.init(mContext, OAUTH_CLIENT_ID,
-                OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
-           mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
+          }
+          private void initDate(){
+          mOAuthLoginInstance = OAuthLogin.getInstance();
+          mOAuthLoginInstance.init(mContext, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, OAUTH_CLIENT_NAME);
+          mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
           mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
           }
 3. initData를 통해 메소드 초기화
