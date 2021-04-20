@@ -166,6 +166,42 @@
 
 5. 로그인후 프로필을 보여주기 위한 액티비티를 구현해준다.
 
+## 3.3.  CODE Review <br><br>
+
+    <EditText
+        android:id="@+id/join_name"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        
+ 1.회원가입과 로그인 창에 사용되는 textBox 화면 구성을 EditText를 사용해준다.
+각각의 inputType에 맞게 값을 입력해준다.
+
+     <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+        android:text="취소"
+        android:background="#FDF07C"
+        app:backgroundTint="#FDF07C"
+        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+        
+-로그인/회원가입, 가입/취소 버튼 생성
+
+-아직 적절한 테마나 화면 구성을 정하지 못하였지만 
+join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정.
+
+
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
    - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
