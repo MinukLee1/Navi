@@ -19,17 +19,18 @@
   
     
       •디자인 및 레이아웃
-         -수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
+         - 최수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
          
       •기능
-         -성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면), Kakao 로그인 구현 (Kakao Developer)
-         -주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
+         - 황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면), Kakao 로그인 구현 (Kakao Developer)
+         - 성주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
          
    ### -백엔드 <br>
       •데이터 베이스
-         -민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench)
+         - 이민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench)
+         
       •서버구축
-         -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 간단한 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
+         - 박예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 간단한 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
 
 ## 3.1. 성주현 CODE Review <br><br>
