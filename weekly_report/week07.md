@@ -166,7 +166,7 @@
 
 5. 로그인후 프로필을 보여주기 위한 액티비티를 구현해준다.
 
-## 3.3.  CODE Review <br><br>
+## 3.3. 최수빈 CODE Review <br><br>
 
     <EditText
         android:id="@+id/join_name"
