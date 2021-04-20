@@ -14,21 +14,30 @@
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
+### -프로트앤드<br>
 
-   ### -프로트앤드 <br>
+  
+    
       •디자인 및 레이아웃
-         -수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작<br><br>
-      •기능<br>
-         -성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면), kakaO 로그인 구현 (Developer)<br>
-         -주현: naver 로그인 구현 (Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB로 데이터를 보내기 전)<br><br>
+         -수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
+         
+      •기능
+         -성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면), Kakao 로그인 구현 (Kakao Developer)
+         -주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
          
    ### -백앤드 <br>
-      •데이터 베이스<br>
+      •데이터 베이스
          -민욱 : Account Table 구현(Attribute : nickName, id, password)
-                 Post able 구현(postNum, title, contents, nickname-"Account Table_nickname 참조") <br>
-      •서버구축<br>
-         -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축 (임시 서버), DB_tool(MySQL Workbench)와 Sever_tool(Pycham)연결 <br>
+                 Post able 구현(postNum, title, contents, nickname-"Account Table_nickname 참조") 
+      •서버구축
+         -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
+
+
+![image](https://user-images.githubusercontent.com/74412438/115386337-38261e80-a214-11eb-8c06-e23dff760039.png)
+
+
+![image](https://user-images.githubusercontent.com/74412438/115386257-1e84d700-a214-11eb-98c8-21b57ae30695.png)
 
 
 
