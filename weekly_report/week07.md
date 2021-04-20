@@ -27,12 +27,13 @@
          
    ### -백엔드 <br>
       •데이터 베이스
-         -민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench)
+         -민욱 : Account Table, Post Table 구현
       •서버구축
          -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
 
-## 3. CODE Review <br><br>
+## 3.1. 성주현 CODE Review <br><br>
+
 
         android:id="@+id/buttonOAuthLoginImg"
         android:layout_width="wrap_content"
@@ -40,13 +41,13 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="368dp" />            
-1. 네이버 로그인 버튼을 생성해준다.
+1.네이버 로그인 버튼을 생성해준다.
 
 
        private static String OAUTH_CLIENT_ID = "VN_A3mzSi0LfCZXXCr7w";
        private static String OAUTH_CLIENT_SECRET = "8xkYrJhLFd";
        private static String OAUTH_CLIENT_NAME =  " 네아로 테스트";
-2. Naver Developer에서 사용자가 할당 받은 Client ID, Client Secret 그리고 사용자가지정한 Client Name을 입력해준다.
+2.Naver Developer에서 사용자가 할당 받은 Client ID, Client Secret 그리고 사용자가지정한 Client Name을 입력해준다.
 
 
 
@@ -63,7 +64,7 @@
           mOAuthLoginButton = (OAuthLoginButton) findViewById(R.id.buttonOAuthLoginImg);
           mOAuthLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
           }
-3. initData를 통해 메소드 초기화
+3.initData를 통해 메소드 초기화
 
 
          protected void redirectSignupActivity(){
@@ -71,7 +72,7 @@
         startActivity(intent);
         finish();
         }
-4. 회원가입 후 이동할 Activity 설정
+4.회원가입 후 이동할 Activity 설정
 
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
