@@ -33,7 +33,7 @@
          -박예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 간단한 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
 
-## 3.1. 성주현 CODE Review <br><br>
+## 3.1 성주현 CODE Review <br><br>
 
 
         android:id="@+id/buttonOAuthLoginImg"
@@ -75,7 +75,7 @@
         }
 4.회원가입 후 이동할 Activity 설정<br><br>
 
-## 3.2. 황성택 CODE Review <br><br>
+## 3.2 황성택 CODE Review <br><br>
 
 대한민국에서 가장 큰 sns중의 하나인 카카오톡을 이용한 로그인을 구현하여 간편하게 어플을 
 즐길 수 있도록 하였다.
@@ -167,7 +167,7 @@
 
 5. 로그인후 프로필을 보여주기 위한 액티비티를 구현해준다.
 
-## 3.3. 최수빈 CODE Review <br><br>
+## 3.3 최수빈 CODE Review <br><br>
     <EditText
         android:id="@+id/join_name"
         android:layout_width="220dp"
@@ -200,7 +200,7 @@
 
  4.아직 적절한 테마나  화면 구성을 정하지 못하였지만 join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정이다.
 
-## 3.4. 박예진 CODE Review <br><br>
+## 3.4 박예진 CODE Review <br><br>
 
 1. fastAPI 구축을 필요한 파일 다운 코드
 
@@ -223,7 +223,7 @@
                     
                     
 
-## 3.5. 이민욱 CODE Review <br><br>
+## 3.5 이민욱 CODE Review <br><br>
 
 1. 사용자 계정에 대한 account table 생성 
 
