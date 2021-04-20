@@ -196,9 +196,9 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
         app:layout_constraintEnd_toEndOf="parent" />
         
--로그인/회원가입, 가입/취소 버튼 생성
+2.로그인/회원가입, 가입/취소 버튼 생성
 
--아직 적절한 테마나 화면 구성을 정하지 못하였지만 
+3.아직 적절한 테마나 화면 구성을 정하지 못하였지만 
 join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정.
 
 
