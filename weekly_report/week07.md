@@ -1,6 +1,6 @@
 # Week07 <br><br>
 
-## 1.    7주차 회의  
+## 1. 7주차 회의  
 <br>
    <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 7주차는 4/15(목),4/19(월)  두차례 진행하였음. </strong><br>
          다음과 같은 과정으로 프로젝트 진행.<br><br>
@@ -72,7 +72,99 @@
         startActivity(intent);
         finish();
         }
-4.회원가입 후 이동할 Activity 설정
+4.회원가입 후 이동할 Activity 설정<br><br>
+
+## 3.1. 황성택 CODE Review <br><br>
+
+대한민국에서 가장 큰 sns중의 하나인 카카오톡을 이용한 로그인을 구현하여 간편하게 어플을 
+즐길 수 있도록 하였다.
+
+    dependencies {
+    implementation 'com.kakao.sdk:usermgmt:1.29.0'
+    }
+    
+    allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+    }
+    }
+1.Buildgradle(app)파일에 카카오 로그인을 위한 sdk, url을 추가해준다.
+
+      <uses-permission android:name="android.permission.INTERNET"/>
+      
+      <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="c44c9d483335fe534b2792f4f6b3c79a" />
+     
+
+2.manifest파일에 카카오 로그인에 필요한 인터넷연결을 permission하고 AppKey와 네이티브 키를 입력한다.
+
+
+     private void getAppKeyHash() {
+    try {
+        PackageInfo info = getPackageManager().getPackageInfo(getPackageName(), PackageManager.GET_SIGNATURES);
+        for (Signature signature : info.signatures) {
+            MessageDigest md;
+            md = MessageDigest.getInstance("SHA");
+            md.update(signature.toByteArray());
+            String something = new String(Base64.encode(md.digest(), 0));
+            Log.e("Hash key", something);
+        }
+    } catch (Exception e) {
+        // TODO Auto-generated catch block
+        Log.e("name not found", e.toString());
+    }
+    }
+3.카카오 로그인을 하기위해 해시 키를 생성 후 카카오 디벨로퍼에 입력해준다.
+
+      <com.kakao.usermgmt.LoginButton
+        android:id="@+id/loginButton"
+        android:layout_width="279dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="232dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+4.카카오 로그인을 해주기 위한 카카오버튼을 구현해준다.
+
+       protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sub);
+
+        Intent intent = getIntent();
+        strNick = intent.getStringExtra("name");
+        strEmail = intent.getStringExtra("email");
+        strProfileImg = intent.getStringExtra("profileImg");
+
+        TextView tv_nick = findViewById(R.id.tv_nickName);
+        TextView tv_email = findViewById(R.id.tv_email);
+        ImageView iv_profile = findViewById(R.id.iv_profile);
+
+        // 닉네임 set
+        tv_nick.setText(strNick);
+        // 이메일 set
+        tv_email.setText(strEmail);
+        // 프로필 이미지 사진 set
+        Glide.with(this).load(strProfileImg).into(iv_profile);
+
+        // 로그아웃 처리
+        findViewById(R.id.btn_logout).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                UserManagement.getInstance().requestLogout(new LogoutResponseCallback() {
+                    @Override
+                    public void onCompleteLogout() {
+                        // 로그아웃 성공시 수행지점
+                        finish(); //현재 액티비티 종료
+      
+
+5. 로그인후 프로필을 보여주기 위한 액티비티를 구현해준다.
 
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
