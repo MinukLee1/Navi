@@ -14,16 +14,19 @@
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-<strong> 기능<br>
--프로트앤드<br>
+<strong> 기능<br> </strong> 
+
+<strong>-프로트앤드<br></strong> 
    •기능<br>
-      -성택:~~~<br>
-      -주현:~~~<br>
+       -성택: <br>
+       -주현: <br><br>
    •디자인 및 레이아웃<br>
-      -수빈:~~~<br>
- -백앤드<br>
-   •데이터 베이스<br>
-      -민욱:~~<br><br> </strong>
+       -수빈: <br><br>
+       
+  <strong> •백앤드<br></strong> 
+      •데이터 베이스 및 서버<br>
+          -민욱: <br>
+          -예진: <br>
         
 <br><br>
      
