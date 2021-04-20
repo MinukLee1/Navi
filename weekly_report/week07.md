@@ -187,6 +187,29 @@
                     def read_item(item_id: int, q: Optional[str] = None): #item_id는 int형식, q는 str형식 
                     return {"item_id": item_id, "q": q} #출력
 
+## 3.5. 이민욱 CODE Review <br><br>
+
+1. 사용자 계정에 대한 account table 생성 
+
+              CREATE TABLE `account` (
+                  `nickname` varchar(20) NOT NULL,
+                  `name`varchar(10) NOT NULL,
+                  `id` varchar(20) NOT NULL,
+                  `pw` varchar(20) NOT NULL,
+                   PRIMARY KEY (`nickname`)
+                     ) 
+2. 작성 게시글에 대한 post table 생성 
+
+                     CREATE TABLE `post` (
+                         `postNum` int NOT NULL,
+                         `title` varchar(10) NOT NULL,
+                         `contents` varchar(500) NOT NULL,
+                          `nickname` varchar(20) NOT NULL,
+                         PRIMARY KEY (`postNum`),
+                         KEY `nickname` (`nickname`),
+                         CONSTRAINT `post_ibfk_1` FOREIGN KEY (`nickname`) REFERENCES `account` (`nickname`)
+                         ) 
+
 
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
