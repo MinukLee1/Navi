@@ -261,26 +261,6 @@
 
 
 
-   
-## 5. Project 생성 및 Splash screen 구현 <br><br>
-- Navi_Project 생성 및 최초 Github commit <br><br>
- ![image](https://user-images.githubusercontent.com/74412438/114554334-921d6600-9ca1-11eb-8f11-902b24e55ffd.png)
- <br><br>
- 
-- Splash 기능 구현<br>
- 레이아웃 파일을 사용하지 않고, 대신 Activity의 테마 배경을 변경하는 방식으로 구현을 진행. <br><br>
-
-
-      public class SplashActivity extends AppCompatActivity {
-       @Override
-       protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-          }
-         }
-   
 
 <br><br>
 
@@ -288,7 +268,7 @@
    ![2021-04-13 21-52-34 (online-video-cutter com)](https://user-images.githubusercontent.com/74412438/114555926-250ad000-9ca3-11eb-9e54-9df23e8fb42c.gif)
 
 <br> <br><br>
-## 6. 프로젝트 기획서 및 스토리보드 
+## 5. 프로젝트 기획서 및 스토리보드 
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
