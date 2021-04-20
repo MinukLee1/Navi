@@ -186,6 +186,41 @@
                     @app.get("/items/{item_id}") #경로/items/item_id_int?q="str"
                     def read_item(item_id: int, q: Optional[str] = None): #item_id는 int형식, q는 str형식 
                     return {"item_id": item_id, "q": q} #출력
+                    
+                    
+## 3.1. 최수빈 CODE Review <br><br>
+    <EditText
+        android:id="@+id/join_name"
+        android:layout_width="220dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="아이디"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+        
+1.회원가입과 로그인 창에 사용되는 textBox 화면 구성을 EditText를 사용해준다.
+각각의 inputType에 맞게 값을 입력해준다.
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="87dp"
+        android:layout_marginRight="87dp"
+        android:text="취소"
+        android:background="#FDF07C"
+        app:backgroundTint="#FDF07C"
+        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
+        app:layout_constraintEnd_toEndOf="parent" />
+       
+ 2.로그인/회원가입, 가입/취소 버튼 생성
+ 3.
+ 4.아직 적절한 테마나  화면 구성을 정하지 못하였지만 
+join/login 기능 구현이 완성되었을때 디테일한 Layout 화면을 정해줄 예정이다.
 
 ## 3.5. 이민욱 CODE Review <br><br>
 
