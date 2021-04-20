@@ -24,7 +24,8 @@
          
    ### -백앤드 <br>
       •데이터 베이스<br>
-         -민욱 : Account_Table 구현(Attribute : NickName, ID, PassWord, ), Post_Table 구현(posNum, Title, Contents, NickName-"Account_Table의 외래키") <br>
+         -민욱 : Account Table 구현(Attribute : nickName, id, password)
+                 Post able 구현(postNum, title, contents, nickname-"Account Table_nickname 참조") <br>
       •서버구축<br>
          -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축 (임시 서버), DB_tool(MySQL Workbench)와 Sever_tool(Pycham)연결 <br>
 <br><br>
