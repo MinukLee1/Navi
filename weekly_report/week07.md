@@ -14,10 +14,9 @@
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-<strong> 기능<br> </strong> 
-
-<strong>-프로트앤드<br></strong> 
-            •기능<br>
+기능<br> 
+   -프로트앤드<br> 
+   <tab>•기능<br>
                -성택: <br>
                -주현: <br><br>
             •디자인 및 레이아웃<br>
