@@ -65,6 +65,14 @@
           }
 3. initData를 통해 메소드 초기화
 
+
+         protected void redirectSignupActivity(){
+        final Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
+        finish();
+        }
+4. 회원가입 후 이동할 Activity 설정
+
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
    - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
