@@ -27,7 +27,7 @@
          
    ### -백엔드 <br>
       •데이터 베이스
-         -민욱 : (MySQL Workbench) Account Table, Post Table 구현 및 key참조 
+         -민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench)
       •서버구축
          -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
