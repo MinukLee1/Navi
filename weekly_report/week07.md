@@ -32,18 +32,6 @@
          -예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
 <br><br>
 
-
-![image](https://user-images.githubusercontent.com/74412438/115386337-38261e80-a214-11eb-8c06-e23dff760039.png)
-
-
-![image](https://user-images.githubusercontent.com/74412438/115386257-1e84d700-a214-11eb-98c8-21b57ae30695.png)
-
-
-
-![image](https://user-images.githubusercontent.com/74412438/115385211-d7e2ad00-a212-11eb-8f95-4f5e47321183.png)
-
-
-     
 ## 3. Import할 Map API 시연 및 선정 <br><br>
 
    대표적인 Map기반 API인 Kakao & Google 두가지를 별도 프로젝트에서 시연해보고, 지원해주는 기능이 더 많고 호환성이 좋은 API를 선정. <br> <br>
