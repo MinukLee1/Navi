@@ -251,6 +251,8 @@
 
    - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
    <br>
+   <br>
+   <br>
    
    
    1.  해시태그(#)를 통한 키워드별 필터링 기능을 제공<br>
@@ -262,10 +264,8 @@
 
 
 
-<br><br>
 
- <strong>Splash screen 구현장면<br></strong><br>
-   ![2021-04-13 21-52-34 (online-video-cutter com)](https://user-images.githubusercontent.com/74412438/114555926-250ad000-9ca3-11eb-9e54-9df23e8fb42c.gif)
+
 
 <br> <br><br>
 ## 5. 프로젝트 기획서 및 스토리보드 
