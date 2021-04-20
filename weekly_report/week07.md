@@ -245,11 +245,13 @@
                          CONSTRAINT `post_ibfk_1` FOREIGN KEY (`nickname`) REFERENCES `account` (`nickname`)
                          ) 
 
-<br><br>
+
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
    - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
+   <br>
+   <br>
    <br>
    
    
@@ -260,10 +262,16 @@
    - DB에 해시태그(#) 조건에 맞는 table 관리 및 검색 키워드에 따른 연동을 지원한다. <br><br><br><br>
 
 
-<br> 
+
+
+
+
+
+<br> <br><br>
 ## 5. 프로젝트 기획서 및 스토리보드 
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
+ 
 ![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589203-0fc2ef80-966c-11eb-973e-28b63ec8fdb7.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589217-13567680-966c-11eb-81b2-1dc00a3310a7.png)<br><br>
