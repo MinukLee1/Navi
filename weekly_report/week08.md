@@ -41,6 +41,7 @@
 (이미지 출력은 임의이며 추후 팝업 형식의 텍스트로 바꿀 예정)
 
 
+
   <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,6 +75,11 @@
             android:id="@+id/setImage"/>
 
 1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
+
+
+![123](https://user-images.githubusercontent.com/79950504/116238072-e6ddd800-a79b-11eb-891d-4efa84402f6a.PNG)
+
+2. Android > App > res > drawable에 이미지 파일 삽입 (right_password, wrong_password file)
 
 
 
@@ -123,15 +129,12 @@
            }
          }
 
-2. 1번 단계에서 작성한 password EdiText, passwordcheck EditText2에 입력받은 텍스트의 일치여부를 확인하는 코드, 올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력한다.
+3. XML의 EditText에 입력받은 텍스트의 일치여부를 확인하는 코드(올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력)
 
-![123](https://user-images.githubusercontent.com/79950504/116238072-e6ddd800-a79b-11eb-891d-4efa84402f6a.PNG)
-
-3. Android > App > res > drawable에 비밀번호 일치 여부를 확인하는데 사용할 이미지 파일 삽입 (right_password, wrong_password file)
 
 ![result](https://user-images.githubusercontent.com/79950504/116240182-8308de80-a79e-11eb-9b68-36b5bc0b82d1.PNG)
 
-4. 
+4. 결과
 
 ## 3.2 황성택  Review <br><br>
  구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
