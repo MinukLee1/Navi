@@ -178,13 +178,13 @@
   
          mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
  
-## 3.3 최수빈  Review <br><br>
+## 3.3 최수빈  Review <br><br><br><br>
  
-     
+    
 
 ## 3.4 박예진  Review <br><br>
 
- - DB 연동 서버 구축 및 방식 비교  ( Android <-> fastapi/django <-> MySQL )  및 선정
+ - DB 연동 서버 구축 및 방식 비교  ( Android <-> fastapi/django <-> MySQL )  및 선정<br><br>
 
 ## 3.5 이민욱  Review <br><br>
 
