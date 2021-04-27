@@ -34,6 +34,45 @@
 
 ## 3.1 성주현  Review <br><br>
 
+1. 입력받은 Password 일치/불일치 확인 Code 작성
+- 올바르게 입력한 경우 O 이미지 출력
+- 틀리게 입력한 경우 x 이미지 출력
+(이미지 출력은 임의이며 추후 팝업 형식의 텍스트로 바꿀 예정)
+
+
+  <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:background="#60000000"
+        android:textColor="#ffffff"
+        android:hint="Password"
+        android:textColorHint="#80ffffff"
+        android:id="@+id/firstText"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="8.5"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:background="#60000000"
+            android:textColor="#ffffff"
+            android:hint="Password check"
+            android:textColorHint="#80ffffff"
+            android:id="@+id/secondText"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:id="@+id/setImage"/>
+
+1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
 
 
 
