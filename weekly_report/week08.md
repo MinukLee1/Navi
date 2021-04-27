@@ -85,13 +85,13 @@
        import android.widget.ImageView;
        import com.example.passtest.R;
 
-    public class MainActivity extends Activity {
+        public class MainActivity extends Activity {
 
-    EditText firstText, secondText;
-    ImageView setImage;
+        EditText firstText, secondText;
+        ImageView setImage;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         firstText = (EditText)findViewById(R.id.firstText);
@@ -117,10 +117,10 @@
             @Override
             public void afterTextChanged(Editable editable) {
 
-            }
-        });
-       }
-      }
+                }
+            });
+           }
+         }
 
 2. 1번 단계에서 작성한 password EdiText, passwordcheck EditText2에 입력받은 텍스트의 일치여부를 확인하는 코드, 올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력한다.
 
