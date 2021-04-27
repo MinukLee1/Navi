@@ -1,3 +1,4 @@
+![result](https://user-images.githubusercontent.com/79950504/116240168-7f755780-a79e-11eb-91a6-3782da23418c.PNG)
 # Week08 <br><br>
 
 ## 1. 8주차 회의  
@@ -128,7 +129,9 @@
 
 3. Android > App > res > drawable에 비밀번호 일치 여부를 확인하는데 사용할 이미지 파일 삽입 (right_password, wrong_password file)
 
+![result](https://user-images.githubusercontent.com/79950504/116240182-8308de80-a79e-11eb-9b68-36b5bc0b82d1.PNG)
 
+4. 
 
 ## 3.2 황성택  Review <br><br>
  구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
