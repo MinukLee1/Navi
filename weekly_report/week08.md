@@ -41,7 +41,7 @@
  구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
   1. 주차 Read.me 에 나와있는 카카오로그인방식과 같이 앱등록 후 해쉬키까지 등록해준다. 
   2. 아래에 나와있는 링크로 들어가 SDK파일을 압축해제 한 후 각 파일에 맞게 압축한 SDK파일을 넣어준다.
-  >> SDK다운로드 및 파일추가 링크 https://apis.map.kakao.com/android/guide/
+  <ul> SDK다운로드 및 파일추가 링크 https://apis.map.kakao.com/android/guide/
   4. 2번 방식과 같이 진행하게되면 아래와 같은 코드가 나오는데 이를 sync now 해준다.
   
             splits {
