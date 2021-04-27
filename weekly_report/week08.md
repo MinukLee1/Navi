@@ -1,4 +1,3 @@
-![result](https://user-images.githubusercontent.com/79950504/116240168-7f755780-a79e-11eb-91a6-3782da23418c.PNG)
 # Week08 <br><br>
 
 ## 1. 8주차 회의  
