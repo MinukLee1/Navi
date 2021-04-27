@@ -74,6 +74,59 @@
 
 1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
 
+package com.example.passtest;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.widget.EditText;
+import android.widget.ImageView;
+import com.example.passtest.R;
+
+public class MainActivity extends Activity {
+
+    EditText firstText, secondText;
+    ImageView setImage;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        firstText = (EditText)findViewById(R.id.firstText);
+        secondText = (EditText)findViewById(R.id.secondText);
+        setImage = (ImageView)findViewById(R.id.setImage);
+
+        secondText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(firstText.getText().toString().equals(secondText.getText().toString())) {
+                    setImage.setImageResource(R.drawable.right_password);
+                } else {
+
+                    setImage.setImageResource(R.drawable.wrong_password);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+}
+
+2. 1번 단계에서 작성한 password EdiText, passwordcheck EditText2에 입력받은 텍스트의 일치여부를 확인하는 코드, 올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력한다.
+
+![123](https://user-images.githubusercontent.com/79950504/116238072-e6ddd800-a79b-11eb-891d-4efa84402f6a.PNG)
+
+3. Android > App > res > drawable에 비밀번호 일치 여부를 확인하는데 사용할 이미지 파일 삽입 (right_password, wrong_password file)
+
 
 
 ## 3.2 황성택  Review <br><br>
