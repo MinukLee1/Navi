@@ -188,7 +188,7 @@
 
 ## 3.5 이민욱  Review <br><br>
 
- - DB 연동 서버 구축 및 방식 비교 및 선정 ( Android <-> fastapi/django <-> MySQL )  및 선정<br><br><br><br>
+ - DB 연동 서버 구축 및 방식 비교 및 선정 ( Android <-> fastapi/django <-> MySQL )  <br><br><br><br>
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
