@@ -74,14 +74,16 @@
 
 1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
 
-package com.example.passtest;
-import android.app.Activity;
-import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
-import android.widget.EditText;
-import android.widget.ImageView;
-import com.example.passtest.R;
+
+
+       package com.example.passtest;
+       import android.app.Activity; 
+       import android.os.Bundle;
+       import android.text.Editable;
+       import android.text.TextWatcher;
+       import android.widget.EditText;
+       import android.widget.ImageView;
+       import com.example.passtest.R;
 
     public class MainActivity extends Activity {
 
@@ -117,8 +119,8 @@ import com.example.passtest.R;
 
             }
         });
-        }
-         }
+       }
+      }
 
 2. 1번 단계에서 작성한 password EdiText, passwordcheck EditText2에 입력받은 텍스트의 일치여부를 확인하는 코드, 올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력한다.
 
