@@ -184,6 +184,37 @@
          mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
  
 ## 3.3 최수빈  Review <br><br><br><br>
+
+splash 화면 이미지 디자인 구현
+나만의 비밀 장소 - 나비 타이틀에 맞게 나비를 연상시키는 노란색과 나,비를 강조하여 프로젝트의 주제를 나타냈다.
+
+1.style.xml 파일에 원하는 이미지파일을 넣어준다.
+
+     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/navi_splash</item>
+     </style>
+2.Manifest 파일에 splash Java 코드를 넣어준다.
+
+       <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+3.Splash 동작 후 Mainpage로 넘어가는 작동코딩을 해준다.
+
+     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+4.구동 결과
+
+![splash](https://user-images.githubusercontent.com/79950091/116997887-5f9ee000-ad18-11eb-8b96-e8694b4fa37d.PNG)
+
  
     
 
