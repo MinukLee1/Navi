@@ -191,14 +191,14 @@
 
  - DB 연동 서버 구축 및 구현방식 비교, 선정 ( Android <-> fastapi/django <-> MySQL ) <br><br>
  - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br><br><br>
- - + DJango / FastAPI
+ - DJango / FastAPI
 
 
 ## 3.5 이민욱  Review <br><br>
 
  - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> fastapi/django <-> MySQL )  <br><br>
  - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br><br><br>
- - + DJango / FastAPI
+ - DJango / FastAPI
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
