@@ -20,7 +20,7 @@
 
 
     <EditText
-        android:id="@+id/join_name"
+        android:id="@+id/txtID"
         android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_marginTop="220dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/join_password"
+        android:id="@+id/txtPass"
         android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_marginTop="65dp"
@@ -41,13 +41,13 @@
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/join_pwck"
+        app:layout_constraintBottom_toBottomOf="@+id/txtPassCk"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/join_name" />
+        app:layout_constraintTop_toTopOf="@+id/txtID" />
 
     <EditText
-        android:id="@+id/join_pwck"
+        android:id="@+id/txtPassCk"
         android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_marginTop="86dp"
@@ -56,11 +56,11 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/join_name" />
+        app:layout_constraintTop_toBottomOf="@+id/txtID" />
 
 
     <EditText
-        android:id="@+id/nick_name"
+        android:id="@+id/txtName"
         android:layout_width="220dp"
         android:layout_height="45dp"
         android:layout_marginTop="72dp"
@@ -70,11 +70,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/join_pwck" />
+        app:layout_constraintTop_toTopOf="@+id/txtPassCk" />
 
 
     <Button
-        android:id="@+id/delete"
+        android:id="@+id/btndel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="87dp"
@@ -82,11 +82,11 @@
         android:text="취소"
         android:background="#FDF07C"
         app:backgroundTint="#FDF07C"
-        app:layout_constraintBaseline_toBaselineOf="@+id/join_button"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnOKJoin"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/join_button"
+        android:id="@+id/btnOKJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -96,7 +96,7 @@
         android:background="#FDF07C"
         app:backgroundTint="#FDF07C"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/delete" />
+        app:layout_constraintEnd_toStartOf="@+id/btndel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
