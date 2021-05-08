@@ -51,17 +51,28 @@
         android:hint="비밀번호"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
-        app:layout_constraintStart_toStartOf="@+id/login_ID"/>
+        app:layout_constraintStart_toStartOf="@+id/login_ID" />
 
 
     <Button
         android:id="@+id/btnJoin"
         android:layout_width="90dp"
-        android:layout_height="53dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="188dp"
+        android:background="#FDF07C"
         android:text="가입"
         app:backgroundTint="#FDF07C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/login_Pass" />
+
+    <com.kakao.usermgmt.LoginButton
+        android:id="@+id/btnKakao"
+        android:layout_width="407dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="96dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
