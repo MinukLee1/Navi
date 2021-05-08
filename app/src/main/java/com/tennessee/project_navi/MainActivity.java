@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     MapView mapView;
     RelativeLayout mapViewContainer;
 
-    Button btntest;
+    Button btntest,btnboard,btnuser,btnbmark;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +27,38 @@ public class MainActivity extends AppCompatActivity {
         mapViewContainer.addView(mapView);
 
         btntest = findViewById(R.id.btntest);
+        btnboard = findViewById(R.id.btnboard);
+        btnuser = findViewById(R.id.btnuser);
+        btnbmark = findViewById(R.id.btnbmark);
 
         btntest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BoardActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnuser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, UserInfoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnbmark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
                 startActivity(intent);
             }
         });

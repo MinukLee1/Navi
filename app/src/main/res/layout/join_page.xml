@@ -23,80 +23,87 @@
         android:id="@+id/txtID"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="아이디"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/txtPass"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_marginTop="65dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="비밀번호"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="@+id/txtPassCk"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtID" />
+        app:layout_constraintTop_toBottomOf="@+id/txtID" />
 
     <EditText
         android:id="@+id/txtPassCk"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_marginTop="86dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="비밀번호 확인"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtID" />
-
+        app:layout_constraintTop_toBottomOf="@+id/txtPass" />
 
     <EditText
         android:id="@+id/txtName"
         android:layout_width="220dp"
         android:layout_height="45dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="닉네임"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtPassCk" />
-
+        app:layout_constraintTop_toBottomOf="@+id/txtAlert" />
 
     <Button
         android:id="@+id/btndel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="87dp"
-        android:layout_marginRight="87dp"
-        android:text="취소"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
         android:background="#FDF07C"
+        android:text="취소"
         app:backgroundTint="#FDF07C"
-        app:layout_constraintBaseline_toBaselineOf="@+id/btnOKJoin"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/btnOKJoin"
+        app:layout_constraintTop_toTopOf="@+id/btnOKJoin" />
 
     <Button
         android:id="@+id/btnOKJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginRight="64dp"
-        android:layout_marginBottom="148dp"
-        android:text="가입"
+        android:layout_marginTop="28dp"
         android:background="#FDF07C"
+        android:text="가입"
         app:backgroundTint="#FDF07C"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btndel" />
+        app:layout_constraintStart_toStartOf="@+id/txtName"
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <TextView
+        android:id="@+id/txtAlert"
+        android:layout_width="220dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassCk" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
