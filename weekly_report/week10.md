@@ -227,9 +227,9 @@ splash 화면 이미지 디자인 구현
 
 ## 3.5 이민욱  Review <br><br>
 
- - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> fastapi/django <-> MySQL )  <br><br>
- - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br>
- - DJango / FastAPI<br><br><br><br>
+ - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> fastapi/django <-> MySQL ) + OR FireBase  <br><br>
+ - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) + OR FireBase <br><br>
+ - DJango / FastAPI / + FireBase 를 통한 로그인 교류 테스트<br><br><br><br>
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
