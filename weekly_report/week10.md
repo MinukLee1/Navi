@@ -1,0 +1,280 @@
+# Week09 <br><br>
+
+## 1. 9주차 회의  
+<br>
+   <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 9주차는 5/4(화) 진행하였음. </strong><br>
+         다음과 같은 과정으로 프로젝트 진행.<br><br>
+        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
+        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
+        - 최종 프로젝트 구상 회의  <br><br>
+
+![image](https://user-images.githubusercontent.com/74412438/116230381-8ac28600-a792-11eb-8ffb-458502b21e3b.png)
+<br> 9주차 - 1 Discord 회의화면
+
+<br><br>
+
+## 2. 팀원별 역할분담 <br><br>
+### -프로트엔드<br>
+  
+    
+      •디자인 및 레이아웃
+         -최수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
+         
+      •기능
+         -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
+         -성주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
+         
+   ### -백엔드 <br>
+      •데이터 베이스 / 서버구축
+         -이민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench) 
+         
+      •데이터 베이스 / 서버구축
+         -박예진 : FastAPI를 통해 Json형식의 데이터를 받을 수 있는 간단한 API서버 구축, DB tool(MySQL Workbench)와 Sever tool(Pycham)연결 
+<br><br>
+
+## 3.1 성주현  Review <br><br>
+
+1. 입력받은 Password 일치/불일치 확인 Code 작성
+- 올바르게 입력한 경우 O 이미지 출력
+- 틀리게 입력한 경우 x 이미지 출력
+(이미지 출력은 임의이며 추후 팝업 형식의 텍스트로 바꿀 예정)
+
+
+
+  <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:background="#60000000"
+        android:textColor="#ffffff"
+        android:hint="Password"
+        android:textColorHint="#80ffffff"
+        android:id="@+id/firstText"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="10"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="0dp"
+            android:layout_weight="8.5"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:background="#60000000"
+            android:textColor="#ffffff"
+            android:hint="Password check"
+            android:textColorHint="#80ffffff"
+            android:id="@+id/secondText"/>
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_weight="1.5"
+            android:layout_height="match_parent"
+            android:scaleType="fitStart"
+            android:id="@+id/setImage"/>
+
+1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
+
+
+![123](https://user-images.githubusercontent.com/79950504/116238072-e6ddd800-a79b-11eb-891d-4efa84402f6a.PNG)
+
+2. Android > App > res > drawable에 이미지 파일 삽입 (right_password, wrong_password file)
+
+
+
+       package com.example.passtest;
+       import android.app.Activity; 
+       import android.os.Bundle;
+       import android.text.Editable;
+       import android.text.TextWatcher;
+       import android.widget.EditText;
+       import android.widget.ImageView;
+       import com.example.passtest.R;
+
+        public class MainActivity extends Activity {
+
+        EditText firstText, secondText;
+        ImageView setImage;
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        firstText = (EditText)findViewById(R.id.firstText);
+        secondText = (EditText)findViewById(R.id.secondText);
+        setImage = (ImageView)findViewById(R.id.setImage);
+
+        secondText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(firstText.getText().toString().equals(secondText.getText().toString())) {
+                    setImage.setImageResource(R.drawable.right_password);
+                } else {
+
+                    setImage.setImageResource(R.drawable.wrong_password);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+                }
+            });
+           }
+         }
+
+3. XML의 EditText에 입력받은 텍스트의 일치여부를 확인하는 코드(올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력)
+
+
+![result](https://user-images.githubusercontent.com/79950504/116240182-8308de80-a79e-11eb-9b68-36b5bc0b82d1.PNG)
+
+4. 결과
+
+## 3.2 황성택  Review <br><br>
+ 구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
+  1. 6주차 Read.me 에 나와있는 카카오로그인방식과 같이 앱등록 후 해쉬키까지 등록해준다. 
+  2. 아래에 나와있는 링크로 들어가 SDK파일을 압축해제 한 후 각 파일에 맞게 압축한 SDK파일을 넣어준다.<br> >> SDK다운로드 및 파일추가 링크 https://apis.map.kakao.com/android/guide/
+  3. 2번 방식과 같이 진행하게되면 아래와 같은 코드가 나오는데 이를 sync now 해준다.
+  
+            splits {
+            abi {
+            enable true
+            reset()
+            include 'arm64-v8a','armeabi-v7a', 'armeabi'
+            universalApk false
+            }
+            } 
+  4. xml 파일을 추가해 http 통신에 대한 예외 처리를 해준다.(targetSDKVersion이28이상일 경우)
+  
+             <?xml version="1.0" encoding="utf-8"?>
+            
+           <network-security-config>
+           <domain-config cleartextTrafficPermitted="true">
+           <domain includeSubdomains="true">maps.daum-img.net</domain>
+           </domain-config>
+           </network-security-config>
+  5. 카카오MAP을 보여줄 레이아웃을 만들어준다.
+
+             <RelativeLayout
+          android:id="@+id/map_view"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"/>
+  6. MainActivity에 맵View에 대한 자바코드를 작성해준다.
+  
+          public class MainActivity extends AppCompatActivity {
+          MapView mapView;
+          RelativeLayout mapViewContainer;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        mapViewContainer = (RelativeLayout)findViewById(R.id.map_view);
+        mapView = new MapView(this);
+        mapViewContainer.addView(mapView);
+    );
+  
+  7. 추가적으로 현재위치를 계속 받아오면서 나침반 모드를 활성해주는 코드를 onCreate 안에 작성해준다.
+  
+         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
+ 
+## 3.3 최수빈  Review <br><br><br><br>
+
+splash 화면 이미지 디자인 구현
+나만의 비밀 장소 - 나비 타이틀에 맞게 나비를 연상시키는 노란색과 나,비를 강조하여 프로젝트의 주제를 나타냈다.
+
+1.style.xml 파일에 원하는 이미지파일을 넣어준다.
+
+     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowBackground">@drawable/navi_splash</item>
+     </style>
+2.Manifest 파일에 splash Java 코드를 넣어준다.
+
+       <activity android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+3.Splash 동작 후 Mainpage로 넘어가는 작동코딩을 해준다.
+
+     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+4.구동 결과
+
+![splash](https://user-images.githubusercontent.com/79950091/116997887-5f9ee000-ad18-11eb-8b96-e8694b4fa37d.PNG)
+
+ 
+    
+
+## 3.4 박예진  Review <br><br>
+
+ - DB 연동 서버 구축 및 구현방식 비교, 선정 ( Android <-> fastapi/django <-> MySQL ) <br><br>
+ - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br>
+ - DJango / FastAPI
+<br><br><br><br>
+
+## 3.5 이민욱  Review <br><br>
+
+ - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> fastapi/django <-> MySQL )  <br><br>
+ - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br>
+ - DJango / FastAPI<br><br><br><br>
+   
+ ## 4. 필터(filter) 기능에 대하여 <br><br>
+
+   - 전체 사용자 게시글 피드노출의 필터링(filtering) 기능에 대한 부연설명 <br>
+   <br>
+   <br>
+   <br>
+   
+   
+   1.  해시태그(#)를 통한 키워드별 필터링 기능을 제공<br>
+   2.  조회수 및 추천순에 비례한 상위노출(Descend) 필터링 제공<br>
+   3.  사용자별 관심사 키워드 선택을 통한 추천장소 정렬<br><br>
+   
+   - DB에 해시태그(#) 조건에 맞는 table 관리 및 검색 키워드에 따른 연동을 지원한다. <br><br><br><br>
+
+
+
+
+
+
+
+<br> <br><br>
+## 5. 프로젝트 기획서 및 스토리보드 
+   <br><br>
+ ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
+ 
+![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589203-0fc2ef80-966c-11eb-973e-28b63ec8fdb7.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589217-13567680-966c-11eb-81b2-1dc00a3310a7.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589230-16e9fd80-966c-11eb-8b90-521744e60b7f.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589242-19e4ee00-966c-11eb-86be-9c951ed2a7e7.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589255-1baeb180-966c-11eb-9f12-e1c2f10209b5.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589262-1e110b80-966c-11eb-94d7-ca7d2acac7b7.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589268-1fdacf00-966c-11eb-9238-ef16ed1c30ae.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589274-21a49280-966c-11eb-893e-634d42849d51.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589282-236e5600-966c-11eb-8449-db4994a4a129.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589292-25d0b000-966c-11eb-97b9-4b5b4f58b731.png)<br><br>
+![image](https://user-images.githubusercontent.com/74412438/113589301-279a7380-966c-11eb-8b44-42aa9668c2d9.png)<br><br><br><br>
+
+
+    
+## 7. 다음 주 목표
+   <br>
+    역할분담에 따른 App Project 진행 ( 서버, DB 구축 및 기능구현 )
+<br><br>
+
+
+
