@@ -1,6 +1,7 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +18,15 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
 import com.kakao.usermgmt.response.MeV2Response;
 import com.kakao.util.exception.KakaoException;
+import com.nhn.android.naverlogin.OAuthLogin;
+import com.nhn.android.naverlogin.OAuthLoginHandler;
+import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 
 public class LoginActivity extends Activity {
 
     private ISessionCallback mSessionCallback;
+
+
 
     EditText ID, Pass;
     Button btnLogin, btnJoin;
@@ -65,6 +71,7 @@ public class LoginActivity extends Activity {
                 Toast.makeText(LoginActivity.this, "onSessionOpenFailed",Toast.LENGTH_SHORT).show();
             }
 
+
         };
 
         ID = findViewById(R.id.login_ID);
@@ -83,3 +90,5 @@ public class LoginActivity extends Activity {
         });
     }
 }
+
+
