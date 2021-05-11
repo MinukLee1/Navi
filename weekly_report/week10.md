@@ -1,15 +1,15 @@
-# Week09 <br><br>
+# Week10 <br><br>
 
-## 1. 9주차 회의  
+## 1. 10주차 회의  
 <br>
-   <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 9주차는 5/4(화) 진행하였음. </strong><br>
+   <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 10주차는 5/11(화) 진행하였음. </strong><br>
          다음과 같은 과정으로 프로젝트 진행.<br><br>
         - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
         - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
         - 최종 프로젝트 구상 회의  <br><br>
 
-![image](https://user-images.githubusercontent.com/74412438/116230381-8ac28600-a792-11eb-8ffb-458502b21e3b.png)
-<br> 9주차 - 1 Discord 회의화면
+![image](https://user-images.githubusercontent.com/74412438/117801653-86689380-b28f-11eb-8e06-8208e055b8e3.png)
+<br> 10주차 - 1 Discord 회의화면
 
 <br><br>
 
