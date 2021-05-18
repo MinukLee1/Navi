@@ -76,7 +76,10 @@
                marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
                //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
                mapView.addPOIItem(marker);
-               mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
+        
+4. 사용자가 바라보는 방향에 따라 맵에 출력된 마커(사용자의 현재 위치)와 지도가 회전하는 트랙킹 모드 code
+
+           mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
 
 
 
