@@ -32,7 +32,7 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. PC에 할당된 Hash Key를 가져오기 위함. Log.e("getKeyHash", "" + getKeyHash(this)); code를 통해 Hash 키를 
+1. 카카오맵을 사용하기 위해서는 Hash키가 필요하다. 다음 code를 통해 각 pc에 할당된 고유 hash key를 추출할 수 있다.
 
          private String getKeyHash(Context context) {
          PackageInfo packageInfo = null;
@@ -52,13 +52,29 @@
                 return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
             } catch (NoSuchAlgorithmException e) {
                 Log.w(TAG, "Unable to get MessageDigest. signature=" + signature, e);
+               }
             }
-        }
         return null;
-    }
+         }
 
          Log.e("getKeyHash", ""+ getKeyHash(this));
 
+
+ 
+2. 사용자의 현재 위치를 화면에 출력해주는 code.
+         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
+         
+         
+
+3. 사용자의 현재 위치를 마커로 표시해주는 code
+            MapPOIItem marker = new MapPOIItem();
+            marker.setItemName("Default Marker");
+            marker.setTag(0);
+            //marker.setMapPoint(MARKER_POINT);
+            marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+            //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+            mapView.addPOIItem(marker);
+            mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
 
 
 
