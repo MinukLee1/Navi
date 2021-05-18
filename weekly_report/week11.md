@@ -20,7 +20,7 @@
          
       •기능
          -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
-         -성주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
+         -성주현: KakaoMap API를 사용하기 위한 Hash Key 추출 코드 작성, User의 현재 위치, 마커 기능, 트랙킹 모드 구현.
          
    ### -백엔드 <br>
       •데이터 베이스 / 서버구축
