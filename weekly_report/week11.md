@@ -1,20 +1,18 @@
-# Week11 <br><br>
+# Week10 <br><br>
 
 ## 1. 11주차 회의  
 <br>
-   <strong>  1-1 매 주차와 같이 Discord를 이용하였으며, 11주차는 5/16 & 5/17 진행하였음. </strong><br>
+   <strong>  1-1 DB, Server / 안드로이드 스튜디오 개발 인력별로 대면 회의를 진행하였으며, 11주차는 5/15 ~ 5/16 (주말) 진행하였음. </strong><br>
          다음과 같은 과정으로 프로젝트 진행.<br><br>
-        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
-        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
+        - 회의 전 각 팀원별 진척도를 종합하여 회의 중 내용 공유<br>
+        - 공유한 내용을 기반으로 보완점 논의 <br>
         - 최종 프로젝트 구상 회의  <br><br>
 
-![image](https://user-images.githubusercontent.com/74412438/117801653-86689380-b28f-11eb-8e06-8208e055b8e3.png)
-<br> 11주차 - 1 Discord 회의화면
 
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-### -프론트엔드<br>
+### -프로트엔드<br>
   
     
       •디자인 및 레이아웃
@@ -24,7 +22,7 @@
          -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
          -성주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
          
-   ### -백엔드+프론트엔드<br>
+   ### -백엔드 <br>
       •데이터 베이스 / 서버구축
          -이민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench) 
          
@@ -34,106 +32,38 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. 입력받은 Password 일치/불일치 확인 Code 작성
-- 올바르게 입력한 경우 O 이미지 출력
-- 틀리게 입력한 경우 x 이미지 출력
-(이미지 출력은 임의이며 추후 팝업 형식의 텍스트로 바꿀 예정)
+1. PC에 할당된 Hash Key를 가져오기 위한 code로 Log.e("getKeyHash", "" + getKeyHash(this)); 
 
-
-
-  <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:background="#60000000"
-        android:textColor="#ffffff"
-        android:hint="Password"
-        android:textColorHint="#80ffffff"
-        android:id="@+id/firstText"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:weightSum="10"
-        android:orientation="horizontal">
-
-        <EditText
-            android:layout_width="0dp"
-            android:layout_weight="8.5"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:background="#60000000"
-            android:textColor="#ffffff"
-            android:hint="Password check"
-            android:textColorHint="#80ffffff"
-            android:id="@+id/secondText"/>
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_weight="1.5"
-            android:layout_height="match_parent"
-            android:scaleType="fitStart"
-            android:id="@+id/setImage"/>
-
-1. EditText, ImageView를 사용해 비밀번호 입력, 비밀번호 확인, 이미지뷰 구현.
-
-
-![123](https://user-images.githubusercontent.com/79950504/116238072-e6ddd800-a79b-11eb-891d-4efa84402f6a.PNG)
-
-2. Android > App > res > drawable에 이미지 파일 삽입 (right_password, wrong_password file)
-
-
-
-       package com.example.passtest;
-       import android.app.Activity; 
-       import android.os.Bundle;
-       import android.text.Editable;
-       import android.text.TextWatcher;
-       import android.widget.EditText;
-       import android.widget.ImageView;
-       import com.example.passtest.R;
-
-        public class MainActivity extends Activity {
-
-        EditText firstText, secondText;
-        ImageView setImage;
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        firstText = (EditText)findViewById(R.id.firstText);
-        secondText = (EditText)findViewById(R.id.secondText);
-        setImage = (ImageView)findViewById(R.id.setImage);
-
-        secondText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(firstText.getText().toString().equals(secondText.getText().toString())) {
-                    setImage.setImageResource(R.drawable.right_password);
-                } else {
-
-                    setImage.setImageResource(R.drawable.wrong_password);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-                }
-            });
-           }
+         private String getKeyHash(Context context) {
+         PackageInfo packageInfo = null;
+         try {
+            packageInfo = getPackageManager().getPackageInfo(context.getPackageName(),
+                    PackageManager.GET_SIGNATURES);
+         } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
          }
+            if (packageInfo == null)
+             return null;
 
-3. XML의 EditText에 입력받은 텍스트의 일치여부를 확인하는 코드(올바르게 입력한 경우에 O 이미지를 출력하고 틀리게 입력한 경우 X 이미지를 출력)
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.w(TAG, "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+        return null;
+    }
+
+         Log.e("getKeyHash", ""+ getKeyHash(this));
 
 
-![result](https://user-images.githubusercontent.com/79950504/116240182-8308de80-a79e-11eb-9b68-36b5bc0b82d1.PNG)
 
-4. 결과
+
+
+
 
 ## 3.2 황성택  Review <br><br>
  구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
@@ -275,7 +205,6 @@ splash 화면 이미지 디자인 구현
    <br>
     역할분담에 따른 App Project 진행 ( 서버, DB 구축 및 기능구현 )
 <br><br>
-
 
 
 
