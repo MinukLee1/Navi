@@ -153,11 +153,14 @@ splash 화면 이미지 디자인 구현
 
  - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> OR FireBase )  <br><br>
  - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
- ![image](https://user-images.githubusercontent.com/74412438/118648499-6ef45200-b81d-11eb-8ec1-51ce41ae8707.png)<br><br>
+ ![image](https://user-images.githubusercontent.com/74412438/118648499-6ef45200-b81d-11eb-8ec1-51ce41ae8707.png)<br>
  ![image](https://user-images.githubusercontent.com/74412438/118648752-b549b100-b81d-11eb-93f9-ec86b4270a14.png)<br><br><br>
 
 
  - Firebase Auth 관련 보완 및 수정<br><br>
+ 
+        mAuth = FirebaseAuth.getInstance(); <br><br>
+        
  - Client <-> DB 간 가입logic 구현<br>
        
        private void Join() {
@@ -200,7 +203,7 @@ splash 화면 이미지 디자인 구현
 
  - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> OR FireBase )  <br><br>
  - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
-  ![image](https://user-images.githubusercontent.com/74412438/118648474-66038080-b81d-11eb-9f27-aa6fed319d89.png)<br><br>
+  ![image](https://user-images.githubusercontent.com/74412438/118648474-66038080-b81d-11eb-9f27-aa6fed319d89.png)<br>
    ![image](https://user-images.githubusercontent.com/74412438/118648752-b549b100-b81d-11eb-93f9-ec86b4270a14.png)<br><br><br>
 
  - Flag를 통한 App 전반적 생명주기 컨트롤<br>
