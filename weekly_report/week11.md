@@ -62,11 +62,13 @@
 
  
 2. 사용자의 현재 위치를 화면에 출력해주는 code.
+
                mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
          
          
 
-3. 사용자의 현재 위치를 마커로 표시해주는 code
+3. 사용자의 현재 위치를 마커로 표시해주는 code.
+
                MapPOIItem marker = new MapPOIItem();
                marker.setItemName("Default Marker");
                marker.setTag(0);
