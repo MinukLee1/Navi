@@ -1,4 +1,4 @@
-# Week10 <br><br>
+# Week11 <br><br>
 
 ## 1. 11주차 회의  
 <br>
@@ -9,12 +9,12 @@
         - 최종 프로젝트 구상 회의  <br><br>
 
 ![image](https://user-images.githubusercontent.com/74412438/117801653-86689380-b28f-11eb-8e06-8208e055b8e3.png)
-<br> 10주차 - 1 Discord 회의화면
+<br> 11주차 - 1 Discord 회의화면
 
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-### -프로트엔드<br>
+### -프론트엔드<br>
   
     
       •디자인 및 레이아웃
@@ -24,7 +24,7 @@
          -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
          -성주현: naver 로그인 구현 (Naver Developer), 회원가입 폼 중 비밀번호 동일성 확인 여부 구현(DB와 연동 전)
          
-   ### -백엔드 <br>
+   ### -백엔드+프론트엔드<br>
       •데이터 베이스 / 서버구축
          -이민욱 : Account Table, Post Table 구현 및 key참조 (MySQL Workbench) 
          
