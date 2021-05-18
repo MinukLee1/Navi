@@ -12,7 +12,7 @@
 <br><br>
 
 ## 2. 팀원별 역할분담 <br><br>
-### -프로트엔드<br>
+### -프론트엔드<br>
   
     
       •디자인 및 레이아웃
@@ -81,6 +81,7 @@
 
            mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
 
+ 
 
 
 
