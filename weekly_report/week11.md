@@ -32,7 +32,7 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. PC에 할당된 Hash Key를 가져오기 위한 code로 Log.e("getKeyHash", "" + getKeyHash(this)); 
+1. PC에 할당된 Hash Key를 가져오기 위함. Log.e("getKeyHash", "" + getKeyHash(this)); code를 통해 Hash 키를 
 
          private String getKeyHash(Context context) {
          PackageInfo packageInfo = null;
