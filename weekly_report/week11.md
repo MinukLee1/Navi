@@ -150,16 +150,94 @@ splash 화면 이미지 디자인 구현
 
 ## 3.4 박예진  Review <br><br>
 
- - DB 연동 서버 구축 및 구현방식 비교, 선정 ( Android <-> fastapi/django <-> MySQL ) <br><br>
- - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) <br><br>
- - DJango / FastAPI
+ - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> OR FireBase )  <br><br>
+ - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
+ - Firebase Auth 관련 보완 및 수정<br><br>
+ - Client <-> DB 간 가입logic 및 메소드 구현<br>
+       
+       private void Join() {
+
+        String email = ((EditText) findViewById(R.id.txtID)).getText().toString();
+        String password = ((EditText) findViewById(R.id.txtPass)).getText().toString();
+        String passwordCheck = ((EditText) findViewById(R.id.txtPassCk)).getText().toString();
+
+        if(email.length() > 0 && password.length() >0 && passwordCheck.length() > 0){
+
+            if (password.equals(passwordCheck)) {
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(this, (task) ->  {
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                startToast("회원가입에 성공하였습니다.");
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                if(task.getException() != null) {
+                                    startToast(task.getException().toString());
+
+                                }
+                            }
+
+                        });
+
+            }else {
+                startToast("비밀번호가 일치하지 않습니다.");
+            }
+        }else{
+            startToast("이메일 또는 비밀번호를 입력해 주세요");
+        }
+       }
+  
 <br><br><br><br>
 
 ## 3.5 이민욱  Review <br><br>
 
- - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> fastapi/django <-> MySQL ) + OR FireBase  <br><br>
- - DataBase 및 서버 환경구축 ( Django / MySQL / Pycharm ) + OR FireBase <br><br>
- - DJango / FastAPI / + FireBase 를 통한 로그인 교류 테스트<br><br><br><br>
+ - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> OR FireBase )  <br><br>
+ - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
+ - Flag를 통한 App 전반적 생명주기 컨트롤<br>
+
+         private void StartMainActivity(){
+            Intent intent = new Intent(this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
+            }
+       
+ - Client <-> DB 간 로그인logic 및 메소드 구현<br>
+        
+        private void Login() {
+
+        String email = ((EditText) findViewById(R.id.login_ID)).getText().toString();
+        String password = ((EditText) findViewById(R.id.login_Pass)).getText().toString();
+
+
+        if (email.length() > 0 && password.length() > 0) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                startToast("로그인에 성공하였습니다.");
+                                StartMainActivity();
+                            } else {
+                                if(task.getException() != null){
+                                    startToast(task.getException().toString());
+                                }
+
+                            }
+                        }
+                    });
+        } else {
+            startToast("이메일 또는 비밀번호를 입력해 주세요");
+        }
+       } 
+    
+ -App Theme 설정을 통한 정상적인 Activity Switch 구현<br>
+ 
+             setTheme(R.style.SplashTheme);    -> Manifest/SplashActivity 
+             setTheme(R.style.AppTheme);   -> LoginActivity
+ <br><br>
    
  ## 4. 필터(filter) 기능에 대하여 <br><br>
 
