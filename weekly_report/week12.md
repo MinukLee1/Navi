@@ -33,7 +33,7 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. 프로필 사진 변경을 위한 변수 선언 (사진 찍기, 앨범에서 가져오기, 가져온 사진 자르기)
+1. 프로필 사진 변경을 위한 변수 선언 
 
          private static final int PICK_FROM_CAMERA = 0;
          private static final int PICK_FROM_ALBUM = 1;
@@ -46,7 +46,7 @@
      
 
 
-2. 사진 설정 코드.
+2. 프로필 사진 변경을 위한 코드 (즉시 촬열을 통해 프로필 사진 변경, 기존 앨범에 있던 사진을 통해 프로필 사진 변경, 프로필 사진 )
 
           //카메라에서 프로필 사진 촬영
           public void doTakePhotoAction()  //카메라 촬영 후 이미지 가져오기
