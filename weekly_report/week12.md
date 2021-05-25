@@ -89,42 +89,94 @@
 
 
 ## 3.2 황성택  Review <br><br>
+
+  1.게시글기능에 사용할 변수를 만들어준다.
+  
+       Button btnUpload;
+       TextView txtWrite;
+       private FirebaseAuth mAuth;
+  2.변수값에 대한 ID값을 가져와준다.
+  
+       mAuth = FirebaseAuth.getInstance();
+
+       btnUpload = findViewById(R.id.btnUpload);
+       txtWrite = findViewById(R.id.txtWrite);
+  3.Upload버튼 클릭시 수행되는 기능을 작성해준다.
+  
+       btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                           Upload();
+            }
+
+            private void Upload() {
+
+                String upwrite = ((EditText) findViewById(R.id.txtWrite)).getText().toString();
+                String upload = ((Button) findViewById(R.id.btnUpload)).getText().toString();
+
+                if(TextUtils.isEmpty((CharSequence) txtWrite)){
+                    Toast.makeText(getApplicationContext(), "메세지를 입력하세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
  
 ## 3.3 최수빈  Review <br><br><br><br>
 
-splash 화면 이미지 디자인 구현
-나만의 비밀 장소 - 나비 타이틀에 맞게 나비를 연상시키는 노란색과 나,비를 강조하여 프로젝트의 주제를 나타냈다.
+  1.게시글 업로드를 수행할 layout 파일을 만들어준다.(임시)
 
-1.style.xml 파일에 원하는 이미지파일을 넣어준다.
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/navi_splash</item>
-     </style>
-2.Manifest 파일에 splash Java 코드를 넣어준다.
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-       <activity android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-3.Splash 동작 후 Mainpage로 넘어가는 작동코딩을 해준다.
+    <EditText
+        android:id="@+id/txtWrite"
+        android:layout_width="393dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-4.구동 결과
+   ![캡처](https://user-images.githubusercontent.com/79950091/119503050-85625680-bda5-11eb-9ba0-15573b6a5869.PNG)
 
-![splash](https://user-images.githubusercontent.com/79950091/116997887-5f9ee000-ad18-11eb-8b96-e8694b4fa37d.PNG) 
-
-<br><br><br><br>
- 
-    
 
 ## 3.4 박예진  Review <br><br>
 
