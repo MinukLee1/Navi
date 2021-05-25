@@ -2,22 +2,32 @@ package com.tennessee.project_navi;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapView;
 
-public class MainActivity extends AppCompatActivity {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
+public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "TEST";
     MapView mapView;
     RelativeLayout mapViewContainer;
 
-    Button btntest,btnboard,btnuser,btnbmark,btnlogout;
+    Button btntest,btnboard,btnuser,btnbmark,btnlogout, btnlocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +50,29 @@ public class MainActivity extends AppCompatActivity {
         btnuser = findViewById(R.id.btnuser);
         btnbmark = findViewById(R.id.btnbmark);
         btnlogout = findViewById(R.id.btnlogout);
+
+        //위치 켜기 끄기
+        btnlocation = findViewById(R.id.btnlocation);
+        btnlogout = findViewById(R.id.btnlogout);
+
+        //해쉬키 가져오기 위해 추가한 코드
+        Log.e("getKeyHash", ""+ getKeyHash(this));
+
+        //현재 위치 가져오기
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
+
+        //현재 위치에 마커 찍어주기
+        MapPOIItem marker = new MapPOIItem();
+        marker.setItemName("Default Marker");
+        marker.setTag(0);
+        //marker.setMapPoint(MARKER_POINT);
+        marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
+        //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
+        mapView.addPOIItem(marker);
+
+        //트랙킹모드
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
+                .TrackingModeOnWithHeading);
 
         btntest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +115,31 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+
+    // 해쉬키 코드
+    private String getKeyHash(Context context) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = getPackageManager().getPackageInfo(context.getPackageName(),
+                    PackageManager.GET_SIGNATURES);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        if (packageInfo == null)
+            return null;
+
+        for (Signature signature : packageInfo.signatures) {
+            try {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
+            } catch (NoSuchAlgorithmException e) {
+                Log.w(TAG, "Unable to get MessageDigest. signature=" + signature, e);
+            }
+        }
+        return null;
     }
 
     private void startLoginActivity(){
