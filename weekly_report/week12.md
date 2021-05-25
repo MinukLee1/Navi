@@ -17,10 +17,10 @@
   
     
       •디자인 및 레이아웃
-         -최수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
+         -최수빈: 게시글 layout 및 기능
          
       •기능
-         -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
+         -황성택: 게시글업로드 Activity 제작
          -성주현: KakaoMap API를 사용하기 위한 Hash Key 추출 코드 작성, User의 현재 위치, 마커 기능, 트랙킹 모드 구현.
          
    ### -백엔드 <br>
@@ -89,52 +89,6 @@
 
 
 ## 3.2 황성택  Review <br><br>
- 구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
-  1. 6주차 Read.me 에 나와있는 카카오로그인방식과 같이 앱등록 후 해쉬키까지 등록해준다. 
-  2. 아래에 나와있는 링크로 들어가 SDK파일을 압축해제 한 후 각 파일에 맞게 압축한 SDK파일을 넣어준다.<br> >> SDK다운로드 및 파일추가 링크 https://apis.map.kakao.com/android/guide/
-  3. 2번 방식과 같이 진행하게되면 아래와 같은 코드가 나오는데 이를 sync now 해준다.
-  
-            splits {
-            abi {
-            enable true
-            reset()
-            include 'arm64-v8a','armeabi-v7a', 'armeabi'
-            universalApk false
-            }
-            } 
-  4. xml 파일을 추가해 http 통신에 대한 예외 처리를 해준다.(targetSDKVersion이28이상일 경우)
-  
-             <?xml version="1.0" encoding="utf-8"?>
-            
-           <network-security-config>
-           <domain-config cleartextTrafficPermitted="true">
-           <domain includeSubdomains="true">maps.daum-img.net</domain>
-           </domain-config>
-           </network-security-config>
-  5. 카카오MAP을 보여줄 레이아웃을 만들어준다.
-
-             <RelativeLayout
-          android:id="@+id/map_view"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
-  6. MainActivity에 맵View에 대한 자바코드를 작성해준다.
-  
-          public class MainActivity extends AppCompatActivity {
-          MapView mapView;
-          RelativeLayout mapViewContainer;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        mapViewContainer = (RelativeLayout)findViewById(R.id.map_view);
-        mapView = new MapView(this);
-        mapViewContainer.addView(mapView);
-    );
-  
-  7. 추가적으로 현재위치를 계속 받아오면서 나침반 모드를 활성해주는 코드를 onCreate 안에 작성해준다.
-  
-         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
  
 ## 3.3 최수빈  Review <br><br><br><br>
 
