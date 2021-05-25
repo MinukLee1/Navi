@@ -51,7 +51,7 @@
           //카메라에서 프로필 사진 촬영
           public void doTakePhotoAction()  //카메라 촬영 후 이미지 가져오기
           {
-         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
            //임시로 사용할 파일의 경로 생성
             String url = "tmp_" + String.valueOf(System.currentTimeMillis()) + "jpg";
@@ -112,19 +112,21 @@
                     if(f.exists()){
                         f.delete();
                     }
-                }*/
-        }
-}
+                }
+            }
+         }
 
 
 3. 프로필 사진 설정 시 노출되는 토스트 
-                     new AlertDialog.Builder(this)
+
+                    new AlertDialog.Builder(this)
                     .setTitle("업로드할 이미지 선택")
                     .setPositiveButton("사진촬영", cameraListener)
                     .setNeutralButton("앨범선택", albumListener)
                     .setNegativeButton("취소", cancelListener)
                     .show();
-                    
+                   
+                   
 
 완벽 기능 구현은 차주 진행 예정
 
