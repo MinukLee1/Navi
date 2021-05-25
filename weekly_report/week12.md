@@ -35,15 +35,15 @@
 
 1. 프로필 사진 변경을 위한 변수 선언 (사진 찍기, 앨범에서 가져오기, 가져온 사진 자르기)
 
-     private static final int PICK_FROM_CAMERA = 0;
-     private static final int PICK_FROM_ALBUM = 1;
-     private static final int CROP_FROM_iMAGE = 2;
+         private static final int PICK_FROM_CAMERA = 0;
+         private static final int PICK_FROM_ALBUM = 1;
+         private static final int CROP_FROM_iMAGE = 2;
 
-     private Uri mImageCaptureUri;
-     private ImageView iv_UserPhoto;
-     private int id_view;
-     private String absoultePath;
-     //private DB_Manger dbmanger;
+         private Uri mImageCaptureUri;
+         private ImageView iv_UserPhoto;
+         private int id_view;
+         private String absoultePath;
+     
 
 
 2. 사진 설정 코드.
@@ -99,7 +99,7 @@
                 break;
             }
 
-                /*case CROP_FROM_iMAGE: {
+                case CROP_FROM_iMAGE: {
                     if (resultCode !=null){
                         Bitmap photo = extras.getParcelable("data");
                         iv_UserPhoto.setImageBitmap(photo);
