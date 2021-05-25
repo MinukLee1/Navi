@@ -33,57 +33,100 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. 카카오맵을 사용하기 위해서는 Hash키가 필요하다. 다음 code를 통해 각 pc에 할당된 고유 hash key를 추출할 수 있다.
+1. 프로필 사진 변경을 위한 변수 선언 (사진 찍기, 앨범에서 가져오기, 가져온 사진 자르기)
 
-         private String getKeyHash(Context context) {
-         PackageInfo packageInfo = null;
-         try {
-            packageInfo = getPackageManager().getPackageInfo(context.getPackageName(),
-                    PackageManager.GET_SIGNATURES);
-         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-         }
-            if (packageInfo == null)
-             return null;
+     private static final int PICK_FROM_CAMERA = 0;
+     private static final int PICK_FROM_ALBUM = 1;
+     private static final int CROP_FROM_iMAGE = 2;
 
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.w(TAG, "Unable to get MessageDigest. signature=" + signature, e);
-               }
+     private Uri mImageCaptureUri;
+     private ImageView iv_UserPhoto;
+     private int id_view;
+     private String absoultePath;
+     //private DB_Manger dbmanger;
+
+
+2. 사진 설정 코드.
+
+          //카메라에서 프로필 사진 촬영
+          public void doTakePhotoAction()  //카메라 촬영 후 이미지 가져오기
+          {
+         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+           //임시로 사용할 파일의 경로 생성
+            String url = "tmp_" + String.valueOf(System.currentTimeMillis()) + "jpg";
+            mImageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
+                    url));
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+            startActivityForResult(intent, PICK_FROM_CAMERA);
+        }
+
+        //앨범에서 프로필 사진 가져오기
+        public void doTakeAlbumAction() //앨범에서 이미지 가져오기
+        {
+            //앨범 호출
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+            startActivityForResult(intent, PICK_FROM_ALBUM);
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if(resultCode !=RESULT_OK)
+                return;
+
+            switch (requestCode)
+            {
+                case PICK_FROM_ALBUM: {
+                    mImageCaptureUri = data.getData();
+                    Log.d("SmartWheel", mImageCaptureUri.getPath().toString());
             }
-        return null;
-         }
 
-         Log.e("getKeyHash", ""+ getKeyHash(this));
+            case PICK_FROM_CAMERA: {
+                Intent intent = new Intent("com.android.camera.action.CROP");
+                intent.setDataAndType(mImageCaptureUri, "image/*");
+
+                intent.putExtra("outputX", 200);
+                intent.putExtra("outputY", 200);
+                intent.putExtra("aspectX", 1);
+                intent.putExtra("aspectY", 1);
+                intent.putExtra("scale", true);
+                intent.putExtra("return-data", true);
+                startActivityForResult(intent, CROP_FROM_iMAGE);
+                break;
+            }
+
+                /*case CROP_FROM_iMAGE: {
+                    if (resultCode !=null){
+                        Bitmap photo = extras.getParcelable("data");
+                        iv_UserPhoto.setImageBitmap(photo);
+                        storeCropImage(photo, filePath);
+                        absoultePath = filePath;
+                        break;
+                    }
+
+                    File f = new File(mImageCaptureUri.getPath());
+                    if(f.exists()){
+                        f.delete();
+                    }
+                }*/
+        }
+}
 
 
- 
-2. 사용자의 현재 위치를 화면에 출력해주는 code.
+3. 프로필 사진 설정 시 노출되는 토스트 
+                     new AlertDialog.Builder(this)
+                    .setTitle("업로드할 이미지 선택")
+                    .setPositiveButton("사진촬영", cameraListener)
+                    .setNeutralButton("앨범선택", albumListener)
+                    .setNegativeButton("취소", cancelListener)
+                    .show();
+                    
 
-               mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
-         
-         
-
-3. 사용자의 현재 위치를 마커로 표시해주는 code.
-
-               MapPOIItem marker = new MapPOIItem();
-               marker.setItemName("Default Marker");
-               marker.setTag(0);
-               //marker.setMapPoint(MARKER_POINT);
-               marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-               //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
-               mapView.addPOIItem(marker);
-        
-4. 사용자가 바라보는 방향에 따라 맵에 출력된 마커(사용자의 현재 위치)와 지도가 회전하는 트랙킹 모드 code
-
-           mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
-
- 
-
+완벽 기능 구현은 차주 진행 예정
 
 
 
