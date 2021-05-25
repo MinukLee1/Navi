@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "207227568405",
+    "project_id": "navidb-24eb8",
+    "storage_bucket": "navidb-24eb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207227568405:android:d2903809d0beb4143b691c",
+        "android_client_info": {
+          "package_name": "com.tennessee.project_navi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "207227568405-ht0co6mfhbu5p5kcaa56sgm6303bu68d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tennessee.project_navi",
+            "certificate_hash": "66dbd497b45e7876892d463e7ef64407e8f45acc"
+          }
+        },
+        {
+          "client_id": "207227568405-7750d9nor0o5rsbus5i4rvc52l204eue.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFToboGop76CR4E0Ha4vYY38yTRMAu8M0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "207227568405-7750d9nor0o5rsbus5i4rvc52l204eue.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
