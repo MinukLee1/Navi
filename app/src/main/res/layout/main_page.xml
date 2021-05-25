@@ -5,17 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!--맵View 생성-->
+
     <RelativeLayout
         android:id="@+id/map_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
     </RelativeLayout>
-    <!--맵View 생성-->
+
+    <Button
+        android:id="@+id/btnlogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        app:layout_constraintStart_toStartOf="@+id/btnbmark"
+        app:layout_constraintTop_toBottomOf="@+id/btnbmark" />
 
     <Button
         android:id="@+id/btntest"
@@ -32,7 +43,6 @@
         android:id="@+id/btnboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="testboard"
         app:layout_constraintStart_toStartOf="@+id/btntest"
         app:layout_constraintTop_toBottomOf="@+id/btntest" />
@@ -41,7 +51,6 @@
         android:id="@+id/btnuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="testuser"
         app:layout_constraintStart_toStartOf="@+id/btnboard"
         app:layout_constraintTop_toBottomOf="@+id/btnboard" />
@@ -50,7 +59,6 @@
         android:id="@+id/btnbmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="testbookmark"
         app:layout_constraintStart_toStartOf="@+id/btnuser"
         app:layout_constraintTop_toBottomOf="@+id/btnuser" />

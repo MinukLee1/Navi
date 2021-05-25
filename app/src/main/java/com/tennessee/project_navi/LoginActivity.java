@@ -8,8 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
@@ -20,15 +26,28 @@ import com.kakao.util.exception.KakaoException;
 
 public class LoginActivity extends Activity {
 
+
     private ISessionCallback mSessionCallback;
 
-    EditText ID, Pass;
+    EditText Login_ID, Login_Pass;
     Button btnLogin, btnJoin;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        // Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+        setTheme(R.style.AppTheme);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
 
+
+
+
+
+
+        //카카오톡 로그인 메소드
         mSessionCallback = new ISessionCallback() {
             @Override
             public void onSessionOpened() {
@@ -56,6 +75,7 @@ public class LoginActivity extends Activity {
                         startActivity(intent);
 
                         Toast.makeText(LoginActivity.this,"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
+
                     }
                 });
             }
@@ -66,13 +86,20 @@ public class LoginActivity extends Activity {
             }
 
         };
-
-        ID = findViewById(R.id.login_ID);
-        Pass = findViewById(R.id.login_Pass);
+        // -> 틀릴시 에러 메시지 뜨긴하는데 변수 이중설정 필요성 ?
+        Login_ID = findViewById(R.id.login_ID);
+        Login_Pass = findViewById(R.id.login_Pass);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnJoin = findViewById(R.id.btnJoin);
 
+        // Intent 넘기는건 Login() Method 안에서 실행
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Login();
+            }
+        });
         btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,5 +108,48 @@ public class LoginActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+
     }
+
+    private void Login() {
+
+        String email = ((EditText) findViewById(R.id.login_ID)).getText().toString();
+        String password = ((EditText) findViewById(R.id.login_Pass)).getText().toString();
+
+
+        if (email.length() > 0 && password.length() > 0) {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                startToast("로그인에 성공하였습니다.");
+                                StartMainActivity();
+                            } else {
+                                if(task.getException() != null){
+                                    startToast(task.getException().toString());
+                                }
+
+                            }
+                        }
+                    });
+        } else {
+            startToast("이메일 또는 비밀번호를 입력해 주세요");
+        }
+    }
+
+    private void startToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void StartMainActivity(){
+         Intent intent = new Intent(this, MainActivity.class);
+         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         startActivity(intent);
+    }
+
 }
+
