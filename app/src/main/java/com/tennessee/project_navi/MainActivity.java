@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity
         // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!
         if(FirebaseAuth.getInstance().getCurrentUser() == null){
+            startLoginActivity();
           //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼
             //   startLoginActivity();
 
