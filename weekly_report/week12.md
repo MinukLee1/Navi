@@ -17,10 +17,10 @@
   
     
       •디자인 및 레이아웃
-         -최수빈: Login & Sign up Layout 구현, UI 이미지 자료 수집 및 제작
+         -최수빈: 게시글 layout 및 기능
          
       •기능
-         -황성택: kakaoMAP API를 통한 Map_Activity 구현(Splash Screen 동작 후 메인으로 보여지는 화면)
+         -황성택: 게시글업로드 Activity 제작
          -성주현: KakaoMap API를 사용하기 위한 Hash Key 추출 코드 작성, User의 현재 위치, 마커 기능, 트랙킹 모드 구현.
          
    ### -백엔드 <br>
@@ -33,144 +33,196 @@
 
 ## 3.1 성주현  Review <br><br>
 
-1. 카카오맵을 사용하기 위해서는 Hash키가 필요하다. 다음 code를 통해 각 pc에 할당된 고유 hash key를 추출할 수 있다.
+1. 프로필 사진 변경을 위한 변수 선언 
 
-         private String getKeyHash(Context context) {
-         PackageInfo packageInfo = null;
-         try {
-            packageInfo = getPackageManager().getPackageInfo(context.getPackageName(),
-                    PackageManager.GET_SIGNATURES);
-         } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-         }
-            if (packageInfo == null)
-             return null;
+         private static final int PICK_FROM_CAMERA = 0;
+         private static final int PICK_FROM_ALBUM = 1;
+         private static final int CROP_FROM_iMAGE = 2;
 
-        for (Signature signature : packageInfo.signatures) {
-            try {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                return Base64.encodeToString(md.digest(), Base64.NO_WRAP);
-            } catch (NoSuchAlgorithmException e) {
-                Log.w(TAG, "Unable to get MessageDigest. signature=" + signature, e);
-               }
+         private Uri mImageCaptureUri;
+         private ImageView iv_UserPhoto;
+         private int id_view;
+         private String absoultePath;
+     
+
+
+2. 프로필 사진 변경을 위한 코드 (즉시 촬열을 통해 프로필 사진 변경, 기존 앨범에 있던 사진을 통해 프로필 사진 변경, 프로필 사진 )
+
+          //카메라에서 프로필 사진 촬영
+          public void doTakePhotoAction()  //카메라 촬영 후 이미지 가져오기
+          {
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+           //임시로 사용할 파일의 경로 생성
+            String url = "tmp_" + String.valueOf(System.currentTimeMillis()) + "jpg";
+            mImageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(),
+                    url));
+
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageCaptureUri);
+            startActivityForResult(intent, PICK_FROM_CAMERA);
+        }
+
+        //앨범에서 프로필 사진 가져오기
+        public void doTakeAlbumAction() //앨범에서 이미지 가져오기
+        {
+            //앨범 호출
+            Intent intent = new Intent(Intent.ACTION_PICK);
+            intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
+            startActivityForResult(intent, PICK_FROM_ALBUM);
+        }
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data){
+            super.onActivityResult(requestCode, resultCode, data);
+
+            if(resultCode !=RESULT_OK)
+                return;
+
+            switch (requestCode)
+            {
+                case PICK_FROM_ALBUM: {
+                    mImageCaptureUri = data.getData();
+                    Log.d("SmartWheel", mImageCaptureUri.getPath().toString());
             }
-        return null;
+
+            case PICK_FROM_CAMERA: {
+                Intent intent = new Intent("com.android.camera.action.CROP");
+                intent.setDataAndType(mImageCaptureUri, "image/*");
+
+                intent.putExtra("outputX", 200);
+                intent.putExtra("outputY", 200);
+                intent.putExtra("aspectX", 1);
+                intent.putExtra("aspectY", 1);
+                intent.putExtra("scale", true);
+                intent.putExtra("return-data", true);
+                startActivityForResult(intent, CROP_FROM_iMAGE);
+                break;
+            }
+
+                case CROP_FROM_iMAGE: {
+                    if (resultCode !=null){
+                        Bitmap photo = extras.getParcelable("data");
+                        iv_UserPhoto.setImageBitmap(photo);
+                        storeCropImage(photo, filePath);
+                        absoultePath = filePath;
+                        break;
+                    }
+
+                    File f = new File(mImageCaptureUri.getPath());
+                    if(f.exists()){
+                        f.delete();
+                    }
+                }
+            }
          }
 
-         Log.e("getKeyHash", ""+ getKeyHash(this));
 
+3. 프로필 사진 설정 시 노출되는 토스트 
 
- 
-2. 사용자의 현재 위치를 화면에 출력해주는 code.
+                    new AlertDialog.Builder(this)
+                    .setTitle("업로드할 이미지 선택")
+                    .setPositiveButton("사진촬영", cameraListener)
+                    .setNeutralButton("앨범선택", albumListener)
+                    .setNegativeButton("취소", cancelListener)
+                    .show();
+                   
+                   
 
-               mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
-         
-         
-
-3. 사용자의 현재 위치를 마커로 표시해주는 code.
-
-               MapPOIItem marker = new MapPOIItem();
-               marker.setItemName("Default Marker");
-               marker.setTag(0);
-               //marker.setMapPoint(MARKER_POINT);
-               marker.setMarkerType(MapPOIItem.MarkerType.BluePin);
-               //marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
-               mapView.addPOIItem(marker);
-        
-4. 사용자가 바라보는 방향에 따라 맵에 출력된 마커(사용자의 현재 위치)와 지도가 회전하는 트랙킹 모드 code
-
-           mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
-
- 
-
+완벽 기능 구현은 차주 진행 예정
 
 
 
 
 ## 3.2 황성택  Review <br><br>
- 구글MAP 을 사용하지 않고 카카오MAP을 사용한 이유는 보다 다양한 마크업표시가 가능하고 API에 대한 설명이 보다 자세하게 나와있어 사용하게 되었다.<br>
-  1. 6주차 Read.me 에 나와있는 카카오로그인방식과 같이 앱등록 후 해쉬키까지 등록해준다. 
-  2. 아래에 나와있는 링크로 들어가 SDK파일을 압축해제 한 후 각 파일에 맞게 압축한 SDK파일을 넣어준다.<br> >> SDK다운로드 및 파일추가 링크 https://apis.map.kakao.com/android/guide/
-  3. 2번 방식과 같이 진행하게되면 아래와 같은 코드가 나오는데 이를 sync now 해준다.
+
+  1.게시글기능에 사용할 변수를 만들어준다.
   
-            splits {
-            abi {
-            enable true
-            reset()
-            include 'arm64-v8a','armeabi-v7a', 'armeabi'
-            universalApk false
+       Button btnUpload;
+       TextView txtWrite;
+       private FirebaseAuth mAuth;
+  2.변수값에 대한 ID값을 가져와준다.
+  
+       mAuth = FirebaseAuth.getInstance();
+
+       btnUpload = findViewById(R.id.btnUpload);
+       txtWrite = findViewById(R.id.txtWrite);
+  3.Upload버튼 클릭시 수행되는 기능을 작성해준다.
+  
+       btnUpload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                           Upload();
             }
-            } 
-  4. xml 파일을 추가해 http 통신에 대한 예외 처리를 해준다.(targetSDKVersion이28이상일 경우)
-  
-             <?xml version="1.0" encoding="utf-8"?>
-            
-           <network-security-config>
-           <domain-config cleartextTrafficPermitted="true">
-           <domain includeSubdomains="true">maps.daum-img.net</domain>
-           </domain-config>
-           </network-security-config>
-  5. 카카오MAP을 보여줄 레이아웃을 만들어준다.
 
-             <RelativeLayout
-          android:id="@+id/map_view"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
-  6. MainActivity에 맵View에 대한 자바코드를 작성해준다.
-  
-          public class MainActivity extends AppCompatActivity {
-          MapView mapView;
-          RelativeLayout mapViewContainer;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+            private void Upload() {
 
-        mapViewContainer = (RelativeLayout)findViewById(R.id.map_view);
-        mapView = new MapView(this);
-        mapViewContainer.addView(mapView);
-    );
-  
-  7. 추가적으로 현재위치를 계속 받아오면서 나침반 모드를 활성해주는 코드를 onCreate 안에 작성해준다.
-  
-         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithHeading);
+                String upwrite = ((EditText) findViewById(R.id.txtWrite)).getText().toString();
+                String upload = ((Button) findViewById(R.id.btnUpload)).getText().toString();
+
+                if(TextUtils.isEmpty((CharSequence) txtWrite)){
+                    Toast.makeText(getApplicationContext(), "메세지를 입력하세요", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        });
+   firebase와 연동하는 부분은 차주 진행할 예정이다.     
  
-## 3.3 최수빈  Review <br><br><br><br>
+## 3.3 최수빈  Review <br><br>
 
-splash 화면 이미지 디자인 구현
-나만의 비밀 장소 - 나비 타이틀에 맞게 나비를 연상시키는 노란색과 나,비를 강조하여 프로젝트의 주제를 나타냈다.
+  1.게시글 업로드를 수행할 layout 파일을 만들어준다.(임시)
 
-1.style.xml 파일에 원하는 이미지파일을 넣어준다.
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
 
-     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:windowBackground">@drawable/navi_splash</item>
-     </style>
-2.Manifest 파일에 splash Java 코드를 넣어준다.
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-       <activity android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
-3.Splash 동작 후 Mainpage로 넘어가는 작동코딩을 해준다.
+    <EditText
+        android:id="@+id/txtWrite"
+        android:layout_width="393dp"
+        android:layout_height="116dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
-     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    <Button
+        android:id="@+id/btnUpload"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="16dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
-        finish();
-    }
-4.구동 결과
+   ![캡처](https://user-images.githubusercontent.com/79950091/119503050-85625680-bda5-11eb-9ba0-15573b6a5869.PNG)
 
-![splash](https://user-images.githubusercontent.com/79950091/116997887-5f9ee000-ad18-11eb-8b96-e8694b4fa37d.PNG) 
-
-<br><br><br><br>
- 
-    
 
 ## 3.4 박예진  Review <br><br>
 
