@@ -40,7 +40,7 @@
         <activity android:name=".UserInfoActivity" android:label="UserInfoActivity"/>
         <activity android:name=".BookmarkActivity" android:label="BookmarkActivity"/>
         <activity android:name=".UploadActivity" android:label="UploadActivity"/>
-
+        <activity android:name=".PassresetActivity"/>
 
 
 

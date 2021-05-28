@@ -17,7 +17,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.kakao.auth.ISessionCallback;
-import com.kakao.auth.Session;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeV2ResponseCallback;
@@ -30,7 +29,7 @@ public class LoginActivity extends Activity {
     private ISessionCallback mSessionCallback;
 
     EditText Login_ID, Login_Pass;
-    Button btnLogin, btnJoin;
+    Button btnLogin, btnJoin, btngotoPassreset;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -88,10 +87,12 @@ public class LoginActivity extends Activity {
         };
         // -> 틀릴시 에러 메시지 뜨긴하는데 변수 이중설정 필요성 ?
         Login_ID = findViewById(R.id.login_ID);
-        Login_Pass = findViewById(R.id.login_Pass);
+        Login_Pass = findViewById(R.id.emailEditText);
+
 
         btnLogin = findViewById(R.id.btnLogin);
         btnJoin = findViewById(R.id.btnJoin);
+        btngotoPassreset = findViewById(R.id.btngotoPassreset);
 
         // Intent 넘기는건 Login() Method 안에서 실행
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +109,12 @@ public class LoginActivity extends Activity {
                 startActivity(intent);
             }
         });
-
+        btngotoPassreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StartMyActivity(PassresetActivity.class);
+            }
+        });
 
 
     }
@@ -116,7 +122,7 @@ public class LoginActivity extends Activity {
     private void Login() {
 
         String email = ((EditText) findViewById(R.id.login_ID)).getText().toString();
-        String password = ((EditText) findViewById(R.id.login_Pass)).getText().toString();
+        String password = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
 
 
         if (email.length() > 0 && password.length() > 0) {
@@ -127,7 +133,7 @@ public class LoginActivity extends Activity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("로그인에 성공하였습니다.");
-                                StartMainActivity();
+                                StartMyActivity(MainActivity.class);
                             } else {
                                 if(task.getException() != null){
                                     startToast(task.getException().toString());
@@ -145,8 +151,8 @@ public class LoginActivity extends Activity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void StartMainActivity(){
-         Intent intent = new Intent(this, MainActivity.class);
+    private void StartMyActivity(Class c){
+         Intent intent = new Intent(this, c);
          intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
          startActivity(intent);
     }
