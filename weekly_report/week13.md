@@ -308,7 +308,8 @@
             startToast("회원 정보를 입력해주세요");
         }
        }
-        <br><br>
+      
+      <br><br>
  - 효율적인 메소드사용 및 코드간소화를 위한 메소드구현 (Activity 전환용) <br><br>
       
          private void StartMyActivity(Class c){
@@ -326,7 +327,7 @@
             }
        <br><br>
     
- -App Theme 설정을 통한 정상적인 Activity Switch 구현<br>
+ - App Theme 설정을 통한 정상적인 Activity Switch 구현<br>
  
              setTheme(R.style.SplashTheme);    -> Manifest/SplashActivity 
              setTheme(R.style.AppTheme);   -> LoginActivity
