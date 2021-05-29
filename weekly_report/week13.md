@@ -227,6 +227,11 @@
 
 ## 3.5 이민욱  Review <br><br>
 
+
+- 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
+ ![image](https://user-images.githubusercontent.com/74412438/118648499-6ef45200-b81d-11eb-8ec1-51ce41ae8707.png)<br>
+ ![image](https://user-images.githubusercontent.com/74412438/118648752-b549b100-b81d-11eb-93f9-ec86b4270a14.png)<br><br><br>
+ 
  - MainActivity 내 onCreate() 메소드에서 FirebaseAPI를 연동하여 로그인유무에 따른 노출 Activity 설정 및, 사용자 정보 미작성시 사용자정보(UserInfoActivity) 노출<br><br>
  
          if(user == null){
