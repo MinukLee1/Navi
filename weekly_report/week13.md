@@ -325,7 +325,8 @@
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             }
-       <br><br>
+            
+      <br><br>
     
  - App Theme 설정을 통한 정상적인 Activity Switch 구현<br>
  
