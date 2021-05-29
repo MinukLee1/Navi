@@ -28,7 +28,7 @@
          
       •데이터 베이스 / 서버구축 및 기능 
          -박예진 : Firebase API 연동을 통한 데이터 - 서버구축 및 App내 기능 구현 
-<br><br>
+<br><br><br>
 
 ## 3.1 성주현  Review <br><br>
 
@@ -220,7 +220,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-   ![캡처](https://user-images.githubusercontent.com/79950091/119503050-85625680-bda5-11eb-9ba0-15573b6a5869.PNG)
+   ![캡처](https://user-images.githubusercontent.com/79950091/119503050-85625680-bda5-11eb-9ba0-15573b6a5869.PNG)<br><br><br>
 
 
 
