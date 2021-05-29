@@ -225,7 +225,7 @@
 
 
 
-## 3.5 이민욱  Review <br><br>
+## 3.4 이민욱  Review <br><br>
 
 
 - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
@@ -340,7 +340,7 @@
 
 
 
-## 3.4 박예진  Review <br><br>
+## 3.5 박예진  Review <br><br>
 
  - DB 연동 서버 구축 및 방식 구현비교, 선정 ( Android <-> OR FireBase )  <br><br>
  - 사용자DB 및 서버 환경구축 ( Google Firebase API ) <br><br>
