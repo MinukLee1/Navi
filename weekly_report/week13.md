@@ -275,9 +275,7 @@
         }
       }
       
-비밀번호 재설정 이메일 발송화면<br><br>
-![image0](https://user-images.githubusercontent.com/74412438/120078523-e4e49d00-c0ea-11eb-9970-29353ae9615d.png)
-<br><br><br>
+<br><br>
  
  - UserInfoActivity(사용자정보 페이지) 내 변수선언 및 회원정보 업데이트 기능 구현<br><br>
  
@@ -334,9 +332,9 @@
              setTheme(R.style.AppTheme);   -> LoginActivity
  <br><br>
    
- 
-
-
+- 비밀번호 재설정 이메일 발송화면<br>
+![image0](https://user-images.githubusercontent.com/74412438/120078523-e4e49d00-c0ea-11eb-9970-29353ae9615d.png)
+<br><br><br><br>
 
 
 
