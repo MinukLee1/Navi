@@ -275,7 +275,9 @@
         }
       }
       
- 이메일 전송 
+비밀번호 재설정 이메일 발송화면<br><br>
+![image](https://user-images.githubusercontent.com/74412438/120073372-f3bf5580-c0d2-11eb-8807-2efa3ff88247.png)
+<br><br><br>
  
  - UserInfoActivity(사용자정보 페이지) 내 변수선언 및 회원정보 업데이트 기능 구현<br><br>
  
