@@ -251,7 +251,7 @@
                     }
                 }
         }
-
+<br><br>
 - PassresetActivity(비밀번호 재설정) 내 변수선언 및 이메일 전송기능 구현<br><br>
  
          //비밀번호 재설정 메일 전송 메소드
@@ -308,7 +308,7 @@
             startToast("회원 정보를 입력해주세요");
         }
        }
-        
+        <br><br>
  - 효율적인 메소드사용 및 코드간소화를 위한 메소드구현 (Activity 전환용) <br><br>
       
          private void StartMyActivity(Class c){
@@ -316,7 +316,7 @@
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             }
-
+<br><br>
  - Flag를 통한 App 전반적 생명주기 컨트롤<br>
 
          private void StartMainActivity(){
@@ -324,7 +324,7 @@
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             }
-       
+       <br><br>
     
  -App Theme 설정을 통한 정상적인 Activity Switch 구현<br>
  
