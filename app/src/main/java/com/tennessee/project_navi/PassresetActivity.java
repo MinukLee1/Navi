@@ -21,8 +21,6 @@ import com.kakao.auth.ISessionCallback;
 public class PassresetActivity extends Activity {
 
 
-    private ISessionCallback mSessionCallback;
-
     EditText emailEditText;
     Button btnSend;
     private FirebaseAuth mAuth;
@@ -52,17 +50,11 @@ public class PassresetActivity extends Activity {
 
     }
 
-    View.OnClickListener onClickListener = (v) -> {
-        switch (v.getId()){
-            case R.id.btnSend:
-                send();
-                break;
-        }
-    };
+
 
     private void send() {
 
-        String email = ((EditText) findViewById(R.id.login_ID)).getText().toString();
+        String email = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
 
 
         if (email.length() > 0) {
@@ -71,7 +63,7 @@ public class PassresetActivity extends Activity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                startToast("이메일을 보냈습니다");
+                                startToast("비밀번호 재설정 이메일을 보냈습니다");
                             }
                         }
                     });
