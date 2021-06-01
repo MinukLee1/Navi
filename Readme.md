@@ -8,6 +8,11 @@
 6주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week06.md<br>
 7주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week07.md<br>
 8주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week08.md<br>
+9주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week09.md<br>
+10주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week10.md<br>
+11주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week11.md<br>
+12주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week12.md<br>
+13주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week13.md<br>
 
 <br><br>
 ## 1. 회의 방식
