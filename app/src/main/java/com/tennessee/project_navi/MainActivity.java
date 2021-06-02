@@ -10,6 +10,9 @@ import android.widget.RelativeLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 
+import net.daum.mf.map.api.CalloutBalloonAdapter;
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout mapViewContainer;
 
     Button btntest,btnboard,btnuser,btnbmark,btnlogout;
+    
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,25 @@ public class MainActivity extends AppCompatActivity {
         mapViewContainer = findViewById(R.id.map_view);
         mapView = new MapView(this);
         mapViewContainer.addView(mapView);
+
+        //트랙킹모드
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
+                .TrackingModeOnWithoutHeading);
+        mapView.setZoomLevel(1, true);
+
+
+        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(36.8336012, 127.1791657);
+
+        MapPOIItem customMarker = new MapPOIItem();
+        customMarker.setItemName("상명대학교");
+        customMarker.setTag(1);
+        customMarker.setMapPoint(mapPoint);
+        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
+        customMarker.setCustomImageAutoscale(false);
+        customMarker.setCustomImageAnchor(0.5f, 1.0f);
+        mapView.addPOIItem(customMarker);
+
 
         btntest = findViewById(R.id.btntest);
         btnboard = findViewById(R.id.btnboard);
@@ -90,5 +113,8 @@ public class MainActivity extends AppCompatActivity {
     private void startLoginActivity(){
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
+    }
+    private void onPOIItemSelected(MapView mapView, MapPOIItem poiItem){
+
     }
 }
