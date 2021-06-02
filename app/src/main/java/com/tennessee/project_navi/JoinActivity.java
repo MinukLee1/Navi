@@ -41,7 +41,6 @@ public class JoinActivity extends Activity {
         txtID = findViewById(R.id.txtID);
         txtPass = findViewById(R.id.txtPass);
         txtPassCk = findViewById(R.id.txtPassCk);
-        txtName = findViewById(R.id.txtName);
         txtAlert = findViewById(R.id.txtAlert);
 
         btnOKJoin = findViewById(R.id.btnOKJoin);
@@ -119,6 +118,7 @@ public class JoinActivity extends Activity {
 
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("회원가입에 성공하였습니다.");
+                                finish();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 if(task.getException() != null) {

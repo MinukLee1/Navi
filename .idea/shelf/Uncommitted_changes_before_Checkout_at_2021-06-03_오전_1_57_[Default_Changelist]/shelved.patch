@@ -1,0 +1,122 @@
+Index: app/src/main/java/com/tennessee/project_navi/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tennessee.project_navi;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.widget.Button;\r\nimport android.widget.RelativeLayout;\r\n\r\nimport com.google.android.gms.tasks.OnCompleteListener;\r\nimport com.google.android.gms.tasks.Task;\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.DocumentSnapshot;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\nimport net.daum.mf.map.api.MapView;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    private static final String TAG =\"MainActivity\";\r\n    MapView mapView;\r\n    RelativeLayout mapViewContainer;\r\n\r\n    Button btnSearch,btnFeed,btnMain,btnBookmark,btnMypage;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.main_page);\r\n\r\n        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();\r\n\r\n        // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity\r\n        // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!\r\n        //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼\r\n        //   startLoginActivity();\r\n        if(user == null){\r\n            StartMyActivity(JoinActivity.class);\r\n        }else {\r\n            FirebaseFirestore db = FirebaseFirestore.getInstance();\r\n            DocumentReference docRef = db.collection(\"users\").document(user.getUid());\r\n            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {\r\n                @Override\r\n                public void onComplete(@NonNull Task<DocumentSnapshot> task) {\r\n                    if (task.isSuccessful()) {\r\n                        DocumentSnapshot document = task.getResult();\r\n                        if(document != null) {\r\n                            if (document.exists()) {\r\n                                Log.d(TAG, \"DocumentSnapshot data: \" + document.getData());\r\n\r\n                            } else {\r\n                                // 사용자 정보입력을 안했으면, -> 입력창으로 감\r\n                                Log.d(TAG, \"No such document\");\r\n                                StartMyActivity(UserInitActivity.class);\r\n                            }\r\n                        }\r\n                    } else {\r\n                        Log.d(TAG, \"get failed with \", task.getException());\r\n                    }\r\n                }\r\n            });\r\n\r\n        }\r\n\r\n        mapViewContainer = findViewById(R.id.map_view);\r\n        mapView = new MapView(this);\r\n        mapViewContainer.addView(mapView);\r\n\r\n\r\n        btnFeed = findViewById(R.id.btnFeed);\r\n        btnSearch = findViewById(R.id.btnSearch);\r\n        btnMain = findViewById(R.id.btnMain);\r\n        btnBookmark = findViewById(R.id.btnBookmark);\r\n        btnMypage = findViewById(R.id.btnMypage);\r\n\r\n\r\n        btnFeed.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            }\r\n        });\r\n\r\n        btnSearch.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            }\r\n        });\r\n\r\n        btnMain.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            }\r\n        });\r\n\r\n        btnBookmark.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            }\r\n        });\r\n\r\n        btnBookmark.setOnClickListener(new View.OnClickListener() {\r\n            @Override\r\n            public void onClick(View v) {\r\n            }\r\n        });\r\n\r\n\r\n        //로그아웃\r\n      //  btnFeed.setOnClickListener(new View.OnClickListener() {\r\n//            @Override\r\n//            public void onClick(View v) {\r\n//                FirebaseAuth.getInstance().signOut();\r\n//                StartMyActivity(LoginActivity.class);\r\n//                finish();\r\n//            }\r\n//        });\r\n\r\n    }\r\n\r\n    private void StartMyActivity(Class c){\r\n        Intent intent = new Intent(this, c);\r\n        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);\r\n        startActivity(intent);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tennessee/project_navi/MainActivity.java	(revision 0eca9f24228dd17e31540bdf4d0040dececc03f9)
++++ app/src/main/java/com/tennessee/project_navi/MainActivity.java	(date 1622652662691)
+@@ -1,10 +1,16 @@
+ package com.tennessee.project_navi;
+ 
+ import androidx.annotation.NonNull;
++import androidx.annotation.Nullable;
+ import androidx.appcompat.app.AppCompatActivity;
+ 
++import android.content.Context;
+ import android.content.Intent;
++import android.content.pm.PackageInfo;
++import android.content.pm.PackageManager;
++import android.content.pm.Signature;
+ import android.os.Bundle;
++import android.util.Base64;
+ import android.util.Log;
+ import android.view.View;
+ import android.widget.Button;
+@@ -17,24 +23,38 @@
+ import com.google.firebase.firestore.DocumentReference;
+ import com.google.firebase.firestore.DocumentSnapshot;
+ import com.google.firebase.firestore.FirebaseFirestore;
++import com.kakao.util.helper.Utility;
+ 
++import net.daum.mf.map.api.MapPOIItem;
++import net.daum.mf.map.api.MapPoint;
+ import net.daum.mf.map.api.MapView;
+ 
++import java.security.MessageDigest;
++
+ public class MainActivity extends AppCompatActivity {
+ 
++
+     private static final String TAG ="MainActivity";
+     MapView mapView;
+     RelativeLayout mapViewContainer;
+ 
+     Button btnSearch,btnFeed,btnMain,btnBookmark,btnMypage;
+ 
++    private Context mContext;
++
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.main_page);
+ 
++        mContext = getApplication();
++
++        getHashKey(mContext);
++
+         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+ 
++
++
+         // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity
+         // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!
+         //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼
+@@ -71,6 +91,23 @@
+         mapView = new MapView(this);
+         mapViewContainer.addView(mapView);
+ 
++        //트랙킹모드
++        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
++                .TrackingModeOnWithoutHeading);
++        mapView.setZoomLevel(1, true);
++
++
++        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(36.8336012, 127.1791657);
++
++        MapPOIItem customMarker = new MapPOIItem();
++        customMarker.setItemName("상명대학교");
++        customMarker.setTag(1);
++        customMarker.setMapPoint(mapPoint);
++        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
++        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
++        customMarker.setCustomImageAutoscale(false);
++        customMarker.setCustomImageAnchor(0.5f, 1.0f);
++        mapView.addPOIItem(customMarker);
+ 
+         btnFeed = findViewById(R.id.btnFeed);
+         btnSearch = findViewById(R.id.btnSearch);
+@@ -127,4 +164,31 @@
+         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+         startActivity(intent);
+     }
++
++    @Nullable
++    public static String getHashKey(Context context) {
++        final String TAG = "KeyHash";
++        String keyHash = null;
++        try {
++            PackageInfo info =
++                    context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
++            for (Signature signature : info.signatures) {
++                MessageDigest md;
++                md = MessageDigest.getInstance("SHA");
++                md.update(signature.toByteArray());
++                keyHash = new String(Base64.encode(md.digest(), 0));
++                Log.d(TAG, keyHash);
++            }
++        } catch (Exception e) {
++            Log.e("name not found", e.toString());
++        }
++
++        if (keyHash != null) {
++            return keyHash;
++        } else {
++            return null;
++        }
++    }
++
++
+ }
+\ No newline at end of file
