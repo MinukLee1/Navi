@@ -19,46 +19,46 @@
         app:layout_constraintVertical_bias="0.0"/>
 
     <Button
-        android:id="@+id/btnlogout"
+        android:id="@+id/btnMypage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Logout"
-        app:layout_constraintStart_toStartOf="@+id/btnbmark"
-        app:layout_constraintTop_toBottomOf="@+id/btnbmark" />
+        android:text="MY PAGE"
+        app:layout_constraintStart_toStartOf="@+id/btnBookmark"
+        app:layout_constraintTop_toBottomOf="@+id/btnBookmark" />
 
     <Button
-        android:id="@+id/btntest"
+        android:id="@+id/btnFeed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="testLogin"
+        android:text="feed "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnboard"
+        android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="testboard"
-        app:layout_constraintStart_toStartOf="@+id/btntest"
-        app:layout_constraintTop_toBottomOf="@+id/btntest" />
+        android:text="Search"
+        app:layout_constraintStart_toStartOf="@+id/btnFeed"
+        app:layout_constraintTop_toBottomOf="@+id/btnFeed" />
 
     <Button
-        android:id="@+id/btnuser"
+        android:id="@+id/btnMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="testuser"
-        app:layout_constraintStart_toStartOf="@+id/btnboard"
-        app:layout_constraintTop_toBottomOf="@+id/btnboard" />
+        android:text="MAIN"
+        app:layout_constraintStart_toStartOf="@+id/btnSearch"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
 
     <Button
-        android:id="@+id/btnbmark"
+        android:id="@+id/btnBookmark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="testbookmark"
-        app:layout_constraintStart_toStartOf="@+id/btnuser"
-        app:layout_constraintTop_toBottomOf="@+id/btnuser" />
+        app:layout_constraintStart_toStartOf="@+id/btnMain"
+        app:layout_constraintTop_toBottomOf="@+id/btnMain" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

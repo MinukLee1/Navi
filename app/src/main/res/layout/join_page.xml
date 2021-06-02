@@ -58,19 +58,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPass" />
 
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="220dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="닉네임"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtAlert" />
-
     <Button
         android:id="@+id/btndel"
         android:layout_width="wrap_content"
@@ -87,12 +74,14 @@
         android:id="@+id/btnOKJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="77dp"
         android:background="#FDF07C"
         android:text="가입"
         app:backgroundTint="#FDF07C"
-        app:layout_constraintStart_toStartOf="@+id/txtName"
-        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAlert" />
 
     <TextView
         android:id="@+id/txtAlert"
