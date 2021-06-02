@@ -18,6 +18,8 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import net.daum.mf.map.api.MapPOIItem;
+import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
 public class MainActivity extends AppCompatActivity {
@@ -71,6 +73,23 @@ public class MainActivity extends AppCompatActivity {
         mapView = new MapView(this);
         mapViewContainer.addView(mapView);
 
+//트랙킹모드
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
+                .TrackingModeOnWithoutHeading);
+        mapView.setZoomLevel(1, true);
+
+
+        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(36.8336012, 127.1791657);
+
+        MapPOIItem customMarker = new MapPOIItem();
+        customMarker.setItemName("상명대학교");
+        customMarker.setTag(1);
+        customMarker.setMapPoint(mapPoint);
+        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
+        customMarker.setCustomImageAutoscale(false);
+        customMarker.setCustomImageAnchor(0.5f, 1.0f);
+        mapView.addPOIItem(customMarker);
 
         btnFeed = findViewById(R.id.btnFeed);
         btnSearch = findViewById(R.id.btnSearch);
