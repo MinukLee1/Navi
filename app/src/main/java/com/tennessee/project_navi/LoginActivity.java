@@ -86,13 +86,9 @@ public class LoginActivity extends Activity {
 
         };
         // -> 틀릴시 에러 메시지 뜨긴하는데 변수 이중설정 필요성 ?
-        Login_ID = findViewById(R.id.login_ID);
-        Login_Pass = findViewById(R.id.emailEditText);
 
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnJoin = findViewById(R.id.btnJoin);
-        btngotoPassreset = findViewById(R.id.btngotoPassreset);
+
 
         // Intent 넘기는건 Login() Method 안에서 실행
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -121,8 +117,8 @@ public class LoginActivity extends Activity {
 
     private void Login() {
 
-        String email = ((EditText) findViewById(R.id.login_ID)).getText().toString();
-        String password = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
+        String email = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
+        String password = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
 
 
         if (email.length() > 0 && password.length() > 0) {
@@ -153,7 +149,6 @@ public class LoginActivity extends Activity {
 
     private void StartMyActivity(Class c){
          Intent intent = new Intent(this, c);
-         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
          startActivity(intent);
     }
 

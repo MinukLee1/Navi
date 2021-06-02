@@ -1,7 +1,6 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,10 +12,7 @@ import androidx.annotation.Nullable;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.kakao.auth.ISessionCallback;
 
 public class PassresetActivity extends Activity {
 
@@ -35,7 +31,7 @@ public class PassresetActivity extends Activity {
         setContentView(R.layout.passreset_page);
 
 
-        emailEditText = findViewById(R.id.emailEditText);
+        emailEditText = findViewById(R.id.phoneNumberEditText);
         btnSend = findViewById(R.id.btnSend);
 
 
@@ -54,7 +50,7 @@ public class PassresetActivity extends Activity {
 
     private void send() {
 
-        String email = ((EditText) findViewById(R.id.emailEditText)).getText().toString();
+        String email = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
 
 
         if (email.length() > 0) {
