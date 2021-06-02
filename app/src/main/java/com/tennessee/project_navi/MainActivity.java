@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     MapView mapView;
     RelativeLayout mapViewContainer;
 
-    Button btnSearch,btnFeed,btnMain,btnBookmark,btnMypage;
+    Button btnSearch,btnFeed,btnMain,btnBookmark,btnMypage,join1,logout1,passreset1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +97,35 @@ public class MainActivity extends AppCompatActivity {
         btnBookmark = findViewById(R.id.btnBookmark);
         btnMypage = findViewById(R.id.btnMypage);
 
+        //임시 - 확인용
+        join1 = findViewById(R.id.join1);
+        logout1 = findViewById(R.id.logout1);
+        passreset1 = findViewById(R.id.passreset1);
+
+        join1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        logout1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
+
+
+
+        passreset1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, PassresetActivity.class);
+                startActivity(intent);
+            }
+        });
 
         btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -131,13 +160,13 @@ public class MainActivity extends AppCompatActivity {
 
         //로그아웃
         //  btnFeed.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                FirebaseAuth.getInstance().signOut();
-//                StartMyActivity(LoginActivity.class);
-//                finish();
-//            }
-//        });
+         //   @Override
+         //   public void onClick(View v) {
+         //       FirebaseAuth.getInstance().signOut();
+      //          StartMyActivity(LoginActivity.class);
+     //           finish();
+     //      }
+    //    });
 
     }
 

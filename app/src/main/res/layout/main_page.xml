@@ -16,7 +16,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"/>
+        app:layout_constraintVertical_bias="0.0">
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/passreset1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="임시 - 비밀번호 재설정"
+        app:layout_constraintStart_toStartOf="@+id/map_view"
+        app:layout_constraintTop_toBottomOf="@+id/logout1" />
+
+    <Button
+        android:id="@+id/logout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="임시 - 로그아웃"
+        app:layout_constraintStart_toStartOf="@+id/map_view"
+        app:layout_constraintTop_toBottomOf="@+id/join1" />
+
+    <Button
+        android:id="@+id/join1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="임시 - 회원가입 "
+        app:layout_constraintStart_toStartOf="@+id/map_view"
+        app:layout_constraintTop_toBottomOf="@+id/btnMypage" />
 
     <Button
         android:id="@+id/btnMypage"
