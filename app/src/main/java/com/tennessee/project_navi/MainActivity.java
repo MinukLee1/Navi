@@ -2,120 +2,80 @@ package com.tennessee.project_navi;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
-import android.util.Base64;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.kakao.util.helper.Utility;
-
-import net.daum.mf.map.api.MapPOIItem;
-import net.daum.mf.map.api.MapPoint;
-import net.daum.mf.map.api.MapView;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String TAG ="MainActivity";
-    MapView mapView;
-    RelativeLayout mapViewContainer;
+    private Fragment HomeFragment,SearchFragment,FeedFragment,BookmarkFragment,MypageFragment;
+    private static final String TAG = "MainActivity";
 
-    ImageButton btnSearch,btnFeed,btnMain,btnBookmark,btnMypage;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_page);
 
+        FrameLayout frameLayout = findViewById(R.id.container);
+
+        BottomNavigationView BottomNavigation = findViewById(R.id.bottomnavigation);
+
+        BottomNavigation.setOnNavigationItemSelectedListener(listener);
+
+        HomeFragment = new HomeFragment();
+        SearchFragment = new SearchFragment();
+        BookmarkFragment = new BookmarkFragment();
+        FeedFragment = new FeedFragment();
+        MypageFragment = new MypageFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, SearchFragment).commit();
+    }
+private BottomNavigationView.OnNavigationItemSelectedListener listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.feed:
+                replaceFragment(FeedFragment);
+                return true;
+            case R.id.search:
+                replaceFragment(SearchFragment);
+                return true;
+            case R.id.main:
+                replaceFragment(HomeFragment);
+                return true;
+            case R.id.bookmark:
+                replaceFragment(BookmarkFragment);
+                return true;
+            case R.id.mypage:
+                replaceFragment(MypageFragment);
+                return true;
+
+        }
+
+        return false;
+    }
+};
+
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
-        // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity
-        // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!
-        //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼
-        //   startLoginActivity();
+//
+//        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//        fragmentTransaction.add(R.id.container, HomeFragment).commit();
 
 
-        mapViewContainer = findViewById(R.id.map_view);
-        mapView = new MapView(this);
-        mapViewContainer.addView(mapView);
-
-//트랙킹모드
-        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
-                .TrackingModeOnWithoutHeading);
-        mapView.setZoomLevel(1, true);
 
 
-        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(36.8336012, 127.1791657);
-
-        MapPOIItem customMarker = new MapPOIItem();
-        customMarker.setItemName("상명대학교");
-        customMarker.setTag(1);
-        customMarker.setMapPoint(mapPoint);
-        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
-        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
-        customMarker.setCustomImageAutoscale(false);
-        customMarker.setCustomImageAnchor(0.5f, 1.0f);
-        mapView.addPOIItem(customMarker);
-
-       btnFeed = findViewById(R.id.btnFeed);
-       btnSearch = findViewById(R.id.btnSearch);
-       btnMain = findViewById(R.id.btnMain);
-       btnBookmark = findViewById(R.id.btnBookmark);
-       btnMypage = findViewById(R.id.btnMypage);
-        //임시 - 확인용
-
-        btnFeed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StartMyActivity(FeedActivity.class);
-            }
-        });
-
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StartMyActivity(SearchActivity.class);
-            }
-        });
-
-        btnMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StartMyActivity(MainActivity.class);
-            }
-        });
-
-        btnBookmark.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StartMyActivity(BookmarkActivity.class);
-            }
-        });
-
-        btnMypage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                StartMyActivity(MypageActivity.class);
-            }
-        });
 
 
         //로그아웃
@@ -128,13 +88,11 @@ public class MainActivity extends AppCompatActivity {
            }
         });*/
 
+        public void replaceFragment(Fragment fragment) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        }
 
-    }
-
-    private void StartMyActivity(Class c){
-        Intent intent = new Intent(this, c);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
-    }
 
 }

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/feed"
+        android:icon="@drawable/feed"
+        android:title="피드" />
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        android:title="검색" />
+    <item
+        android:id="@+id/main"
+        android:icon="@drawable/navi"
+        android:title="메인" />
+    <item
+        android:id="@+id/bookmark"
+        android:icon="@drawable/bookmark"
+        android:title="북마크" />
+    <item
+        android:id="@+id/mypage"
+        android:icon="@drawable/mypage"
+        android:title="마이페이지" />
+</menu>
