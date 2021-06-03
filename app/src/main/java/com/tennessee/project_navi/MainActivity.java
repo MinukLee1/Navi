@@ -4,7 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,10 +23,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.kakao.util.helper.Utility;
 
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,33 +51,7 @@ public class MainActivity extends AppCompatActivity {
         // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!
         //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼
         //   startLoginActivity();
-        if(user == null){
-            StartMyActivity(JoinActivity.class);
-        }else {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            DocumentReference docRef = db.collection("users").document(user.getUid());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if(document != null) {
-                            if (document.exists()) {
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
 
-                            } else {
-                                // 사용자 정보입력을 안했으면, -> 입력창으로 감
-                                Log.d(TAG, "No such document");
-                                StartMyActivity(UserInitActivity.class);
-                            }
-                        }
-                    } else {
-                        Log.d(TAG, "get failed with ", task.getException());
-                    }
-                }
-            });
-
-        }
 
         mapViewContainer = findViewById(R.id.map_view);
         mapView = new MapView(this);
@@ -103,30 +85,35 @@ public class MainActivity extends AppCompatActivity {
         btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartMyActivity(FeedActivity.class);
             }
         });
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartMyActivity(SearchActivity.class);
             }
         });
 
         btnMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartMyActivity(MainActivity.class);
             }
         });
 
         btnBookmark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartMyActivity(BookmarkActivity.class);
             }
         });
 
-        btnBookmark.setOnClickListener(new View.OnClickListener() {
+        btnMypage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                StartMyActivity(MypageActivity.class);
             }
         });
 
@@ -141,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
            }
         });*/
 
+
     }
 
     private void StartMyActivity(Class c){
@@ -148,4 +136,5 @@ public class MainActivity extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
 }

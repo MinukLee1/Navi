@@ -41,7 +41,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnBookmark"
         app:layout_constraintTop_toTopOf="@+id/guideline5"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/myinfo" />
+        app:srcCompat="@drawable/mypage" />
 
     <ImageButton
         android:id="@+id/btnSearch"
