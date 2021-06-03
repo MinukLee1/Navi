@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     MapView mapView;
     RelativeLayout mapViewContainer;
 
-    Button btnSearch,btnFeed,btnMain,btnBookmark,btnMypage,join1,logout1,passreset1;
+    ImageButton btnSearch,btnFeed,btnMain,btnBookmark,btnMypage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,41 +93,12 @@ public class MainActivity extends AppCompatActivity {
         customMarker.setCustomImageAnchor(0.5f, 1.0f);
         mapView.addPOIItem(customMarker);
 
-        btnFeed = findViewById(R.id.btnFeed);
-        btnSearch = findViewById(R.id.btnSearch);
-        btnMain = findViewById(R.id.btnMain);
-        btnBookmark = findViewById(R.id.btnBookmark);
-        btnMypage = findViewById(R.id.btnMypage);
-
+       btnFeed = findViewById(R.id.btnFeed);
+       btnSearch = findViewById(R.id.btnSearch);
+       btnMain = findViewById(R.id.btnMain);
+       btnBookmark = findViewById(R.id.btnBookmark);
+       btnMypage = findViewById(R.id.btnMypage);
         //임시 - 확인용
-        join1 = findViewById(R.id.join1);
-        logout1 = findViewById(R.id.logout1);
-        passreset1 = findViewById(R.id.passreset1);
-
-        join1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, JoinActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        logout1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-            }
-        });
-
-
-
-        passreset1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PassresetActivity.class);
-                startActivity(intent);
-            }
-        });
 
         btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,14 +132,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         //로그아웃
-        //  btnFeed.setOnClickListener(new View.OnClickListener() {
-         //   @Override
-         //   public void onClick(View v) {
-         //       FirebaseAuth.getInstance().signOut();
-      //          StartMyActivity(LoginActivity.class);
-     //           finish();
-     //      }
-    //    });
+       /* btnFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               FirebaseAuth.getInstance().signOut();
+               StartMyActivity(LoginActivity.class);
+                finish();
+           }
+        });*/
 
     }
 

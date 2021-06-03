@@ -3,88 +3,98 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <!--맵View 생성-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="70dp" />
 
     <RelativeLayout
         android:id="@+id/map_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/passreset1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="임시 - 비밀번호 재설정"
-        app:layout_constraintStart_toStartOf="@+id/map_view"
-        app:layout_constraintTop_toBottomOf="@+id/logout1" />
-
-    <Button
-        android:id="@+id/logout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="임시 - 로그아웃"
-        app:layout_constraintStart_toStartOf="@+id/map_view"
-        app:layout_constraintTop_toBottomOf="@+id/join1" />
-
-    <Button
-        android:id="@+id/join1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="임시 - 회원가입 "
-        app:layout_constraintStart_toStartOf="@+id/map_view"
-        app:layout_constraintTop_toBottomOf="@+id/btnMypage" />
-
-    <Button
+    <ImageButton
         android:id="@+id/btnMypage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MY PAGE"
-        app:layout_constraintStart_toStartOf="@+id/btnBookmark"
-        app:layout_constraintTop_toBottomOf="@+id/btnBookmark" />
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/btn_"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBookmark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnBookmark"
+        app:layout_constraintTop_toTopOf="@+id/guideline5"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/myinfo" />
 
-    <Button
-        android:id="@+id/btnFeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
-        android:text="feed "
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
+    <ImageButton
         android:id="@+id/btnSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search"
-        app:layout_constraintStart_toStartOf="@+id/btnFeed"
-        app:layout_constraintTop_toBottomOf="@+id/btnFeed" />
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:background="@drawable/btn_"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toStartOf="@+id/btnFeed"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnFeed"
+        app:srcCompat="@drawable/search" />
 
-    <Button
+    <ImageButton
+        android:id="@+id/btnFeed"
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
+        app:layout_constraintEnd_toStartOf="@+id/btnMain"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnSearch"
+        app:layout_constraintTop_toTopOf="@+id/btnSearch"
+        app:srcCompat="@drawable/feed" />
+
+    <ImageButton
         android:id="@+id/btnMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MAIN"
-        app:layout_constraintStart_toStartOf="@+id/btnSearch"
-        app:layout_constraintTop_toBottomOf="@+id/btnSearch" />
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/btnFeed"
+        app:layout_constraintEnd_toStartOf="@+id/btnBookmark"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnFeed"
+        app:srcCompat="@drawable/navi" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btnBookmark"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="testbookmark"
-        app:layout_constraintStart_toStartOf="@+id/btnMain"
-        app:layout_constraintTop_toBottomOf="@+id/btnMain" />
+        android:layout_width="81dp"
+        android:layout_height="60dp"
+        android:background="@drawable/btn_"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toBottomOf="@+id/btnMain"
+        app:layout_constraintEnd_toStartOf="@+id/btnMypage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnMain"
+        app:layout_constraintTop_toTopOf="@+id/btnMain"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/bookmark" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
