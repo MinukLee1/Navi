@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(user == null){
-            StartMyActivity(MainActivity.class);
+            StartMyActivity(UserInitActivity.class);
          }else {
             StartMyActivity(UserInitActivity.class);
 

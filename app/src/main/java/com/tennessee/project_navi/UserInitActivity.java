@@ -33,7 +33,6 @@ public class UserInitActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinit_page);
 
-        onActivityResult(int requestCode, int resultCode, In);
 
 
         //프로필 이미지 변경 리스너
