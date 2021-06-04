@@ -31,7 +31,7 @@ public class PassresetActivity extends Activity {
         setContentView(R.layout.passreset_page);
 
 
-        emailEditText = findViewById(R.id.phoneNumberEditText);
+        emailEditText = findViewById(R.id.passEditText);
         btnSend = findViewById(R.id.btnSend);
 
 
@@ -50,7 +50,7 @@ public class PassresetActivity extends Activity {
 
     private void send() {
 
-        String email = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+        String email = ((EditText) findViewById(R.id.passEditText)).getText().toString();
 
 
         if (email.length() > 0) {

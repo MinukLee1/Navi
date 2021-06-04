@@ -28,6 +28,6 @@ public class BookmarkFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_bookmark, container, false);
+        return inflater.inflate(R.layout.bookmark_fragment, container, false);
     }
 }

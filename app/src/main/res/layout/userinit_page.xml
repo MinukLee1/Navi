@@ -20,7 +20,7 @@
 
 
     <Button
-        android:id="@+id/checkButton"
+        android:id="@+id/btnPassreset"
         android:layout_width="209dp"
         android:layout_height="32dp"
         android:layout_marginTop="128dp"
@@ -29,10 +29,10 @@
         app:backgroundTint="#FDF07C"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/passEditText" />
 
     <EditText
-        android:id="@+id/nameEditText"
+        android:id="@+id/IdEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="226dp"
@@ -45,15 +45,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/phoneNumberEditText"
+        android:id="@+id/passEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="전화번호"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/nameEditText"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+        app:layout_constraintStart_toStartOf="@+id/IdEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
 
     <EditText
         android:id="@+id/birthDayEditText"
@@ -63,8 +63,8 @@
         android:ems="10"
         android:hint="생년월일"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/nameEditText"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+        app:layout_constraintStart_toStartOf="@+id/IdEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
 
     <EditText
         android:id="@+id/addressEditText"
@@ -74,7 +74,7 @@
         android:ems="10"
         android:hint="주소"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/nameEditText"
-        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+        app:layout_constraintStart_toStartOf="@+id/IdEditText"
+        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

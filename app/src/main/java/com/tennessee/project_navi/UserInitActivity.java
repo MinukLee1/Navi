@@ -33,7 +33,7 @@ public class UserInitActivity extends Activity {
         setContentView(R.layout.userinit_page);
 
 
-        btnCheck = findViewById(R.id.checkButton);
+        btnCheck = findViewById(R.id.btnPassreset);
     }
 
 
@@ -50,7 +50,7 @@ public class UserInitActivity extends Activity {
             @Override
             public void onClick(View v) {
                 switch (v.getId()) {
-                    case R.id.checkButton:
+                    case R.id.btnPassreset:
                         profileUpdate();
                         break;
                 }
@@ -61,8 +61,8 @@ public class UserInitActivity extends Activity {
     //회원정보 등록
     private void profileUpdate() {
 
-        String name = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
-        String phoneNumber = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+        String name = ((EditText) findViewById(R.id.IdEditText)).getText().toString();
+        String phoneNumber = ((EditText) findViewById(R.id.passEditText)).getText().toString();
         String birthDay = ((EditText) findViewById(R.id.birthDayEditText)).getText().toString();
         String address = ((EditText) findViewById(R.id.addressEditText)).getText().toString();
 

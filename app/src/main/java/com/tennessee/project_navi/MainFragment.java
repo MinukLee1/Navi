@@ -1,6 +1,8 @@
 package com.tennessee.project_navi;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,19 +26,17 @@ import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
-import java.util.zip.Inflater;
 
-
-public class HomeFragment extends Fragment
+public class MainFragment extends Fragment
         {
 
     private static final String TAG ="HomeFragment";
-
+            Activity activity;
     RelativeLayout mapViewContainer;
 
 
 
-    public HomeFragment() {
+    public MainFragment() {
         // Required empty public constructor
     }
 
@@ -53,9 +53,11 @@ public class HomeFragment extends Fragment
                              Bundle savedInstanceState) {
 
 
-        View view = inflater.inflate(R.layout.fragment_home,container,false);
+        View view = inflater.inflate(R.layout.main_fragment,container,false);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //메인 fragment 시작시, 로그인 여부에 따른 프라그먼트 전환 및 출력조건절
 
 
         // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity
@@ -103,5 +105,19 @@ public class HomeFragment extends Fragment
 
     }
 
+    //프라그먼트용으로 변경한 화면전환 메소드
+            // 액티비티 : this / 프라그먼트 : getActivity()
+            private void StartMyActivity(Class c){
+                Intent intent = new Intent(getActivity(), c);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
 
-}
+            @Override
+            public void onAttach(Context context) {
+                super.onAttach(context);
+
+                if (context instanceof Activity)
+                    activity = (Activity) context;
+            }
+        }

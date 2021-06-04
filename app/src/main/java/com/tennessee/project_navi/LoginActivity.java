@@ -1,6 +1,7 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,22 +30,16 @@ public class LoginActivity extends Activity {
     private ISessionCallback mSessionCallback;
 
     EditText Login_ID, Login_Pass;
-    Button btnLogin, btnJoin, btngotoPassreset;
+    Button btnLogin, btnJoin, btnPassreset;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        setTheme(R.style.AppTheme);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
-
-
-
-
-
 
         //카카오톡 로그인 메소드
         mSessionCallback = new ISessionCallback() {
@@ -67,14 +62,15 @@ public class LoginActivity extends Activity {
                     @Override
                     public void onSuccess(MeV2Response result) {
                         // 로그인 성공
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
                        /* intent.putExtra("name", result.getKakaoAccount().getProfile().getNickname());
                         intent.putExtra("email",result.getKakaoAccount().getEmail());
                         intent.putExtra("profileImg",result.getKakaoAccount().getProfile().getProfileImageUrl());*/
-                        startActivity(intent);
+
 
                         Toast.makeText(LoginActivity.this,"로그인에 성공하였습니다.",Toast.LENGTH_SHORT).show();
-
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(intent);
                     }
                 });
             }
@@ -85,10 +81,14 @@ public class LoginActivity extends Activity {
             }
 
         };
-        // -> 틀릴시 에러 메시지 뜨긴하는데 변수 이중설정 필요성 ?
 
 
+        Login_ID = findViewById(R.id.IdEditText);
+        Login_Pass = findViewById(R.id.passEditText);
 
+        btnLogin = findViewById(R.id.btnLogin);
+        btnJoin = findViewById(R.id.btnJoin);
+        btnPassreset = findViewById(R.id.btnPassreset);
 
         // Intent 넘기는건 Login() Method 안에서 실행
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -101,11 +101,10 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(LoginActivity.this, JoinActivity.class);
-                startActivity(intent);
+                StartMyActivity(JoinActivity.class);
             }
         });
-        btngotoPassreset.setOnClickListener(new View.OnClickListener() {
+        btnPassreset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 StartMyActivity(PassresetActivity.class);
@@ -117,8 +116,8 @@ public class LoginActivity extends Activity {
 
     private void Login() {
 
-        String email = ((EditText) findViewById(R.id.nameEditText)).getText().toString();
-        String password = ((EditText) findViewById(R.id.phoneNumberEditText)).getText().toString();
+        String email = ((EditText) findViewById(R.id.IdEditText)).getText().toString();
+        String password = ((EditText) findViewById(R.id.passEditText)).getText().toString();
 
 
         if (email.length() > 0 && password.length() > 0) {
@@ -129,7 +128,8 @@ public class LoginActivity extends Activity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("로그인에 성공하였습니다.");
-                                StartMyActivity(MainActivity.class);
+                           //
+                                    StartMyActivity(MainActivity.class);
                             } else {
                                 if(task.getException() != null){
                                     startToast(task.getException().toString());
