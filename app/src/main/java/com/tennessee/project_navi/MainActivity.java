@@ -99,12 +99,9 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
                 return true;
 
         }
-
         return false;
     }
 };
-
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 //
@@ -129,7 +126,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
         public void replaceFragment(Fragment fragment) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.container, fragment).commit();      // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+            fragmentTransaction.replace(R.id.container, fragment).commit();     // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
         }
 
     private void StartMyActivity(Class c){
