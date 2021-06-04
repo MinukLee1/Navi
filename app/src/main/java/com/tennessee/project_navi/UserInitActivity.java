@@ -1,6 +1,7 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +22,7 @@ public class UserInitActivity extends Activity {
     private static final String TAG ="UserInitActivity";
 
 
-    Button btnCheck ;
+
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -32,8 +33,29 @@ public class UserInitActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinit_page);
 
+        onActivityResult(int requestCode, int resultCode, In);
 
-        btnCheck = findViewById(R.id.btnPassreset);
+
+        //프로필 이미지 변경 리스너
+        findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //사진 찍기로 이동
+                StartMyActivity(CameraActivity.class);
+            }
+        });;
+
+        //회원정보 저장 버튼
+        findViewById(R.id.btnInfoOk).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                profileUpdate();
+            }
+        });;
+
+
+
+
     }
 
 
@@ -45,24 +67,12 @@ public class UserInitActivity extends Activity {
         finish();
     }
 
-    // 회원정보 등록버튼 onclick
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btnPassreset:
-                        profileUpdate();
-                        break;
-                }
-            }
-        };
-
 
     //회원정보 등록
     private void profileUpdate() {
 
         String name = ((EditText) findViewById(R.id.IdEditText)).getText().toString();
-        String phoneNumber = ((EditText) findViewById(R.id.passEditText)).getText().toString();
+        String phoneNumber = ((EditText) findViewById(R.id.phoneNumber)).getText().toString();
         String birthDay = ((EditText) findViewById(R.id.birthDayEditText)).getText().toString();
         String address = ((EditText) findViewById(R.id.addressEditText)).getText().toString();
 
@@ -71,10 +81,12 @@ public class UserInitActivity extends Activity {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+
             //사용자 정보 초기화
             UserInfo userInfo = new UserInfo(name, phoneNumber, birthDay, address);
 
             if (user != null) {
+
                 db.collection("users").document(user.getUid()).set(userInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
@@ -100,6 +112,10 @@ public class UserInitActivity extends Activity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
+    private void StartMyActivity(Class c){
+        Intent intent = new Intent(this, c);
+        startActivityForResult(intent,0);
+    }
 
 
 }

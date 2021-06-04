@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.kakao.usermgmt.response.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,30 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(user == null){
-            StartMyActivity(LoginActivity.class);
+            StartMyActivity(MainActivity.class);
          }else {
-            FirebaseFirestore db = FirebaseFirestore.getInstance();
-            DocumentReference docRef = db.collection("users").document(user.getUid());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if(document != null) {
-                            if (document.exists()) {
-                                Log.d(TAG, "DocumentSnapshot data: " + document.getData());
-
-                            } else {
-                                // 사용자 정보입력을 안했으면, -> 입력창으로 감
-                                Log.d(TAG, "No such document");
-                                StartMyActivity(UserInitActivity.class);
-                            }
-                        }
-                    } else {
-                        Log.d(TAG, "get failed with ", task.getException());
-                    }
-                }
-            });
+            StartMyActivity(UserInitActivity.class);
 
         }
         FrameLayout frameLayout = findViewById(R.id.container);

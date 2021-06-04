@@ -1,80 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
         android:text="회원정보"
-        android:textSize="30sp"
+        android:textSize="27sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnPassreset"
-        android:layout_width="209dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="128dp"
-        android:background="#FDF07C"
-        android:text="확인"
-        app:backgroundTint="#FDF07C"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passEditText" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="100dp">
 
-    <EditText
-        android:id="@+id/IdEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="226dp"
-        android:ems="10"
-        android:hint="이름"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/profileImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
 
-    <EditText
-        android:id="@+id/passEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="전화번호"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/IdEditText"
-        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+        <EditText
+            android:id="@+id/IdEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="이름"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/birthDayEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:hint="생년월일"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/IdEditText"
-        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="전화번호"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/IdEditText"
+            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
 
-    <EditText
-        android:id="@+id/addressEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="112dp"
-        android:ems="10"
-        android:hint="주소"
-        android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/IdEditText"
-        app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+        <EditText
+            android:id="@+id/birthDayEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="생년월일"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/IdEditText"
+            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/addressEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ems="10"
+            android:hint="주소"
+            android:inputType="textPassword"
+            app:layout_constraintStart_toStartOf="@+id/IdEditText"
+            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+        <Button
+            android:id="@+id/btnInfoOk"
+            android:layout_width="209dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:background="#FDF07C"
+            android:text="확인"
+            app:backgroundTint="#FDF07C"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

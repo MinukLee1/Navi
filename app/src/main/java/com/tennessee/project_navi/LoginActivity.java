@@ -1,7 +1,6 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -84,11 +83,11 @@ public class LoginActivity extends Activity {
 
 
         Login_ID = findViewById(R.id.IdEditText);
-        Login_Pass = findViewById(R.id.passEditText);
+        Login_Pass = findViewById(R.id.phoneNumber);
 
         btnLogin = findViewById(R.id.btnLogin);
         btnJoin = findViewById(R.id.btnJoin);
-        btnPassreset = findViewById(R.id.btnPassreset);
+        btnPassreset = findViewById(R.id.btnInfoOk);
 
         // Intent 넘기는건 Login() Method 안에서 실행
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -117,7 +116,7 @@ public class LoginActivity extends Activity {
     private void Login() {
 
         String email = ((EditText) findViewById(R.id.IdEditText)).getText().toString();
-        String password = ((EditText) findViewById(R.id.passEditText)).getText().toString();
+        String password = ((EditText) findViewById(R.id.phoneNumber)).getText().toString();
 
 
         if (email.length() > 0 && password.length() > 0) {
