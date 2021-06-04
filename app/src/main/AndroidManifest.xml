@@ -15,24 +15,21 @@
         android:theme="@style/Theme.Project_Navi"
         android:networkSecurityConfig="@xml/network_security_config">
         <meta-data android:name="com.kakao.sdk.AppKey"
-            android:value="2137df0f52c5e1eb7a024d8c5f1cbdac"/>
-        <activity android:name=".SplashActivity"
+            android:value="f0161a2a261a69601640ef9fd70c9cd4"/>
+
+        <activity android:name=".SplashActivity" android:theme="@style/SplashTheme"
             >
             <intent-filter>
-                <action android:name="android.intent.action." />
+                <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
 
         </activity>
 
-        <activity android:name=".MainActivity" android:theme="@style/SplashTheme">
+        <activity android:name=".MainActivity" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" android:label="MainActivity"/>
         <activity android:name=".JoinActivity" android:label="JoinActivity"/>
