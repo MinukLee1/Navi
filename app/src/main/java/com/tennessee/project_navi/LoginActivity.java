@@ -89,7 +89,7 @@ public class LoginActivity extends Activity {
         btnJoin = findViewById(R.id.btnJoin);
         btnPassreset = findViewById(R.id.btnInfoOk);
 
-        // Intent 넘기는건 Login() Method 안에서 실행
+        // 로그인 버튼  / Intent 넘기는건 Login() Method 안에서 실행
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

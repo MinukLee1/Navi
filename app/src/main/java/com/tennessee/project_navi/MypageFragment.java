@@ -56,6 +56,7 @@ FloatingActionButton floatingBtn;
                     getActivity().finish();
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
+
                 }
             });
 
