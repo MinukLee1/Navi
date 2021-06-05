@@ -33,4 +33,6 @@ public class WriteInfo {
         this.publisher = publisher;
     }
 
+
+
 }

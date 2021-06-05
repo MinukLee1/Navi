@@ -90,7 +90,7 @@ public class UserInitActivity extends Activity {
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
-                                startToast("회원정보 등록을 성공하였습니다");
+                                startToast("회원가입에 성공하였습니다.");
                                 finish();
                             }
                         })

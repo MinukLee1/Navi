@@ -52,6 +52,8 @@ FloatingActionButton floatingBtn;
             logincheckBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //로그인 성공시 현재 프라그먼트 종료후 새로고침
+                    getActivity().finish();
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     startActivity(intent);
                 }

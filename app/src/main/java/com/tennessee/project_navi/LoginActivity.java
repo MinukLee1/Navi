@@ -127,7 +127,7 @@ public class LoginActivity extends Activity {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 startToast("로그인에 성공하였습니다.");
-                           //
+                           finish();
                                     StartMyActivity(MainActivity.class);
                             } else {
                                 if(task.getException() != null){

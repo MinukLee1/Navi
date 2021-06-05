@@ -117,7 +117,8 @@ public class JoinActivity extends Activity {
                                 // Sign in success, update UI with the signed-in user's information
 
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                startToast("회원가입에 성공하였습니다.");
+
+                                StartMyActivity(UserInitActivity.class);
                                 finish();
                             } else {
                                 // If sign in fails, display a message to the user.
@@ -140,5 +141,9 @@ public class JoinActivity extends Activity {
 
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+    private void StartMyActivity(Class c){
+        Intent intent = new Intent(this, c);
+        startActivity(intent);
     }
 }

@@ -53,7 +53,7 @@ public class WritePostActivity extends Activity {
             Uploader(writeInfo);
             }
         else {
-            startToast("회원정보를 입력해주세요.");
+            startToast("제목,내용,카테고리는 필수입력항목입니다");
         }
     }
 
