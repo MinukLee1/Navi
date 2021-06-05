@@ -3,6 +3,7 @@ package com.tennessee.project_navi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Geocoder;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +28,8 @@ import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
 import net.daum.mf.map.api.MapView;
 
+import java.util.Locale;
+
 
 public class MainFragment extends Fragment implements MapView.MapViewEventListener, MapView.POIItemEventListener
         {
@@ -34,8 +37,6 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
     private static final String TAG ="HomeFragment";
             Activity activity;
     RelativeLayout mapViewContainer;
-
-
 
     public MainFragment() {
         // Required empty public constructor
@@ -48,11 +49,9 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
         }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         View view = inflater.inflate(R.layout.main_fragment,container,false);
 
@@ -142,6 +141,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
             public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
                 MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
                 MapPOIItem customMarker = new MapPOIItem();
+              
                 customMarker.setItemName("게시글 작성하기");
                 customMarker.setTag(1);
                 customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(mapPointGeo.latitude, mapPointGeo.longitude));
@@ -150,6 +150,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
                 customMarker.setCustomImageAutoscale(false);
                 customMarker.setCustomImageAnchor(0.5f, 1.0f);
                 mapView.addPOIItem(customMarker);
+                Toast.makeText(getActivity(), "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -184,7 +185,8 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
             @Override
             public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-             Intent intent = new Intent(getActivity(), FeedActivity.class);
+
+             Intent intent = new Intent(getActivity(), WritePostActivity.class);
              startActivity(intent);
             }
 
