@@ -42,7 +42,7 @@ public class GalleryAdapter  extends RecyclerView.Adapter<GalleryAdapter.Gallery
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
         ImageView imageView = holder.cardView.findViewById(R.id.imageView);
-        Glide.with(activity).load(mDataset.get(position)).override(300).into(imageView);
+        Glide.with(activity).load(mDataset.get(position)).centerCrop().override(500).into(imageView);
     }
 
     @Override

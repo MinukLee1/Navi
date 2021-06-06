@@ -46,6 +46,7 @@ FloatingActionButton floatingBtn;
         logincheckBtn = rootview.findViewById(R.id.logincheckBtn);
         floatingBtn = rootview.findViewById(R.id.floatingActionButton);
 
+
         //로그인 안되어있을시 ,
         if(user == null) {
             logincheckBtn.setText("로그인하기");
@@ -80,6 +81,7 @@ FloatingActionButton floatingBtn;
 
             }
         });
+
 
         return rootview;
     }

@@ -33,7 +33,7 @@ public class GalleryActivity extends Activity{
 
     private ArrayList<String> getImagesPath(Activity Activity) {
         Uri uri;
-        ArrayList<String> listOfAllImages = new ArrayList<>();
+        ArrayList<String> listOfAllImages = new ArrayList<String>();
         Cursor cursor;
         int column_index_data;
         String PathOfImage = null;
@@ -42,7 +42,7 @@ public class GalleryActivity extends Activity{
         Intent intent = getIntent();
         if (intent.getStringExtra("media").equals("video")){
             uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            projection = new String[] { MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+            projection = new String[] { MediaStore.MediaColumns.DATA,MediaStore.Video.Media.BUCKET_DISPLAY_NAME};
         }else {
             uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             projection = new String[] { MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
