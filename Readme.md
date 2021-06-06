@@ -9,7 +9,7 @@
  ### 목적 및 필요성 <br>
 전국에 숨어있는 나만 아는 명소들을 공유하고, 리뷰를 작성하여 사용자 간 <br>
 몰랐던 장소를 발견하고 보다 폭넓은 나만의 핫플레이스를 만들 수 있다 . <br>
-<br>![3333 (1)](https://user-images.githubusercontent.com/74412438/120944014-4b159380-c76d-11eb-8fde-1c9981f79ef8.jpg)<br>
+<br>![4444 (1)](https://user-images.githubusercontent.com/74412438/120944053-831cd680-c76d-11eb-96f6-64bccb887258.jpg)<br>
 
 ![12121](https://user-images.githubusercontent.com/74412438/120943925-c88cd400-c76c-11eb-9959-897284303c3c.png) ![111 (4)](https://user-images.githubusercontent.com/74412438/120943726-b3637580-c76b-11eb-9464-c6f52319fe79.png) 
 
