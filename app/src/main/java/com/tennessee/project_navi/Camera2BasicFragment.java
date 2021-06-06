@@ -639,6 +639,7 @@ public class Camera2BasicFragment extends Fragment
             requestCameraPermission();
             return;
         }
+
         setUpCameraOutputs(width, height, facingid);//openCamera CameraCharacteristics.LENS_FACING_FRONT
         configureTransform(width, height);
         Activity activity = getActivity();
