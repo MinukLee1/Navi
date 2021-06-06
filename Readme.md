@@ -10,7 +10,8 @@
 전국에 숨어있는 나만 아는 명소들을 공유하고, 리뷰를 작성하여 사용자 간 <br>
 몰랐던 장소를 발견하고 보다 폭넓은 나만의 핫플레이스를 만들 수 있다 . <br>
 <br>
-![111 (4)](https://user-images.githubusercontent.com/74412438/120943726-b3637580-c76b-11eb-9464-c6f52319fe79.png)
+![111 (4)](https://user-images.githubusercontent.com/74412438/120943726-b3637580-c76b-11eb-9464-c6f52319fe79.png) ![1212](https://user-images.githubusercontent.com/74412438/120943875-88c5ec80-c76c-11eb-8de2-26b04eca1832.png)
+
 <br><br>
  ### 프로젝트 개요<br>
 
