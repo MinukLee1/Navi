@@ -1,18 +1,6 @@
 # Navi - 나만아는 비밀장소<br><br>
 
-1주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week01.md<br>
-2주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week02.md<br>
-3주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week03.md<br>
-4주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week04.md<br>
-5주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week05.md<br>
-6주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week06.md<br>
-7주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week07.md<br>
-8주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week08.md<br>
-9주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week09.md<br>
-10주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week10.md<br>
-11주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week11.md<br>
-12주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week12.md<br>
-13주차_report : https://github.com/MinukLee1/Navi-app/blob/master/weekly_report/week13.md<br>
+
 
 <br><br>
 ## 1. 회의 방식
@@ -152,19 +140,40 @@
  ### 기능구현 <br>
  
  
- *  **Project file 생성 및 필요한 API 및 기능 import (21.03.10)** <br><br>
-   
- 
- * **splash screen 구현 (21.03.15)** <br><br>
-   - 본래 splash 기능의 목적에 따라 Activity의 theme 배경을 변경하는 방식으로 구현함으로써 사용자의 device 및 기타 환경에 따른 유동적인 환경을 구축하였다. <br>
-   ![splash_img_github용](https://user-images.githubusercontent.com/74412438/111157717-8d01c400-85da-11eb-8d9f-a478919e5ff7.png)  <br> (임시 splash img )
+<details>
+    <summary>이민욱</summary>
 
-<br>
- 
- 
- 
-* (예정)GPS 정보를 바탕으로 추천된 판/구매자의 거래지점을 기반으로 현재 위치에서 약속 장소까지의 거리 및 도착 예상 시간을 안내한다. 
-* (예정)GPS상 거리 기반의 필터링(거래지역 세분화 / App내 아이콘) 기능을 지원해준다.
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>황성택</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>성주현</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>박예진</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
+
+<details>
+    <summary>최수빈</summary>
+
+<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
+
+</details>
 
 
 <br>
@@ -179,19 +188,19 @@
 <br>
 
 
-## Development Environment 
+## 개발환경 <br> 
 
 <br>
 <br>
 
 
-## APIs
+## 사용 API <br>
 
 <br>
 <br>
 
 
-## Database table information
+## Database 테이블 구조 <br>
 <br>
 <br>
 
@@ -201,5 +210,4 @@
 <br>
 
 
-## License
 
