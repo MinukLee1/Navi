@@ -15,13 +15,15 @@
     </FrameLayout>
 
 
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomnavigation"
         android:layout_width="409dp"
         android:layout_height="66dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/com_kakao_button_background_press"
+        android:background="#ffe761"
+        app:backgroundTint="#ffe761"
+        app:itemIconTint="@drawable/menu_selector_color"
+        app:itemTextColor="#687173"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

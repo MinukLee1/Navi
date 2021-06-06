@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +32,7 @@ public class LoginActivity extends Activity {
 
     EditText Login_ID, Login_Pass;
     Button btnLogin, btnJoin, btnPassreset;
+    ImageView Gif2;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +42,10 @@ public class LoginActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        //Gif
+        Gif2 = findViewById(R.id.naviGif2);
+        Glide.with(this).load(R.raw.navi).into(Gif2);
 
         //카카오톡 로그인 메소드
         mSessionCallback = new ISessionCallback() {
