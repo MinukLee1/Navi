@@ -16,17 +16,68 @@
 
 package com.tennessee.project_navi;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.media.Image;
+import android.media.ImageReader;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+
 public class CameraActivity extends AppCompatActivity {
+
+
+    private final ImageReader.OnImageAvailableListener mOnImageAvailableListener
+            = new ImageReader.OnImageAvailableListener() {
+
+        @Override
+        public void onImageAvailable(ImageReader reader) {
+            //Log.e("로그", "캡쳐");
+
+            Image mImage = reader.acquireNextImage();
+            File mFile = new File(getExternalFilesDir(null), "profile.jpg");
+
+            ByteBuffer buffer = mImage.getPlanes()[0].getBuffer();
+            byte[] bytes = new byte[buffer.remaining()];
+            buffer.get(bytes);
+            FileOutputStream output = null;
+            try{
+                output = new FileOutputStream(mFile);
+                output.write(bytes);
+            } catch (IOException e){
+                e.printStackTrace();
+            } finally {
+                mImage.close();
+                if (null !=output){
+                    try{
+                        output.close();
+                    } catch (IOException e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("profilePath", mFile.toString());
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
+        }
+    };
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
         if (null == savedInstanceState) {
+            Camera2BasicFragment camera2BasicFragment = new Camera2BasicFragment();
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.container, Camera2BasicFragment.newInstance())
                     .commit();
