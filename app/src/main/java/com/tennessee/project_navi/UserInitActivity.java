@@ -36,13 +36,19 @@ public class UserInitActivity extends Activity {
 
 
         //프로필 이미지 변경 리스너
-        findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //사진 찍기로 이동
                 StartMyActivity(CameraActivity.class);
             }
-        });;
+        });;*/
+        findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StartMyActivity(GalleryActivity.class);
+            }
+        });
 
         //회원정보 저장 버튼
         findViewById(R.id.btnInfoOk).setOnClickListener(new View.OnClickListener() {

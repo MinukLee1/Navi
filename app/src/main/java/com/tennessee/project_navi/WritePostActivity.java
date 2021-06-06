@@ -1,6 +1,7 @@
 package com.tennessee.project_navi;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -28,6 +29,8 @@ public class WritePostActivity extends Activity {
         setContentView(R.layout.activity_write_post);
 
         findViewById(R.id.btncheck).setOnClickListener(onClickListener);
+        findViewById(R.id.btnImage).setOnClickListener(onClickListener);
+        findViewById(R.id.btnVideo).setOnClickListener(onClickListener);
 
     }
     View.OnClickListener onClickListener = new View.OnClickListener() {
@@ -37,6 +40,12 @@ public class WritePostActivity extends Activity {
             switch (v.getId()){
                 case R.id.btncheck:
                     storageUploader();
+                    break;
+                case R.id.btnImage:
+                    StartMyActivity(GalleryActivity.class, "image");
+                    break;
+                case R.id.btnVideo:
+                    StartMyActivity(GalleryActivity.class, "video");
                     break;
             }
         }
@@ -77,5 +86,11 @@ public class WritePostActivity extends Activity {
     }
     private void startToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    private void StartMyActivity(Class c, String media){
+        Intent intent = new Intent(this, c);
+        intent.putExtra("media", media);
+        startActivityForResult(intent,0);
     }
 }
