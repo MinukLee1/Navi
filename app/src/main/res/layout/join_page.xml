@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <ImageView
+        android:id="@+id/naviGif"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -25,7 +34,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="아이디"
+        android:hint="아이디(이메일)"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -65,8 +74,10 @@
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
         android:background="#FDF07C"
+        android:shadowRadius="100"
         android:text="취소"
         app:backgroundTint="#FDF07C"
+        app:cornerRadius="120dp"
         app:layout_constraintStart_toEndOf="@+id/btnOKJoin"
         app:layout_constraintTop_toTopOf="@+id/btnOKJoin" />
 
@@ -78,8 +89,10 @@
         android:layout_marginLeft="96dp"
         android:layout_marginTop="77dp"
         android:background="#FDF07C"
+        android:shadowRadius="100"
         android:text="가입"
         app:backgroundTint="#FDF07C"
+        app:cornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAlert" />
 

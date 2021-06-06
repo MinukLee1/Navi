@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -25,6 +27,7 @@ public class JoinActivity extends Activity {
     TextView txtAlert;
     EditText txtID, txtPass, txtPassCk, txtName;
     Button btnOKJoin, btndel;
+    ImageView Gif;
 
 
     private static final String TAG = "JoinActivity";
@@ -34,6 +37,11 @@ public class JoinActivity extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.join_page);
+
+        //gif
+        Gif = findViewById(R.id.naviGif);
+        Glide.with(this).load(R.raw.navi).into(Gif);
+
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
