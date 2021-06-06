@@ -11,19 +11,27 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class UserInitActivity extends Activity {
-    private static final String TAG ="UserInitActivity";
-
+    private static final String TAG = "UserInitActivity";
 
 
     private FirebaseAuth mAuth;
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
@@ -34,6 +42,8 @@ public class UserInitActivity extends Activity {
         setContentView(R.layout.userinit_page);
 
 
+        findViewById(R.id.gallery).setOnClickListener(onClickListner);
+        findViewById(R.id.picture).setOnClickListener(onClickListner);
 
         //프로필 이미지 변경 리스너
         findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
@@ -41,8 +51,34 @@ public class UserInitActivity extends Activity {
             public void onClick(View v) {
                 //사진 찍기로 이동
                 StartMyActivity(CameraActivity.class);
+
+
+
             }
-        });;
+        });
+
+        View.OnClickListener onClickListner{
+                switch (v.getId()){
+                    case R.id.btncheck:
+                        profileUpdate();
+                        break;
+                    case R.id.profileImage:
+                        CardView cardView = findViewById(R.id.btnsCardView);
+                        if(cardView.getVisibility() == View.VISIBLE){
+                            cardView.getVisibility(View.GONE)
+                        }else{
+                            cardView.setVisibility(View.VISIBLE);
+                        }
+                        break;
+                    case R.id.picture:
+                        startActivity(new Intent(UserInitActivity.this, CameraActivity.class));
+                        break;
+                    case R.id.gallery:
+                        break;
+                }
+        }
+
+
 
         //회원정보 저장 버튼
         findViewById(R.id.btnInfoOk).setOnClickListener(new View.OnClickListener() {
@@ -50,14 +86,26 @@ public class UserInitActivity extends Activity {
             public void onClick(View v) {
                 profileUpdate();
             }
-        });;
-
-
-
+        });
+        ;
 
     }
 
 
+    //추가
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case 0: {
+                if (requestCode == Activity.RESULT_OK) {
+                    String returnValue = data.getStringExtra("profilePath");
+
+                }
+                break;
+            }
+        }
+    }
 
 
     //뒤로가기
@@ -98,7 +146,7 @@ public class UserInitActivity extends Activity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 startToast("회원정보 등록에 실패하였습니다");
-                                Log.v(TAG, "Error writting document",e);
+                                Log.v(TAG, "Error writting document", e);
                             }
                         });
             }
@@ -111,11 +159,26 @@ public class UserInitActivity extends Activity {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void StartMyActivity(Class c){
+    private void StartMyActivity(Class c) {
         Intent intent = new Intent(this, c);
-        startActivityForResult(intent,0);
+        startActivityForResult(intent, 0);
     }
+
+/*    private void uploader(){
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("users").document(user.getUi()).set(UserInfo)
+                .addOnSuccessListener((OnSuccessListener)(aVoid →) {
+                    startToast(("회원 정보 등록을 성공하였습니다."));
+                    finish();
+        })
+        .addOnFailureListener((e)→ {}
+        startToast("회원 정보 등록에 실패하였습니다.");
+        Log.w(TAG, "Error writing document", e);
+    });*/
 
 
 }
+
+
+
 
