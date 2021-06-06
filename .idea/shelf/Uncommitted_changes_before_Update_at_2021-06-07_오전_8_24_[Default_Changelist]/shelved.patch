@@ -1,0 +1,287 @@
+Index: app/src/main/res/layout/userinit_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<RelativeLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:gravity=\"center_horizontal\"\r\n    android:orientation=\"vertical\"\r\n    tools:context=\".LoginActivity\">\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"match_parent\"\r\n        android:orientation=\"vertical\">\r\n\r\n        <TextView\r\n            android:id=\"@+id/textView\"\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginTop=\"50dp\"\r\n            android:layout_marginBottom=\"50dp\"\r\n            android:text=\"회원정보\"\r\n            android:textSize=\"27sp\"\r\n            android:textStyle=\"bold\"\r\n            app:layout_constraintEnd_toEndOf=\"parent\"\r\n            app:layout_constraintStart_toStartOf=\"parent\"\r\n            app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:gravity=\"center_horizontal\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <androidx.cardview.widget.CardView\r\n                android:layout_width=\"200dp\"\r\n                android:layout_height=\"200dp\"\r\n                app:cardCornerRadius=\"100dp\">\r\n\r\n                <ImageView\r\n                    android:id=\"@+id/profileImage\"\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"match_parent\"\r\n                    tools:src=\"@tools:sample/avatars\" />\r\n            </androidx.cardview.widget.CardView>\r\n\r\n            <EditText\r\n                android:id=\"@+id/IdEditText\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"이름\"\r\n                android:inputType=\"text\"\r\n                app:layout_constraintEnd_toEndOf=\"parent\"\r\n                app:layout_constraintHorizontal_bias=\"0.497\"\r\n                app:layout_constraintStart_toStartOf=\"parent\"\r\n                app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/phoneNumber\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"전화번호\"\r\n                android:inputType=\"textPassword\"\r\n                app:layout_constraintStart_toStartOf=\"@+id/IdEditText\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/IdEditText\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/birthDayEditText\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"생년월일\"\r\n                android:inputType=\"textPassword\"\r\n                app:layout_constraintStart_toStartOf=\"@+id/IdEditText\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/IdEditText\" />\r\n\r\n            <EditText\r\n                android:id=\"@+id/addressEditText\"\r\n                android:layout_width=\"wrap_content\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"10dp\"\r\n                android:ems=\"10\"\r\n                android:hint=\"주소\"\r\n                android:inputType=\"textPassword\"\r\n                app:layout_constraintStart_toStartOf=\"@+id/IdEditText\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/IdEditText\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/btnInfoOk\"\r\n                android:layout_width=\"209dp\"\r\n                android:layout_height=\"32dp\"\r\n                android:layout_marginTop=\"20dp\"\r\n                android:background=\"#FDF07C\"\r\n                android:text=\"확인\"\r\n                app:backgroundTint=\"#FDF07C\"\r\n                app:layout_constraintEnd_toEndOf=\"parent\"\r\n                app:layout_constraintStart_toStartOf=\"parent\"\r\n                app:layout_constraintTop_toBottomOf=\"@+id/phoneNumber\" />\r\n\r\n        </LinearLayout>\r\n    </LinearLayout>\r\n\r\n    <androidx.cardview.widget.CardView\r\n        android:id=\"@+id/btnsCardView\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:padding=\"5dp\"\r\n        android:visibility=\"visible\"\r\n        app:cardCornerRadius=\"15dp\">\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"match_parent\"\r\n            android:orientation=\"vertical\">\r\n\r\n            <Button\r\n                android:id=\"@+id/picture\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"사진 촬영\" />\r\n\r\n            <Button\r\n                android:id=\"@+id/gallery\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:text=\"갤러리\" />\r\n\r\n        </LinearLayout>\r\n\r\n    </androidx.cardview.widget.CardView>\r\n\r\n\r\n</RelativeLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/userinit_page.xml	(revision 34704a2dbefc3e7322e7d52d3cebe2e3ec96329f)
++++ app/src/main/res/layout/userinit_page.xml	(date 1623021834456)
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     xmlns:tools="http://schemas.android.com/tools"
+     android:layout_width="match_parent"
+@@ -8,131 +8,121 @@
+     android:orientation="vertical"
+     tools:context=".LoginActivity">
+ 
+-    <LinearLayout
+-        android:layout_width="match_parent"
+-        android:layout_height="match_parent"
+-        android:orientation="vertical">
+-
+-        <TextView
+-            android:id="@+id/textView"
+-            android:layout_width="match_parent"
+-            android:layout_height="wrap_content"
+-            android:layout_marginTop="50dp"
+-            android:layout_marginBottom="50dp"
+-            android:text="회원정보"
+-            android:textSize="27sp"
+-            android:textStyle="bold"
+-            app:layout_constraintEnd_toEndOf="parent"
+-            app:layout_constraintStart_toStartOf="parent"
+-            app:layout_constraintTop_toTopOf="parent" />
++    <TextView
++        android:id="@+id/textView"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:layout_marginTop="50dp"
++        android:layout_marginBottom="50dp"
++        android:text="회원정보"
++        android:textSize="27sp"
++        android:textStyle="bold"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent" />
+ 
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:gravity="center_horizontal"
+-            android:orientation="vertical">
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="wrap_content"
++        android:gravity="center|center_horizontal"
++        android:orientation="vertical">
+ 
+-            <androidx.cardview.widget.CardView
+-                android:layout_width="200dp"
+-                android:layout_height="200dp"
+-                app:cardCornerRadius="100dp">
++        <androidx.cardview.widget.CardView
++            android:layout_width="200dp"
++            android:layout_height="200dp"
++            app:cardCornerRadius="100dp">
+ 
+-                <ImageView
+-                    android:id="@+id/profileImage"
+-                    android:layout_width="match_parent"
+-                    android:layout_height="match_parent"
+-                    tools:src="@tools:sample/avatars" />
+-            </androidx.cardview.widget.CardView>
++            <ImageView
++                android:id="@+id/profileImage"
++                android:layout_width="match_parent"
++                android:layout_height="match_parent"
++                tools:src="@tools:sample/avatars" />
++        </androidx.cardview.widget.CardView>
+ 
+-            <EditText
+-                android:id="@+id/IdEditText"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+-                android:ems="10"
+-                android:hint="이름"
+-                android:inputType="text"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintHorizontal_bias="0.497"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintTop_toTopOf="parent" />
++        v
++
++        <LinearLayout
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal">
++
++            <ImageButton
++                android:id="@+id/picture"
++                android:layout_width="57dp"
++                android:layout_height="65dp"
++                android:background="#00000000"
++                android:scaleType="centerInside"
++                android:src="@drawable/camera"
++                android:text="사진 촬영" />
++
++            <ImageButton
++                android:id="@+id/gallery"
++                android:layout_width="57dp"
++                android:layout_height="65dp"
++                android:background="#00000000"
++                android:scaleType="centerInside"
++                android:src="@drawable/gallery"
++                android:text="갤러리" />
++        </LinearLayout>
++
++        <EditText
++            android:id="@+id/IdEditText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="10dp"
++            android:ems="10"
++            android:hint="이름"
++            android:inputType="text"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintHorizontal_bias="0.497"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toTopOf="parent" />
+ 
+-            <EditText
+-                android:id="@+id/phoneNumber"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+-                android:ems="10"
+-                android:hint="전화번호"
+-                android:inputType="textPassword"
+-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
++        <EditText
++            android:id="@+id/phoneNumber"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="10dp"
++            android:ems="10"
++            android:hint="전화번호"
++            android:inputType="textPassword"
++            app:layout_constraintStart_toStartOf="@+id/IdEditText"
++            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+ 
+-            <EditText
+-                android:id="@+id/birthDayEditText"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+-                android:ems="10"
+-                android:hint="생년월일"
+-                android:inputType="textPassword"
+-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
++        <EditText
++            android:id="@+id/birthDayEditText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="10dp"
++            android:ems="10"
++            android:hint="생년월일"
++            android:inputType="textPassword"
++            app:layout_constraintStart_toStartOf="@+id/IdEditText"
++            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+ 
+-            <EditText
+-                android:id="@+id/addressEditText"
+-                android:layout_width="wrap_content"
+-                android:layout_height="wrap_content"
+-                android:layout_marginTop="10dp"
+-                android:ems="10"
+-                android:hint="주소"
+-                android:inputType="textPassword"
+-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
++        <EditText
++            android:id="@+id/addressEditText"
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:layout_marginTop="10dp"
++            android:ems="10"
++            android:hint="주소"
++            android:inputType="textPassword"
++            app:layout_constraintStart_toStartOf="@+id/IdEditText"
++            app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+ 
+-            <Button
+-                android:id="@+id/btnInfoOk"
+-                android:layout_width="209dp"
+-                android:layout_height="32dp"
+-                android:layout_marginTop="20dp"
+-                android:background="#FDF07C"
+-                android:text="확인"
+-                app:backgroundTint="#FDF07C"
+-                app:layout_constraintEnd_toEndOf="parent"
+-                app:layout_constraintStart_toStartOf="parent"
+-                app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
++        <Button
++            android:id="@+id/btnInfoOk"
++            android:layout_width="209dp"
++            android:layout_height="32dp"
++            android:layout_marginTop="20dp"
++            android:text="확인"
++            app:backgroundTint="#FDF07C"
++            app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent"
++            app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+ 
+-        </LinearLayout>
+     </LinearLayout>
+ 
+-    <androidx.cardview.widget.CardView
+-        android:id="@+id/btnsCardView"
+-        android:layout_width="match_parent"
+-        android:layout_height="wrap_content"
+-        android:padding="5dp"
+-        android:visibility="visible"
+-        app:cardCornerRadius="15dp">
+-
+-        <LinearLayout
+-            android:layout_width="match_parent"
+-            android:layout_height="match_parent"
+-            android:orientation="vertical">
+-
+-            <Button
+-                android:id="@+id/picture"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:text="사진 촬영" />
+-
+-            <Button
+-                android:id="@+id/gallery"
+-                android:layout_width="match_parent"
+-                android:layout_height="wrap_content"
+-                android:text="갤러리" />
+-
+-        </LinearLayout>
+-
+-    </androidx.cardview.widget.CardView>
+-
+ 
+-</RelativeLayout>
+\ No newline at end of file
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/login_page.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".LoginActivity\">\r\n\r\n    <TextView\r\n        android:id=\"@+id/textView\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"108dp\"\r\n        android:text=\"NAVI\"\r\n        android:textSize=\"30sp\"\r\n        android:textStyle=\"bold\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n\r\n    <Button\r\n        android:id=\"@+id/btnLogin\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"48dp\"\r\n        android:background=\"#FDF07C\"\r\n        android:text=\"로그인\"\r\n        app:backgroundTint=\"#FDF07C\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/phoneNumber\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/phoneNumber\" />\r\n\r\n\r\n    <Button\r\n        android:id=\"@+id/btnInfoOk\"\r\n        android:layout_width=\"209dp\"\r\n        android:layout_height=\"32dp\"\r\n        android:layout_marginTop=\"112dp\"\r\n        android:background=\"#FDF07C\"\r\n        android:text=\"비밀번호 재설정\"\r\n        app:backgroundTint=\"#FDF07C\"\r\n        app:layout_constraintEnd_toEndOf=\"@+id/btnJoin\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/btnLogin\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/phoneNumber\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/IdEditText\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"226dp\"\r\n        android:layout_marginBottom=\"233dp\"\r\n        android:ems=\"10\"\r\n        android:hint=\"ID\"\r\n        android:inputType=\"text\"\r\n        app:layout_constraintBottom_toTopOf=\"@+id/btnKakao\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintHorizontal_bias=\"0.497\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n    <EditText\r\n        android:id=\"@+id/phoneNumber\"\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginTop=\"44dp\"\r\n        android:ems=\"10\"\r\n        android:hint=\"비밀번호\"\r\n        android:inputType=\"textPassword\"\r\n        app:layout_constraintStart_toStartOf=\"@+id/IdEditText\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/IdEditText\" />\r\n\r\n    <Button\r\n        android:id=\"@+id/btnJoin\"\r\n        android:layout_width=\"90dp\"\r\n        android:layout_height=\"50dp\"\r\n        android:layout_marginStart=\"32dp\"\r\n        android:layout_marginLeft=\"32dp\"\r\n        android:background=\"#FDF07C\"\r\n        android:text=\"가입\"\r\n        app:backgroundTint=\"#FDF07C\"\r\n        app:layout_constraintStart_toEndOf=\"@+id/btnLogin\"\r\n        app:layout_constraintTop_toTopOf=\"@+id/btnLogin\" />\r\n\r\n    <com.kakao.usermgmt.LoginButton\r\n        android:id=\"@+id/btnKakao\"\r\n        android:layout_width=\"247dp\"\r\n        android:layout_height=\"0dp\"\r\n        android:layout_marginTop=\"48dp\"\r\n        android:layout_marginBottom=\"177dp\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toBottomOf=\"@+id/IdEditText\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/login_page.xml	(revision 50bb71b321d7f48df0536db40fce31a06bc13964)
++++ app/src/main/res/layout/login_page.xml	(date 1623017641713)
+@@ -35,11 +35,12 @@
+         android:id="@+id/btnInfoOk"
+         android:layout_width="209dp"
+         android:layout_height="32dp"
+-        android:layout_marginTop="112dp"
++        android:layout_marginTop="120dp"
+         android:background="#FDF07C"
+         android:text="비밀번호 재설정"
+         app:backgroundTint="#FDF07C"
+         app:layout_constraintEnd_toEndOf="@+id/btnJoin"
++        app:layout_constraintHorizontal_bias="0.0"
+         app:layout_constraintStart_toStartOf="@+id/btnLogin"
+         app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
+ 
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_58__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_58__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__11_09__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__11_09__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__2_04__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__2_04__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_57__Default_Changelist_1.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_57__Default_Changelist_1.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__10_44__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__10_44__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_57__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__1_57__Default_Changelist_.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__11_09__Default_Changelist_1.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-04__11_09__Default_Changelist_1.xml
+diff --git .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__2_03__Default_Changelist_.xml .idea/shelf/Uncommitted_changes_before_Checkout_at_2021-06-03__2_03__Default_Changelist_.xml
