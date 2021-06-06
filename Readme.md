@@ -11,7 +11,7 @@
         - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
         - 최종 프로젝트 구상 회의  <br><br>
 
-![image](https://user-images.githubusercontent.com/74412438/113570433-476f6e80-964f-11eb-9d03-c588a827508a.png) 4/5(월) Discord 회의화면
+![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
 
 <br><br>
 
