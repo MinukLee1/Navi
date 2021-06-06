@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--Button color !-->
+    <item android:color="#CCCCCC" android:state_hovered="true" />
+    <item android:color="#687173" android:state_checked="true" />
+</selector>

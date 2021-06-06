@@ -4,11 +4,11 @@
     <item
         android:id="@+id/feed"
         android:icon="@drawable/feed"
-        android:title="피드" />
+        android:title="Feed" />
     <item
         android:id="@+id/search"
         android:icon="@drawable/search"
-        android:title="검색" />
+        android:title="Search" />
     <item
         android:id="@+id/main"
         android:icon="@drawable/navi"

@@ -14,6 +14,7 @@
  limitations under the License.
 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -36,7 +37,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="picture" />
+            android:background="#FDF07C"
+            android:text="picture"
+            app:itemIconTint="@drawable/btn_selector_color"
+            app:backgroundTint="#FDF07C" />
 
         <Button
             android:id="@+id/change"
@@ -44,7 +48,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="카메라 전/후면변경" />
+            android:background="#FDF07C"
+            android:text="카메라 전/후면변경"
+            app:itemIconTint="@drawable/btn_selector_color"
+            app:backgroundTint="#FDF07C" />
 
 
     </LinearLayout>

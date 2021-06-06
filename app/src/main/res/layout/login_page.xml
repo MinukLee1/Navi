@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <ImageView
+        android:id="@+id/naviGif2"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -24,8 +33,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:background="#FDF07C"
         android:text="로그인"
+        app:itemIconTint="@drawable/btn_selector_color"
         app:backgroundTint="#FDF07C"
         app:layout_constraintStart_toStartOf="@+id/phoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
@@ -36,8 +45,8 @@
         android:layout_width="209dp"
         android:layout_height="32dp"
         android:layout_marginTop="112dp"
-        android:background="#FDF07C"
         android:text="비밀번호 재설정"
+        app:itemIconTint="@drawable/btn_selector_color"
         app:backgroundTint="#FDF07C"
         app:layout_constraintEnd_toEndOf="@+id/btnJoin"
         app:layout_constraintStart_toStartOf="@+id/btnLogin"
@@ -75,8 +84,8 @@
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
-        android:background="#FDF07C"
         android:text="가입"
+        app:itemIconTint="@drawable/btn_selector_color"
         app:backgroundTint="#FDF07C"
         app:layout_constraintStart_toEndOf="@+id/btnLogin"
         app:layout_constraintTop_toTopOf="@+id/btnLogin" />

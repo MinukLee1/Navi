@@ -16,6 +16,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="122dp"
             android:text="로그인"
+            app:itemIconTint="@drawable/btn_selector_color"
+            app:backgroundTint="#FDF07C"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
