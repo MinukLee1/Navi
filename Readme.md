@@ -52,7 +52,14 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 - Google Firebase API 
 
-- Kakao map API 
+- Kakao map API <details>
+    <details >
+<summary>접기</summary>
+
+<!--ㅇㅇㅇ-->
+     
+
+</details>
 
 - 카페, 문화생활, 맛집 등의 추천 큐레이션
 
