@@ -1,6 +1,6 @@
 # Navi _ 나만아는 비밀장소<br>
-Navi-app which is Easily share your own place, where your friends have been anywhere in the country<br>
-Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. 
+#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country<br>
+#### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. 
 
 <br><br>
 
