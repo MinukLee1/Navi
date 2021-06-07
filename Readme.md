@@ -10,8 +10,8 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 <br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)<br>![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
 
 <br><br>
- ### 프로젝트 개요<br>
-Navi 에서는 
+ ###Navi 에서는<br>
+ 
 - 사용자들이 올린 전국 장소 리뷰
 
 - 실제 사용자들의 솔직한 리뷰
