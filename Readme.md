@@ -47,7 +47,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 <br><br><br><br>
 
-## Prerequisite <br><br>
+## Prerequisite <br>
 - Android Studio (4.1.1 버전 사용중)<br><br>
 
 - Google Firebase API <br><br>
