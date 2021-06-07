@@ -2,12 +2,9 @@ package com.tennessee.project_navi;
 
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -41,7 +38,7 @@ public class GalleryAdapter  extends RecyclerView.Adapter<GalleryAdapter.Gallery
         }
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-        ImageView imageView = holder.cardView.findViewById(R.id.imageView);
+        ImageView imageView = holder.cardView.findViewById(R.id.itemImage);
         Glide.with(activity).load(mDataset.get(position)).override(300).into(imageView);
     }
 

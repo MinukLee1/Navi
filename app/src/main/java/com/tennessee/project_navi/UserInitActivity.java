@@ -42,7 +42,7 @@ public class UserInitActivity extends Activity {
     private Uri imageUri;
     private String pathUri;
     private File tempFile;
-    public ImageView profileImage;
+    private ImageView profileImage;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -120,11 +120,11 @@ public class UserInitActivity extends Activity {
     // uri 절대경로 가져오기
     public String getPath(Uri uri) {
 
-        String[] proj = {MediaStore.Images.Media.DATA};
+        String[] proj = {MediaStore.Images.Media._ID};
         CursorLoader cursorLoader = new CursorLoader(this, uri, proj, null, null, null);
 
         Cursor cursor = cursorLoader.loadInBackground();
-        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        int index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
 
         cursor.moveToFirst();
         return cursor.getString(index);
@@ -147,19 +147,17 @@ public class UserInitActivity extends Activity {
         String address = ((EditText) findViewById(R.id.addressEditText)).getText().toString();
         ImageView profileImage = ((ImageView) findViewById(R.id.profileImage));
 
-        if (name.length() > 0 && phoneNumber.length() > 9 && birthDay.length() > 5 && address.length() > 0 &&  profileImage != null) {
+        if (profileImage != null && name.length() > 0 && phoneNumber.length() > 9 && birthDay.length() > 5 && address.length() > 0 ) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
             //사용자 정보 초기화
-            UserInfo userInfo = new UserInfo( name, phoneNumber, birthDay, address,profileImage);
+            UserInfo userInfo = new UserInfo( name, phoneNumber, birthDay, address, profileImage);
 
             if (user != null  ) {
 
                 db.collection("users").document(user.getUid()).set(userInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
-
                             @Override
                             public void onSuccess(Void aVoid) {
 
@@ -167,21 +165,18 @@ public class UserInitActivity extends Activity {
 
                                 // 스토리지에 방생성 후 선택한 이미지 넣음
                                 StorageReference storageReference = mStorage.getReference()
-                                        .child("usersprofileImages").child("uid/"+file.getLastPathSegment());
+                                        .child("users").child("uid/"+file.getLastPathSegment());
                                 storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                                                                                             @Override
-                                                                                             public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                                                                                                 final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-                                                                                                 while (!imageUrl.isComplete()) ;
-
-
-                                                                                                 userInfo.setname(name);
-                                                                                                 Glide.with(userInfo.profileImage).load(imageUrl.getResult().toString());
-                                                                                                 // database에 저장
-                                                                                                 mDatabase.getReference().child("users").child(name)
-                                                                                                         .setValue(userInfo);
-                                                                                             }
-                                                                                         });
+                                 @Override
+                                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                                     final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
+                                              userInfo.setName(name);
+                                             Glide.with(userInfo.getProfileImage()).load(imageUrl.getResult().toString());
+                                             // database에 저장
+                                             mDatabase.getReference().child("users").child(name)
+                                                     .setValue(userInfo);
+                                                                                                         }
+                                                                                                     });
                                 startToast("회원가입에 성공하였습니다.");
                                 finish();
                             }
