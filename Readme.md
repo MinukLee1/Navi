@@ -24,8 +24,8 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 - 사용자 위치기반 장소리스트 안내
 
-<br>
-![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
+<br>![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
+
 <br>
 
 
