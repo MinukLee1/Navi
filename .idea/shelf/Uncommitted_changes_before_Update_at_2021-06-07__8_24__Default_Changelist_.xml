@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_2021-06-07_오전_8_24_[Default_Changelist]" date="1623021916778" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-06-07_오전_8_24_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2021-06-07 오전 8:24 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable-v24/gallery.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-06-07_오전_8_24_[Default_Changelist]/gallery.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="app/src/main/res/drawable-v24/camera.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2021-06-07_오전_8_24_[Default_Changelist]/camera.png" />
+  </binary>
+</changelist>
