@@ -31,6 +31,11 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 <br><br>
 ## Environment
 <br>
+![android studio (1)](https://user-images.githubusercontent.com/74412438/120945778-4523b080-c775-11eb-9251-cd3dbcb71faa.png)
+
+
+
+
    <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
           다음과 같은 과정으로 프로젝트 진행.<br><br>
         - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
