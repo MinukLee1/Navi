@@ -45,9 +45,9 @@ public class WritePostActivity extends Activity {
     private FirebaseUser user;
     private ArrayList<String> pathList = new ArrayList<>();
     private LinearLayout parent;
-    private int pathCount;
-    private int successCount;
+    private int pathCount, successCount;
     private RelativeLayout btnBackLayout;
+    private ImageView selectedImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +61,9 @@ public class WritePostActivity extends Activity {
         findViewById(R.id.btncheck).setOnClickListener(onClickListener);
         findViewById(R.id.btnImage).setOnClickListener(onClickListener);
         findViewById(R.id.btnVideo).setOnClickListener(onClickListener);
+        findViewById(R.id.imageModify).setOnClickListener(onClickListener);
+        findViewById(R.id.videoModify).setOnClickListener(onClickListener);
+        findViewById(R.id.delete).setOnClickListener(onClickListener);
 
     }
     @Override
@@ -75,22 +78,28 @@ public class WritePostActivity extends Activity {
                     ViewGroup.LayoutParams layoutParams =
                             new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
 
+                    LinearLayout linearLayout = new LinearLayout(WritePostActivity.this);
+                    linearLayout.setLayoutParams(layoutParams);
+                    linearLayout.setOrientation(LinearLayout.VERTICAL);
+                    parent.addView(linearLayout);
+
                     ImageView imageView = new ImageView(WritePostActivity.this);
                     imageView.setLayoutParams(layoutParams);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             btnBackLayout.setVisibility(View.VISIBLE);
+                            selectedImageView = (ImageView) v;
                         }
                     });
                     Glide.with(this).load(profilePath).override(1000).into(imageView);
-                    parent.addView(imageView);
+                    linearLayout.addView(imageView);
 
                     EditText editText = new EditText(WritePostActivity.this);
                     editText.setLayoutParams(layoutParams);
                     editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_CLASS_TEXT);
                     editText.setHint("내용");
-                    parent.addView(editText);
+                    linearLayout.addView(editText);
                 }
                 break;
             }
@@ -115,6 +124,13 @@ public class WritePostActivity extends Activity {
                     if (btnBackLayout.getVisibility() == View.VISIBLE){
                         btnBackLayout.setVisibility(View.GONE);
                     }
+                    break;
+                case  R.id.imageModify:
+                    break;
+                case  R.id.videoModify:
+                    break;
+                case  R.id.delete:
+                    parent.removeView((View) selectedImageView.getParent());
                     break;
             }
         }
