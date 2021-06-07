@@ -53,8 +53,8 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 - Google Firebase API 
 
 - Kakao map API <details>
-    <details markdown="1">
-<summary>접기/펼치기</summary>
+    <details >
+<summary>ㅇㅇㅇ</summary>
 
 <!--summary 아래 빈칸 공백 두고 내용을 적는공간-->
      ㅇㅇ
