@@ -12,7 +12,7 @@
 <br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)
 
 <br>
-![6666 (2)](https://user-images.githubusercontent.com/74412438/120944323-d9d6e000-c76e-11eb-8a63-3c16b55c5a7b.jpg)
+![6666 (2)](https://user-images.githubusercontent.com/74412438/120944332-e1968480-c76e-11eb-8185-07a1938b4251.jpg)
 
 <br><br>
  ### 프로젝트 개요<br>
