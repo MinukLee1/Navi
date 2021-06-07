@@ -54,10 +54,9 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 - Kakao map API <details>
     <summary>HashKey 적용</summary>
-```c
-main() { Log.i(TAG, "Key Hash Value :" + getHashKey(this as Activity); } public String getKeyHashBase64(Context context) { PackageInfo packageInfo = Utility.getPackageInfo(context, PackageManager.GET_SIGNATURES); if (packageInfo == null) return null; for (Signature signature : packageInfo.signatures) { try { MessageDigest md = MessageDigest.getInstance("SHA"); md.update(signature.toByteArray()); return Base64.encodeToString(md.digest(), Base64.DEFAULT); } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) { e.printStackTrace(); } } return null; }
 
-```
+ ㅇㅇㅇ
+ 
 </details> 
 
 - 카페, 문화생활, 맛집 등의 추천 큐레이션
