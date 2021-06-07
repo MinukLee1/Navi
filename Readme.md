@@ -9,7 +9,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
  
 <br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)<br>
 
-
+<br>
 
 ### Navi 에서는 , <br>
  
@@ -28,7 +28,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 <br>![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
 
 
-
+<br><br>
 ## Environment
 <br>
    <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
