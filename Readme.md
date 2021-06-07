@@ -1,4 +1,4 @@
-# Navi _ 나만아는 비밀장소<br>
+# Navi [나만아는 비밀장소]<br>
 Navi-app which is Easily share your own place, where your friends have been anywhere in the country
 
 
