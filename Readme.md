@@ -39,7 +39,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 #### Google Firebase<br><br>
 ![99DA2D3359E072CD14 (1)](https://user-images.githubusercontent.com/74412438/120945977-e4e13e80-c775-11eb-8710-bed7c65b0594.png)
 <br><br>
-#### Kakao API<br><br>
+#### Kakao API<br>
 ![121222 (1)](https://user-images.githubusercontent.com/74412438/120946091-38538c80-c776-11eb-8d7c-60bd7f67528f.png)
 
 
