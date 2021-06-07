@@ -80,7 +80,7 @@ e.printStackTrace();
 ```
     
 <br>
-2. 하단 Log 터미널에 출력된 본인의 HashKey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록 
+2. 하단 Log 터미널에 출력된 본인의 HashKey를 [KakaoDeveloper] (https://developers.kakao.com/) 에 등록 
 
 </details>
 
