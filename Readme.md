@@ -9,7 +9,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
  
 <br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)
 
-<br>![66661 (1)](https://user-images.githubusercontent.com/74412438/120944421-5964af00-c76f-11eb-845c-f9842fc75f72.jpg)
+<br>![66661 (2)](https://user-images.githubusercontent.com/74412438/120944557-1e16b000-c770-11eb-924c-4c31b1643ebe.jpg)
 
 <br><br>
  ### 프로젝트 개요<br>
