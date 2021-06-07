@@ -42,15 +42,15 @@ public class GalleryActivity extends Activity{
         Intent intent = getIntent();
         if (intent.getStringExtra("media").equals("video")){
             uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-            projection = new String[] { MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+            projection = new String[] { MediaStore.Images.Media._ID,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
         }else {
             uri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
-            projection = new String[] { MediaStore.MediaColumns.DATA,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
+            projection = new String[] { MediaStore.Images.Media._ID,MediaStore.Images.Media.BUCKET_DISPLAY_NAME};
         }
 
         cursor = Activity.getContentResolver().query(uri, projection, null, null, null);
 
-        column_index_data = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
+        column_index_data = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID);
 
         while (cursor.moveToNext()){
             PathOfImage = cursor.getString(column_index_data);

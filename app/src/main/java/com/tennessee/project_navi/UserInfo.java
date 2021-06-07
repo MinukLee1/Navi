@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 
@@ -16,13 +17,16 @@ public class UserInfo {
    private String phoneNumber;
    private String birthDay;
    private String address;
+   public ImageView profileImage;
 
-   public UserInfo(String name, String phoneNumber, String birthDay, String address){
+   public UserInfo(String name, String phoneNumber, String birthDay, String address,ImageView profileImage){
          this.name = name;
          this.phoneNumber = phoneNumber;
          this.birthDay = birthDay;
          this.address = address;
+         this.profileImage = profileImage;
    }
+
 
    public String getname(){
       return this.name;
@@ -30,6 +34,7 @@ public class UserInfo {
    public void setname(String name){
       this.name = name;
    }
+
    public String getphoneNumber(){
       return this.phoneNumber;
    }
