@@ -20,7 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MypageFragment extends Fragment {
 
 Button logincheckBtn;
-FloatingActionButton floatingBtn;
+
 
 
     public MypageFragment() {
@@ -44,7 +44,6 @@ FloatingActionButton floatingBtn;
         // Inflate the layout for this fragment
         ViewGroup rootview = (ViewGroup)inflater.inflate(R.layout.mypage_fragment,container,false);
         logincheckBtn = rootview.findViewById(R.id.logincheckBtn);
-        floatingBtn = rootview.findViewById(R.id.floatingActionButton);
 
         //로그인 안되어있을시 ,
         if(user == null) {
@@ -71,15 +70,6 @@ FloatingActionButton floatingBtn;
                 }
             });
         }
-        //게시글 작성버튼
-        floatingBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), WritePostActivity.class);
-                startActivity(intent);
-
-            }
-        });
 
         return rootview;
     }
