@@ -34,6 +34,8 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 Android Studio<br>
 ![pasted+image+0 (1)](https://user-images.githubusercontent.com/74412438/120945850-861bc500-c775-11eb-8dd7-43c47ffb2bb9.png)
+![frfr (1)](https://user-images.githubusercontent.com/74412438/120945908-b3687300-c775-11eb-9699-d95aae87a8df.png)
+
 
 
 
