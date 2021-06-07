@@ -47,12 +47,12 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 <br><br><br><br>
 
-## Prerequisite <br><br>
+## Prerequisite <br><br><br>
 - Android Studio (4.1.1 버전 사용중)<br>
 
-- Google Firebase API <br>
+- Google Firebase API <br><br>
 
-- Kakao map API (HashKey 추가) <br><br><br>
+- Kakao map API (HashKey 추가) <br><br>
 
 ##### 1. 하단의 메소드를 Android Studio에 추가 후, compile 진행
 ##### 2. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
