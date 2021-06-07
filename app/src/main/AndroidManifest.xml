@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Project_Navi"
         android:networkSecurityConfig="@xml/network_security_config">
         <meta-data android:name="com.kakao.sdk.AppKey"
-            android:value="f0161a2a261a69601640ef9fd70c9cd4"/>
+            android:value="2137df0f52c5e1eb7a024d8c5f1cbdac"/>
 
         <activity android:name=".SplashActivity" android:theme="@style/SplashTheme"
             >
@@ -44,6 +44,7 @@
         <activity android:name=".UserInitActivity"/>
         <activity android:name=".CameraActivity"/>
         <activity android:name=".WritePostActivity"/>
+
 
 
 
