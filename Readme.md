@@ -30,7 +30,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 <br><br>
 ## Environment
-<br>
+
 
 #### Android Studio<br>
 ![pasted+image+0 (1)](https://user-images.githubusercontent.com/74412438/120945850-861bc500-c775-11eb-8dd7-43c47ffb2bb9.png)
