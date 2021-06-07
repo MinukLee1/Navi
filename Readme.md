@@ -54,9 +54,8 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 - Kakao map API (HashKey 추가) <br>
 
-1. 하단의 메소드를 Android Studio에 추가 후, compile 진행.
-2.  
-3. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
+1. 하단의 메소드를 Android Studio에 추가 후, compile 진행
+2. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
 ```c
 main() { 
 Log.i(TAG, "Key Hash Value :" + getHashKey(this as Activity);
