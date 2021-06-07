@@ -11,7 +11,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 <br><br>
 
-## Navi 에서는 , <br>
+#### Navi 에서는 , <br>
  
 - 사용자들이 올린 전국 장소 리뷰
 
