@@ -5,48 +5,107 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MypageFragment">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".LoginActivity">
 
-        <Button
-            android:id="@+id/logincheckBtn"
+        <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="122dp"
-            android:text="로그인"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="마이페이지"
+            android:textSize="27sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="마이페이지입니다"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.074" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="60dp"
-            android:layout_height="55dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:clickable="true"
-            android:src="@drawable/ic_add_black_24dp"
-            app:backgroundTint="@color/bg_login_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.cardview.widget.CardView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/IdEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="이름"
+                android:inputType="text"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="전화번호"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <EditText
+                android:id="@+id/birthDayEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="생년월일"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <EditText
+                android:id="@+id/addressEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="주소"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <Button
+                android:id="@+id/logincheckBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/icondesign"
+                android:textColor="#000000"
+                app:backgroundTint="#FDF07C"
+                android:text="로그인" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 </FrameLayout>

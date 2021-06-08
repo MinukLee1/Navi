@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -54,10 +55,13 @@ public class PassresetActivity extends Activity {
 
 
         if (email.length() > 0) {
+            RelativeLayout loaderLayout = findViewById(R.id.loaderLayout);
+            loaderLayout.setVisibility(View.VISIBLE);
             mAuth.sendPasswordResetEmail(email)
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+                            loaderLayout.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 startToast("비밀번호 재설정 이메일을 보냈습니다");
                             }

@@ -33,7 +33,7 @@ import java.util.Locale;
 
 public class MainFragment extends Fragment implements MapView.MapViewEventListener, MapView.POIItemEventListener
         {
-
+            private Context context;
     private static final String TAG ="HomeFragment";
             Activity activity;
     RelativeLayout mapViewContainer;
@@ -52,7 +52,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
+        context = container.getContext();
         View view = inflater.inflate(R.layout.main_fragment,container,false);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -139,6 +139,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
             @Override
             public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+
                 MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
                 MapPOIItem customMarker = new MapPOIItem();
               
@@ -182,12 +183,22 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
             public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
 
             }
-
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             @Override
             public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
 
-             Intent intent = new Intent(getActivity(), WritePostActivity.class);
-             startActivity(intent);
+                //로그인이 안되어있을시 ,
+                if (user == null) {
+                    Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
+                }
+                //로그인 되어있을시 ,
+                if (user != null) {
+
+                    Intent intent = new Intent(getActivity(), WritePostActivity.class);
+                    startActivity(intent);
+                }
+
+
             }
 
             @Override

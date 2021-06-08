@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="634dp"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -64,9 +72,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
         android:layout_marginLeft="44dp"
-        android:background="#FDF07C"
+        android:background="@drawable/icondesign"
         android:text="취소"
         app:backgroundTint="#FDF07C"
+        android:textColor="#000000"
         app:layout_constraintStart_toEndOf="@+id/btnOKJoin"
         app:layout_constraintTop_toTopOf="@+id/btnOKJoin" />
 
@@ -77,8 +86,9 @@
         android:layout_marginStart="96dp"
         android:layout_marginLeft="96dp"
         android:layout_marginTop="77dp"
-        android:background="#FDF07C"
+        android:background="@drawable/icondesign"
         android:text="가입"
+        android:textColor="#000000"
         app:backgroundTint="#FDF07C"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtAlert" />

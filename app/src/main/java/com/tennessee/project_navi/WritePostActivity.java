@@ -17,8 +17,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.Date;
-
 
 public class WritePostActivity extends Activity {
     private static final String TAG = "WritePostActivity";
@@ -51,7 +49,7 @@ public class WritePostActivity extends Activity {
 
         if (title.length() > 0  && contents.length() > 0) {
             user = FirebaseAuth.getInstance().getCurrentUser();
-            WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid(), new Date());
+            WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid());
             Uploader(writeInfo);
             }
         else {

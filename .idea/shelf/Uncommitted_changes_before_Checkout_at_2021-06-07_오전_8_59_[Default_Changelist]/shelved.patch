@@ -1,0 +1,240 @@
+Index: app/src/main/java/com/tennessee/project_navi/WritePostActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tennessee.project_navi;\r\n\r\nimport android.app.Activity;\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.text.InputType;\r\nimport android.util.Log;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.EditText;\r\nimport android.widget.ImageView;\r\nimport android.widget.LinearLayout;\r\nimport android.widget.Toast;\r\n\r\nimport androidx.annotation.NonNull;\r\n\r\nimport com.bumptech.glide.Glide;\r\nimport com.google.android.gms.tasks.OnFailureListener;\r\nimport com.google.android.gms.tasks.OnSuccessListener;\r\n\r\nimport com.google.firebase.auth.FirebaseAuth;\r\nimport com.google.firebase.auth.FirebaseUser;\r\nimport com.google.firebase.firestore.DocumentReference;\r\nimport com.google.firebase.firestore.FirebaseFirestore;\r\n\r\n\r\npublic class WritePostActivity extends Activity {\r\n    private static final String TAG = \"WritePostActivity\";\r\n    private FirebaseUser user;\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_write_post);\r\n\r\n        findViewById(R.id.btncheck).setOnClickListener(onClickListener);\r\n        findViewById(R.id.btnImage).setOnClickListener(onClickListener);\r\n        findViewById(R.id.btnVideo).setOnClickListener(onClickListener);\r\n\r\n    }\r\n    @Override\r\n    public void onActivityResult(int requestCode, int resultCode, Intent data){\r\n        super.onActivityResult(requestCode, resultCode, data);\r\n        switch (requestCode){\r\n            case 0: {\r\n                if (resultCode == Activity.RESULT_OK) {\r\n                    String profilePath = data.getStringExtra(\"profilePath\");\r\n\r\n                    LinearLayout parent = findViewById(R.id.contentsLayout);\r\n                    ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);\r\n\r\n                    ImageView imageView = new ImageView(WritePostActivity.this);\r\n                    imageView.setLayoutParams(layoutParams);\r\n                    Glide.with(this).load(profilePath).override(1000).into(imageView);\r\n                    parent.addView(imageView);\r\n\r\n                    EditText editText = new EditText(WritePostActivity.this);\r\n                    editText.setLayoutParams(layoutParams);\r\n                    editText.setInputType(InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_CLASS_TEXT);\r\n                    parent.addView(editText);\r\n                }\r\n                break;\r\n            }\r\n        }\r\n    }\r\n    View.OnClickListener onClickListener = new View.OnClickListener() {\r\n        @Override\r\n        public void onClick(View v) {\r\n\r\n            switch (v.getId()){\r\n                case R.id.btncheck:\r\n                    storageUploader();\r\n                    break;\r\n                case R.id.btnImage:\r\n                    StartMyActivity(GalleryActivity.class, \"image\");\r\n                    break;\r\n                case R.id.btnVideo:\r\n                    StartMyActivity(GalleryActivity.class, \"video\");\r\n                    break;\r\n            }\r\n        }\r\n    };\r\n\r\n    private void storageUploader() {\r\n        final String title = ((EditText) findViewById(R.id.TitleEditText)).getText().toString();\r\n        final String contents = ((EditText) findViewById(R.id.ContentsEditText)).getText().toString();\r\n\r\n\r\n        if (title.length() > 0  && contents.length() > 0) {\r\n            user = FirebaseAuth.getInstance().getCurrentUser();\r\n            WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid());\r\n            Uploader(writeInfo);\r\n            }\r\n        else {\r\n            startToast(\"제목,내용,카테고리는 필수입력항목입니다\");\r\n        }\r\n    }\r\n\r\n    private void Uploader(WriteInfo writeInfo) {\r\n        FirebaseFirestore db = FirebaseFirestore.getInstance();\r\n        db.collection(\"posts\").add(writeInfo)\r\n                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {\r\n                    @Override\r\n                    public void onSuccess(DocumentReference documentReference) {\r\n                        Log.d(TAG,\"DocumentSnapshot written with ID: \" + documentReference.getId());\r\n                    }\r\n                })\r\n                .addOnFailureListener(new OnFailureListener() {\r\n                    @Override\r\n                    public void onFailure(@NonNull Exception e) {\r\n                        Log.w(TAG,\"Error adding document\", e);\r\n                    }\r\n                });\r\n\r\n\r\n    }\r\n    private void startToast(String msg) {\r\n        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();\r\n    }\r\n\r\n    private void StartMyActivity(Class c, String media){\r\n        Intent intent = new Intent(this, c);\r\n        intent.putExtra(\"media\", media);\r\n        startActivityForResult(intent,0);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tennessee/project_navi/WritePostActivity.java	(revision e166b67942ef8f0f218001967694c23a59557c76)
++++ app/src/main/java/com/tennessee/project_navi/WritePostActivity.java	(date 1623015455560)
+@@ -2,6 +2,7 @@
+ 
+ import android.app.Activity;
+ import android.content.Intent;
++import android.net.Uri;
+ import android.os.Bundle;
+ import android.text.InputType;
+ import android.util.Log;
+@@ -15,24 +16,43 @@
+ import androidx.annotation.NonNull;
+ 
+ import com.bumptech.glide.Glide;
++import com.google.android.gms.tasks.Continuation;
++import com.google.android.gms.tasks.OnCompleteListener;
+ import com.google.android.gms.tasks.OnFailureListener;
+ import com.google.android.gms.tasks.OnSuccessListener;
+ 
++import com.google.android.gms.tasks.Task;
+ import com.google.firebase.auth.FirebaseAuth;
+ import com.google.firebase.auth.FirebaseUser;
+ import com.google.firebase.firestore.DocumentReference;
+ import com.google.firebase.firestore.FirebaseFirestore;
++import com.google.firebase.storage.FirebaseStorage;
++import com.google.firebase.storage.StorageMetadata;
++import com.google.firebase.storage.StorageReference;
++import com.google.firebase.storage.UploadTask;
++
++import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileNotFoundException;
++import java.io.InputStream;
++import java.util.ArrayList;
++import java.util.Date;
+ 
+ 
+ public class WritePostActivity extends Activity {
+     private static final String TAG = "WritePostActivity";
+     private FirebaseUser user;
++    private ArrayList<String> pathList = new ArrayList<>();
++    private LinearLayout parent;
++    int pathCount, successCount;
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         setContentView(R.layout.activity_write_post);
+ 
++        parent = findViewById(R.id.contentsLayout);
++
+         findViewById(R.id.btncheck).setOnClickListener(onClickListener);
+         findViewById(R.id.btnImage).setOnClickListener(onClickListener);
+         findViewById(R.id.btnVideo).setOnClickListener(onClickListener);
+@@ -45,8 +65,8 @@
+             case 0: {
+                 if (resultCode == Activity.RESULT_OK) {
+                     String profilePath = data.getStringExtra("profilePath");
++                    pathList.add(profilePath);
+ 
+-                    LinearLayout parent = findViewById(R.id.contentsLayout);
+                     ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+ 
+                     ImageView imageView = new ImageView(WritePostActivity.this);
+@@ -81,20 +101,66 @@
+         }
+     };
+ 
++
+     private void storageUploader() {
+         final String title = ((EditText) findViewById(R.id.TitleEditText)).getText().toString();
+-        final String contents = ((EditText) findViewById(R.id.ContentsEditText)).getText().toString();
+ 
+-
+-        if (title.length() > 0  && contents.length() > 0) {
++        if (title.length() > 0) {
++            ArrayList<String> contentsList = new ArrayList<>();
+             user = FirebaseAuth.getInstance().getCurrentUser();
+-            WriteInfo writeInfo = new WriteInfo(title, contents, user.getUid());
+-            Uploader(writeInfo);
++            FirebaseStorage storage = FirebaseStorage.getInstance();
++            StorageReference storageRef = storage.getReference();
++
++            for (int i = 0; i < parent.getChildCount(); i++){
++                View view = parent.getChildAt(i);
++                if (view instanceof EditText) {
++                    String text = ((EditText)view).getText().toString();
++                    if (text.length() > 0) {
++                        contentsList.add(text);
++                    }
++                }else {
++                    contentsList.add(pathList.get(pathCount));
++                    final StorageReference mountainImageRef = storageRef.child("user/" + user.getUid() + "/" + pathCount + ".jpg");
++
++                        try {
++                            InputStream stream = new FileInputStream(new File(pathList.get(pathCount)));
++                            StorageMetadata metadata = new StorageMetadata.Builder().setCustomMetadata("index","" + (contentsList.size()-1)).build();
++                            UploadTask uploadTask = mountainImageRef.putStream(stream, metadata);
++                            uploadTask.addOnFailureListener(new OnFailureListener() {
++                                @Override
++                                public void onFailure(@NonNull Exception e) {
++                                    //
++                                }
++                            }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
++                                @Override
++                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
++                                    final int index = Integer.parseInt(taskSnapshot.getMetadata().getCustomMetadata("index"));
++                                    mountainImageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
++                                        @Override
++                                        public void onSuccess(Uri uri) {
++                                            Log.e("로그: ","uri: " + uri);
++                                            contentsList.set(index, uri.toString());
++                                            successCount++;
++                                            if (pathList.size() == successCount){
++                                                //완료
++                                                WriteInfo writeInfo = new WriteInfo(title, contentsList, user.getUid(), new Date());
++                                                Uploader(writeInfo);
++                                            }
++                                        }
++                                    });
++                                }
++                            });
++                        }catch (FileNotFoundException e){
++                            Log.e("로그","에러: " + e.toString());
++                        }
++                    }
++                    pathCount++;
+             }
+-        else {
+-            startToast("제목,내용,카테고리는 필수입력항목입니다");
+-        }
+-    }
++            }
++                else {
++                startToast("제목,내용,카테고리는 필수입력항목입니다");
++            }
++}
+ 
+     private void Uploader(WriteInfo writeInfo) {
+         FirebaseFirestore db = FirebaseFirestore.getInstance();
+@@ -103,6 +169,7 @@
+                     @Override
+                     public void onSuccess(DocumentReference documentReference) {
+                         Log.d(TAG,"DocumentSnapshot written with ID: " + documentReference.getId());
++                        finish();
+                     }
+                 })
+                 .addOnFailureListener(new OnFailureListener() {
+Index: app/src/main/java/com/tennessee/project_navi/WriteInfo.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.tennessee.project_navi;\r\n\r\npublic class WriteInfo {\r\n    private String title;\r\n    private String Contents;\r\n    private String publisher;\r\n\r\n    public WriteInfo(String title, String Contents, String publisher){\r\n        this.title = title;\r\n        this.Contents = Contents;\r\n        this.publisher = publisher;\r\n\r\n    }\r\n\r\n    public String getTitle(){\r\n        return this.title;\r\n    }\r\n    public void setTitle(String title){\r\n        this.title = title;\r\n    }\r\n\r\n    public String getContents(){\r\n        return this.Contents;\r\n    }\r\n    public void setContents(String Contents){\r\n        this.Contents = Contents;\r\n    }\r\n\r\n    public String getPublisher(){\r\n        return this.publisher;\r\n    }\r\n    public void setPublisher(String publisher){\r\n        this.publisher = publisher;\r\n    }\r\n\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/tennessee/project_navi/WriteInfo.java	(revision e166b67942ef8f0f218001967694c23a59557c76)
++++ app/src/main/java/com/tennessee/project_navi/WriteInfo.java	(date 1623014302469)
+@@ -1,14 +1,19 @@
+ package com.tennessee.project_navi;
+ 
++import java.util.ArrayList;
++import java.util.Date;
++
+ public class WriteInfo {
+     private String title;
+-    private String Contents;
++    private ArrayList<String> Contents;
+     private String publisher;
++    private Date createdAt;
+ 
+-    public WriteInfo(String title, String Contents, String publisher){
++    public WriteInfo(String title, ArrayList<String> Contents, String publisher, Date createdAt){
+         this.title = title;
+         this.Contents = Contents;
+         this.publisher = publisher;
++        this.createdAt = createdAt;
+ 
+     }
+ 
+@@ -19,10 +24,10 @@
+         this.title = title;
+     }
+ 
+-    public String getContents(){
++    public ArrayList<String> getContents(){
+         return this.Contents;
+     }
+-    public void setContents(String Contents){
++    public void setContents(ArrayList<String> Contents){
+         this.Contents = Contents;
+     }
+ 
+@@ -33,6 +38,13 @@
+         this.publisher = publisher;
+     }
+ 
++    public Date getCreatedAt(){
++        return this.createdAt;
++    }
++    public void setCreatedAt(Date createdAt){
++        this.createdAt = createdAt;
++    }
++
+ 
+ 
+ }
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    package=\"com.tennessee.project_navi\">\r\n\r\n    <uses-permission android:name=\"android.permission.INTERNET\"/>\r\n    <uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>\r\n    <uses-permission android:name=\"android.permission.CAMERA\"/>\r\n    <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>\r\n    <uses-feature android:name=\"android.hardware.camera\"/>\r\n    <uses-feature android:name=\"android.hardware.camera.autofocus\"/>\r\n\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:name=\".CustomApp\"\r\n        android:roundIcon=\"@mipmap/ic_launcher_round\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Project_Navi\"\r\n        android:networkSecurityConfig=\"@xml/network_security_config\">\r\n        <meta-data android:name=\"com.kakao.sdk.AppKey\"\r\n            android:value=\"2137df0f52c5e1eb7a024d8c5f1cbdac\"/>\r\n\r\n        <activity android:name=\".SplashActivity\" android:theme=\"@style/SplashTheme\"\r\n            >\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\"/>\r\n            </intent-filter>\r\n\r\n        </activity>\r\n\r\n        <activity android:name=\".MainActivity\" >\r\n\r\n\r\n        </activity>\r\n        <activity android:name=\".LoginActivity\" android:label=\"MainActivity\"/>\r\n        <activity android:name=\".JoinActivity\" android:label=\"JoinActivity\"/>\r\n        <activity android:name=\".FeedActivity\" android:label=\"BoardActivity\"/>\r\n        <activity android:name=\".BookmarkActivity\" android:label=\"BookmarkActivity\"/>\r\n        <activity android:name=\".SearchActivity\" android:label=\"UploadActivity\"/>\r\n        <activity android:name=\".PassresetActivity\"/>\r\n        <activity android:name=\".UserInitActivity\"/>\r\n        <activity android:name=\".CameraActivity\"/>\r\n        <activity android:name=\".WritePostActivity\"/>\r\n\r\n\r\n\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision e166b67942ef8f0f218001967694c23a59557c76)
++++ app/src/main/AndroidManifest.xml	(date 1623017854974)
+@@ -6,6 +6,7 @@
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+     <uses-permission android:name="android.permission.CAMERA"/>
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
++    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+     <uses-feature android:name="android.hardware.camera"/>
+     <uses-feature android:name="android.hardware.camera.autofocus"/>
+ 
+@@ -45,6 +46,9 @@
+         <activity android:name=".UserInitActivity"/>
+         <activity android:name=".CameraActivity"/>
+         <activity android:name=".WritePostActivity"/>
++        <activity android:name=".GalleryActivity"/>
++        <activity android:name=".MypageActivity"/>
++
+ 
+ 
+ 
