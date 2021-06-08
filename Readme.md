@@ -90,10 +90,16 @@ e.printStackTrace();
 
 
 
-2. 
+#### 2. 어플리케이션의 전체적인 구조<br> 
 
 
 
+
+![app_map (1)](https://user-images.githubusercontent.com/74412438/121175328-e30e9c80-c895-11eb-910c-458f587b2bc3.png)
+
+
+
+#### 3. 
 
 
 <br><br>
