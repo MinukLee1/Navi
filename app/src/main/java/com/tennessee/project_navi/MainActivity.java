@@ -40,6 +40,9 @@ public class   MainActivity extends AppCompatActivity {
         setContentView(R.layout.main_page);
         FloatingActionButton floatingActionButton;
 
+
+
+
 //        if(user == null){
 //            StartMyActivity(MainActivity.class);
 //        }else {
@@ -79,7 +82,7 @@ public class   MainActivity extends AppCompatActivity {
         FeedFragment = new FeedFragment();
         MypageFragment = new MypageFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, SearchFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, HomeFragment).commit();
     }
 private BottomNavigationView.OnNavigationItemSelectedListener listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
     @Override
