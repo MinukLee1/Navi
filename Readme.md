@@ -94,11 +94,11 @@ e.printStackTrace();
 ![알고리즘예비_Fragment11](https://user-images.githubusercontent.com/74412438/121266967-65c74400-c8f6-11eb-843e-9450a8465985.png)
 <br><br>
 
-#### 전체 알고리즘<br>
+#### FeedFragment / SearchFragment / MainFragment <br>
 ![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
 <br><br>
 
-#### 전체 알고리즘<br>
+#### BookmarkFragment / MypageFragment <br>
 ![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
 <br><br>
 
