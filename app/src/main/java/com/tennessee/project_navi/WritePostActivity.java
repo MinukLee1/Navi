@@ -110,6 +110,8 @@ public class WritePostActivity extends Activity {
                             selectedImageView = (ImageView) v;
                         }
                     });
+
+
                     Glide.with(this).load(profilePath).override(1000).into(imageView);
                     linearLayout.addView(imageView);
 
