@@ -95,11 +95,11 @@ e.printStackTrace();
 <br><br>
 
 #### FeedFragment / SearchFragment / MainFragment <br>
-![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+![알고리즘예비_Fragment111](https://user-images.githubusercontent.com/74412438/121267176-c060a000-c8f6-11eb-9aa9-53c2109bc93a.png)
 <br><br>
 
 #### BookmarkFragment / MypageFragment <br>
-![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+![알고리즘예비_Fragment1111](https://user-images.githubusercontent.com/74412438/121267208-cf475280-c8f6-11eb-95dc-b668959da579.png)
 <br><br>
 
 
