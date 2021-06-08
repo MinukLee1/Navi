@@ -1,17 +1,17 @@
 # Navi _ 나만아는 비밀장소<br>
-Navi-app which is Easily share your own place, where your friends have been anywhere in the country
 
-
-<br><br>
+#### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. <br>
+#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country
+<br><br><br>
 
 ## Description 
-### - 프로젝트 개요 <br>
  
-<br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)<br>![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
+<br>![4444 (2)](https://user-images.githubusercontent.com/74412438/120944103-a5165900-c76d-11eb-99e7-b73b2c0221b4.jpg)  ![555 (1)](https://user-images.githubusercontent.com/74412438/120944254-819fde00-c76e-11eb-966d-f50fd0d1a9f0.jpg)<br>
 
-<br><br>
- ### 프로젝트 개요<br>
+<br>
 
+### Navi 에서는 , <br>
+ 
 - 사용자들이 올린 전국 장소 리뷰
 
 - 실제 사용자들의 솔직한 리뷰
@@ -22,14 +22,96 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 - 지도 위에 표시되는 현재 내 위치와 근처 장소들
 
-- 사용자 위치기반 장소리스트 안내
+- 사용자 위치기반 장소리스트 안내<br><br><br><br>
 
+### 서비스 개요 
+![66661 (5)](https://user-images.githubusercontent.com/74412438/120944620-6df57700-c770-11eb-8607-445ce401074d.jpg)
+
+
+<br><br>
+## Environment
+<br>
+
+#### Android Studio<br>
+![pasted+image+0 (1)](https://user-images.githubusercontent.com/74412438/120945850-861bc500-c775-11eb-8dd7-43c47ffb2bb9.png)
 <br>
 <br>
+#### Google Firebase<br>
+![99DA2D3359E072CD14 (1)](https://user-images.githubusercontent.com/74412438/120945977-e4e13e80-c775-11eb-8710-bed7c65b0594.png)
+<br><br>
+#### Kakao API<br>
+![121222 (1)](https://user-images.githubusercontent.com/74412438/120946091-38538c80-c776-11eb-8d7c-60bd7f67528f.png)
 
 
-## 1. 회의 방식
+
+
+<br><br><br><br>
+
+## Prerequisite <br>
+- Android Studio (4.1.1 버전 사용중)<br><br>
+
+- Google Firebase API <br><br>
+
+- Kakao map API (HashKey 추가) <br><br>
+
+##### 1. 깃허브 상단의 Url 클릭후 Navi-app 설치(Clone)
+##### 2. 하단의 메소드를 내려받은 Android StudioProject/Navi-app/MainActivity 에 추가 후, compile 진행
+##### 3. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
+```c
+main() { 
+Log.i(TAG, "Key Hash Value :" + getHashKey(this as Activity);
+} 
+
+public String getKeyHashBase64(Context context) { 
+PackageInfo packageInfo = Utility.getPackageInfo(context, PackageManager.GET_SIGNATURES); 
+if (packageInfo == null) 
+return null;
+
+for (Signature signature : packageInfo.signatures) {
+try { MessageDigest md = MessageDigest.getInstance("SHA");
+md.update(signature.toByteArray());
+return Base64.encodeToString(md.digest(), Base64.DEFAULT);
+} catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
+e.printStackTrace(); 
+    }
+  } 
+ return null;
+}
+
+
+```
+    
 <br>
+
+## How To Get Started <br>
+
+#### 1. 어플리케이션 설치 확인<br>
+###### Prerequisite 의 순서에 따라 App 설치 확인 
+![app11 (1)](https://user-images.githubusercontent.com/74412438/121253763-77075500-c8e4-11eb-89a6-a90c1a219990.png)<br><br>
+
+
+#### 2. 어플리케이션 구동 환경 설정<br>
+###### 아래와 같이 APP의 Permission을 전부 allow 설정.<br>
+ ![app (1)](https://user-images.githubusercontent.com/74412438/121173071-56fb7580-c893-11eb-8bbe-56fefead78e3.png)<br><br>
+
+
+#### 3. 어플리케이션의 전체적인 구조<br> 
+
+
+
+
+![app_map (1)](https://user-images.githubusercontent.com/74412438/121175328-e30e9c80-c895-11eb-910c-458f587b2bc3.png)<br><br>
+
+
+
+#### 3. 
+
+
+<br><br>
+
+
+
+
    <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
           다음과 같은 과정으로 프로젝트 진행.<br><br>
         - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
@@ -88,21 +170,7 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 
 
 
- ## 4. 프로젝트 주제  <br><br>
 
-   ### 나비(Navi)  [나만아는 비밀장소]
-   <br>
-- 사용자들이 올린 전국 장소 리뷰
-
-- 실제 사용자들의 솔직한 리뷰
-
-- 전국 어디든 친구들이 다녀온 장소, 나만의 장소를 손쉽게 공유
-
-- 카페, 문화생활, 맛집 등의 추천 큐레이션
-
-- 지도 위에 표시되는 현재 내 위치와 근처 장소들
-
-- 사용자 위치기반 장소리스트 안내
 <br><br>
      <strong>구상 및 구현계획</strong><br>
    - google map API를 이용한 위치서비스 제공 
@@ -168,10 +236,6 @@ Navi-app which is Easily share your own place, where your friends have been anyw
 <br>
 
 
-## 개발환경 <br> 
-
-<br>
-<br>
 
 
 ## 사용 API <br>
