@@ -121,19 +121,14 @@ e.printStackTrace();
  ![app (1)](https://user-images.githubusercontent.com/74412438/121173071-56fb7580-c893-11eb-8bbe-56fefead78e3.png)<br><br>
 
 
-#### 3. 어플리케이션의 전체적인 구조<br> 
+#### 3. 어플리케이션 실행<br> 
 
-
-
-
-![app_map (1)](https://user-images.githubusercontent.com/74412438/121175328-e30e9c80-c895-11eb-910c-458f587b2bc3.png)<br><br>
-
-
-
-#### 3. 
 
 
 <br><br>
+
+## Code to Follow<br><br>
+
 
 
 
