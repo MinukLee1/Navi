@@ -44,36 +44,24 @@ public class UserInitActivity extends Activity {
     private String pathUri;
     private File tempFile;
     private ImageView profileImage;
-    private RelativeLayout loaderLayout;
+    private RelativeLayout loaderLayout, buttonsBackgroundLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinit_page);
 
-
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
-        profileImage = findViewById(R.id.profileImage);
         loaderLayout = findViewById(R.id.loaderLayout);
-
+        buttonsBackgroundLayout = findViewById(R.id.buttonsBackgroundLayout);
+        findViewById(R.id.gallery).setOnClickListener(onClickListener);
+        findViewById(R.id.picture).setOnClickListener(onClickListener);
+        findViewById(R.id.profileImage).setOnClickListener(onClickListener);
 
         //프로필 이미지 변경 리스너
-        /*findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //사진 찍기로 이동
-                StartMyActivity(CameraActivity.class);
-            }
-        });;*/
-        findViewById(R.id.profileImage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gotoAlbum();
-            }
-        });
 
         //회원정보 저장 버튼
         findViewById(R.id.btnInfoOk).setOnClickListener(new View.OnClickListener() {
@@ -81,12 +69,30 @@ public class UserInitActivity extends Activity {
             public void onClick(View v) {
                 profileUpdate();
             }
-        });;
+        });
 
+       }
 
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
 
+            switch (v.getId()){
 
-    }
+                case R.id.profileImage :
+                    buttonsBackgroundLayout.setVisibility(View.VISIBLE);
+                    break;
+                case R.id.gallery :
+                    gotoAlbum();
+                    buttonsBackgroundLayout.setVisibility(View.GONE);
+                    break;
+                case R.id.picture :
+                    StartMyActivity(CameraActivity.class);
+                    buttonsBackgroundLayout.setVisibility(View.GONE);
+                    break;
+            }
+        }
+    };
 
     // 앨범 메소드
     private void gotoAlbum() {
@@ -139,10 +145,8 @@ public class UserInitActivity extends Activity {
         finish();
     }
 
-
     //회원정보 등록
     private void profileUpdate() {
-
 
         String name = ((EditText) findViewById(R.id.IdEditText)).getText().toString();
         String phoneNumber = ((EditText) findViewById(R.id.phoneNumber)).getText().toString();
@@ -179,8 +183,8 @@ public class UserInitActivity extends Activity {
                                              // database에 저장
                                              mDatabase.getReference().child("users").child(name)
                                                      .setValue(userInfo);
-                                                                                                         }
-                                                                                                     });
+                                     }
+                                 });
                                 startToast("회원가입에 성공하였습니다.");
                                 loaderLayout.setVisibility(View.GONE);
                                 finish();
