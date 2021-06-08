@@ -19,7 +19,7 @@
         android:theme="@style/Theme.Project_Navi"
         android:networkSecurityConfig="@xml/network_security_config">
         <meta-data android:name="com.kakao.sdk.AppKey"
-            android:value="2137df0f52c5e1eb7a024d8c5f1cbdac"/>
+            android:value="6791c47a8c3f16480a2d05dfba5e81dd"/>
 
         <activity android:name=".SplashActivity" android:theme="@style/SplashTheme"
             >
