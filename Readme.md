@@ -86,7 +86,8 @@ e.printStackTrace();
 ## Algorithm <br><br>
 
 #### 전체 알고리즘<br>
-![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+![나비_알고리즘](https://user-images.githubusercontent.com/74412438/121266492-8d69dc80-c8f5-11eb-999a-d3fd3b1aa852.png)
+
 <br><br>
 
 #### MainActivity - Fragment <br>
