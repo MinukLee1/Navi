@@ -83,7 +83,7 @@ e.printStackTrace();
     
 <br><br><br><br>
 
-## Algorithm <br><br><br>
+## Algorithm <br><br>
 
 #### 전체 알고리즘<br>
 ![image](https://user-images.githubusercontent.com/74412438/121266830-2862b680-c8f6-11eb-8e36-ce976f6937cb.png)
