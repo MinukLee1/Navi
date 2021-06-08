@@ -91,7 +91,7 @@ e.printStackTrace();
 <br><br>
 
 #### MainActivity - Fragment <br>
-![알고리즘예비_Fragment (1)](https://user-images.githubusercontent.com/74412438/121266297-35cb7100-c8f5-11eb-97d8-246815c6434c.png)
+![알고리즘예비_Fragment11](https://user-images.githubusercontent.com/74412438/121266967-65c74400-c8f6-11eb-843e-9450a8465985.png)
 <br><br>
 
 #### 전체 알고리즘<br>
