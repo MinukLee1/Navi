@@ -106,7 +106,8 @@
                     android:layout_width="209dp"
                     android:layout_height="32dp"
                     android:layout_marginTop="20dp"
-                    android:background="#FDF07C"
+                    android:background="@drawable/icondesign"
+                    android:textColor="#000000"
                     android:text="확인"
                     app:backgroundTint="#FDF07C"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -142,13 +143,18 @@
                     android:id="@+id/picture"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/icondesign"
+                    android:textColor="#000000"
                     android:text="사진촬영" />
 
                 <Button
                     android:id="@+id/gallery"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/icondesign"
+                    android:textColor="#000000"
                     android:text="갤러리" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>

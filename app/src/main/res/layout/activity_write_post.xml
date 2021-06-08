@@ -14,9 +14,25 @@
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="634dp" />
 
+    <androidx.constraintlayout.utils.widget.ImageFilterView
+        android:id="@+id/imageFilterView"
+        android:layout_width="98dp"
+        android:layout_height="101dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="155dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginRight="155dp"
+        app:srcCompat="@drawable/navi_mark" />
+
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="386dp"
+        android:layout_height="350dp"
         android:foregroundGravity="center_horizontal">
 
 
@@ -25,18 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:id="@+id/imageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="87dp"
-                    app:srcCompat="@drawable/navi_mark" />
-            </LinearLayout>
 
             <EditText
                 android:id="@+id/titleEditText"
@@ -51,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,10 +88,11 @@
                     android:layout_gravity="center|center_horizontal"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
+                    android:background = "@drawable/icondesign"
                     android:text="이미지"
                     android:textColor="#000000"
                     app:backgroundTint="#FDF07C"
-                    app:iconTint="#FFFFFF" />
+                    app:iconTint="#FDF07C" />
 
                 <Button
                     android:id="@+id/btnVideo"
@@ -95,10 +101,12 @@
                     android:layout_gravity="center|center_horizontal"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
+                    android:background="@drawable/icondesign"
                     android:text="비디오"
                     android:textColor="#000000"
                     app:backgroundTint="#FDF07C"
-                    app:iconTint="#FFFFFF" />
+                    app:iconTint="#FDF07C"/>
+
             </LinearLayout>
 
             <Button
@@ -106,10 +114,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|center_horizontal"
+                android:background="@drawable/icondesign"
                 android:text="확인"
                 android:textColor="#000000"
                 app:backgroundTint="#FDF07C"
-                app:iconTint="#FFFFFF" />
+                app:iconTint="#FDF07C" />
         </LinearLayout>
 
     </ScrollView>
@@ -137,6 +146,7 @@
                     android:id="@+id/imageModify"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/icondesign"
                     android:text="이미지 수정"
                     android:textColor="#000000"
                     app:backgroundTint="#FDF07C"
@@ -146,6 +156,7 @@
                     android:id="@+id/videoModify"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/icondesign"
                     android:text="비디오 수정"
                     android:textColor="#000000"
                     app:backgroundTint="#FDF07C"
@@ -155,6 +166,7 @@
                     android:id="@+id/delete"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@drawable/icondesign"
                     android:text="삭제"
                     android:textColor="#000000"
                     app:backgroundTint="#FDF07C"
@@ -162,4 +174,5 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
+
 </RelativeLayout>

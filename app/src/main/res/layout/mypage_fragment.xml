@@ -98,6 +98,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
+                android:background="@drawable/icondesign"
+                android:textColor="#000000"
+                app:backgroundTint="#FDF07C"
                 android:text="로그인" />
 
         </LinearLayout>
