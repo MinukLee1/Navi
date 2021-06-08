@@ -54,8 +54,9 @@
 
 - Kakao map API (HashKey 추가) <br><br>
 
-##### 1. 하단의 메소드를 Android Studio에 추가 후, compile 진행
-##### 2. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
+##### 1. 깃허브 상단의 Url 클릭후 Navi-app 설치(Clone)
+##### 2. 하단의 메소드를 내려받은 Android StudioProject/Navi-app/MainActivity 에 추가 후, compile 진행
+##### 3. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
 ```c
 main() { 
 Log.i(TAG, "Key Hash Value :" + getHashKey(this as Activity);
@@ -84,13 +85,18 @@ e.printStackTrace();
 
 ## How To Get Started <br>
 
-#### 1. 어플리케이션 구동 환경 설정<br>
+#### 1. 어플리케이션 설치 확인<br>
+###### Prerequisite 의 순서에 따라 App 설치 확인 
+![app11 (1)](https://user-images.githubusercontent.com/74412438/121253763-77075500-c8e4-11eb-89a6-a90c1a219990.png)<br><br>
+
+
+#### 2. 어플리케이션 구동 환경 설정<br>
  ##### 아래와 같이 APP의 Permission을 전부 allow 설정.<br>
  ![app (1)](https://user-images.githubusercontent.com/74412438/121173071-56fb7580-c893-11eb-8bbe-56fefead78e3.png)<br><br>
 
 
 
-#### 2. 어플리케이션의 전체적인 구조<br> 
+#### 3. 어플리케이션의 전체적인 구조<br> 
 
 
 
