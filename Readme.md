@@ -86,7 +86,7 @@ e.printStackTrace();
 ## Algorithm <br><br>
 
 #### 전체 알고리즘<br>
-![나비_알고리즘](https://user-images.githubusercontent.com/74412438/121266492-8d69dc80-c8f5-11eb-999a-d3fd3b1aa852.png)
+![나비알고리즘11](https://user-images.githubusercontent.com/74412438/121266574-ad010500-c8f5-11eb-9cea-a90ee364e21a.png)
 
 <br><br>
 
