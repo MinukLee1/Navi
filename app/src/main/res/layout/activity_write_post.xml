@@ -14,21 +14,6 @@
         tools:layout_editor_absoluteX="181dp"
         tools:layout_editor_absoluteY="634dp" />
 
-    <androidx.constraintlayout.utils.widget.ImageFilterView
-        android:id="@+id/imageFilterView"
-        android:layout_width="98dp"
-        android:layout_height="101dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="155dp"
-        android:layout_marginLeft="155dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="155dp"
-        android:layout_marginRight="155dp"
-        app:srcCompat="@drawable/navi_mark" />
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -41,6 +26,17 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:orientation="vertical">
+
+            <androidx.constraintlayout.utils.widget.ImageFilterView
+                android:id="@+id/imageFilterView"
+                android:layout_width="98dp"
+                android:layout_height="101dp"
+                android:layout_marginStart="155dp"
+                android:layout_marginLeft="155dp"
+                android:layout_marginTop="38dp"
+                android:layout_marginEnd="155dp"
+                android:layout_marginRight="155dp"
+                app:srcCompat="@drawable/navi_mark" />
 
             <EditText
                 android:id="@+id/titleEditText"
