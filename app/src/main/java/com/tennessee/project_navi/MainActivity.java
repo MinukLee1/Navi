@@ -35,6 +35,7 @@ import com.kakao.usermgmt.response.model.User;
 import java.security.MessageDigest;
 
 public class   MainActivity extends AppCompatActivity {
+
     private Context mContext;
     private Fragment HomeFragment,SearchFragment,FeedFragment,BookmarkFragment,MypageFragment;
     private static final String TAG = "MainActivity";
