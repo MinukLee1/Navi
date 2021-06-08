@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="634dp"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -83,8 +91,8 @@
 
     <com.kakao.usermgmt.LoginButton
         android:id="@+id/btnKakao"
-        android:layout_width="247dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="177dp"
         app:layout_constraintBottom_toBottomOf="parent"

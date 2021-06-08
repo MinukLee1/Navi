@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -43,6 +44,7 @@ public class UserInitActivity extends Activity {
     private String pathUri;
     private File tempFile;
     private ImageView profileImage;
+    private RelativeLayout loaderLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +57,7 @@ public class UserInitActivity extends Activity {
         mDatabase = FirebaseDatabase.getInstance();
         mStorage = FirebaseStorage.getInstance();
         profileImage = findViewById(R.id.profileImage);
+        loaderLayout = findViewById(R.id.loaderLayout);
 
 
         //프로필 이미지 변경 리스너
@@ -148,6 +151,7 @@ public class UserInitActivity extends Activity {
         ImageView profileImage = ((ImageView) findViewById(R.id.profileImage));
 
         if (profileImage != null && name.length() > 0 && phoneNumber.length() > 9 && birthDay.length() > 5 && address.length() > 0 ) {
+            loaderLayout.setVisibility(View.VISIBLE);
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -178,6 +182,7 @@ public class UserInitActivity extends Activity {
                                                                                                          }
                                                                                                      });
                                 startToast("회원가입에 성공하였습니다.");
+                                loaderLayout.setVisibility(View.GONE);
                                 finish();
                             }
                         })
@@ -185,6 +190,7 @@ public class UserInitActivity extends Activity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 startToast("회원정보 등록에 실패하였습니다");
+                                loaderLayout.setVisibility(View.GONE);
                                 Log.v(TAG, "Error writting document",e);
                             }
                         });

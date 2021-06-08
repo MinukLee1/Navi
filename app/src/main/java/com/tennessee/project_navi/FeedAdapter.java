@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
@@ -33,14 +34,16 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.GalleryViewHol
     @NonNull
     @Override
     public FeedAdapter.GalleryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_gallery, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.item_feed, parent, false);
         GalleryViewHolder vh = new GalleryViewHolder(v);
         return vh;
         }
     @Override
     public void onBindViewHolder(@NonNull GalleryViewHolder holder, int position) {
-        ImageView imageView = holder.cardView.findViewById(R.id.itemImage);
-        Glide.with(activity).load(mDataset.get(position)).override(300).into(imageView);
+        /*ImageView imageView = holder.cardView.findViewById(R.id.itemImage);
+        Glide.with(activity).load(mDataset.get(position)).override(300).into(imageView);*/
+        TextView textView = holder.cardView.findViewById(R.id.textView);
+        textView.setText(mDataset.get(position));
     }
 
     @Override

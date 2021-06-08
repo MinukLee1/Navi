@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".PassresetActivity">
 
+    <include
+        layout="@layout/view_loader"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="634dp"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -111,13 +112,15 @@ public class JoinActivity extends Activity {
         if(email.length() > 0 && password.length() >0 && passwordCheck.length() > 0){
 
             if (password.equals(passwordCheck)) {
+                RelativeLayout loaderLayout = findViewById(R.id.loaderLayout);
+                loaderLayout.setVisibility(View.VISIBLE);
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, (task) ->  {
+                            loaderLayout.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
-
                                 FirebaseUser user = mAuth.getCurrentUser();
-
                                 StartMyActivity(UserInitActivity.class);
                                 finish();
                             } else {

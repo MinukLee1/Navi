@@ -139,6 +139,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
             @Override
             public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+
                 MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
                 MapPOIItem customMarker = new MapPOIItem();
               
