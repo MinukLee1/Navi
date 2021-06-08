@@ -84,8 +84,8 @@ e.printStackTrace();
 
 ## How To Get Started <br>
 
-1. 어플리케이션 구동 환경 설정<br>
-   아래와 같이 APP의 Permission을 전부 allow 설정.<br>
+#### 1. 어플리케이션 구동 환경 설정<br>
+ ##### 아래와 같이 APP의 Permission을 전부 allow 설정.<br>
  ![app (1)](https://user-images.githubusercontent.com/74412438/121173071-56fb7580-c893-11eb-8bbe-56fefead78e3.png)<br><br>
 
 
