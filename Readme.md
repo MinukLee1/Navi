@@ -83,17 +83,31 @@ e.printStackTrace();
     
 <br><br>
 
-## Algorithm <br><br><br>
+## Algorithm <br><br>
 
-####  App 전체 알고리즘<br>
+#### 전체 알고리즘<br>
 ![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+<br><br>
+
+#### MainActivity - Fragment <br>
+![알고리즘예비_Fragment (1)](https://user-images.githubusercontent.com/74412438/121266297-35cb7100-c8f5-11eb-97d8-246815c6434c.png)
+<br><br>
+
+#### 전체 알고리즘<br>
+![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+<br><br>
+
+#### 전체 알고리즘<br>
+![알고리즘예비_FULL (1)](https://user-images.githubusercontent.com/74412438/121266029-cbb2cc00-c8f4-11eb-9578-a2f98d1d2895.png)
+<br><br>
 
 
 
 
 
 
-## How To Get Started <br><br><br>
+
+## How To Get Started <br><br>
 
 #### 1. 어플리케이션 설치 확인<br>
 ###### Prerequisite 의 순서에 따라 App 설치 확인 
