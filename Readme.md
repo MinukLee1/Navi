@@ -150,6 +150,22 @@ e.printStackTrace();
 ## Code to Follow<br><br>
 
 
+#### AndroidManifest.xml 에서 <application> 태그 설정 및 Kakao맵 사용을 위한 "com.kakao.sdk.AppKey" 해쉬키 입력
+ '''c
+ //프로젝트 진행시 필요한 환경설정을 위한 permission 진행
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+ 
+ '''
+
+
+
+
+
 
 
 
