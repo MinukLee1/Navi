@@ -1,5 +1,3 @@
-
-
 # Navi _ 나만아는 비밀장소<br>
 
 #### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. <br>
@@ -3654,9 +3652,6 @@ public class Camera2BasicFragment extends Fragment
 
  
  
-
- 
- 
  
  <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
           다음과 같은 과정으로 프로젝트 진행.<br><br>
@@ -3685,15 +3680,40 @@ public class Camera2BasicFragment extends Fragment
 
 
 
-## Database 테이블 구조 <br>
+## Firebase DB  <br>
 <br>
+#### Navi DB <br>
+![DB11 (1)](https://user-images.githubusercontent.com/74412438/121343142-53ccbc00-c95d-11eb-88ab-75053af4a5ff.png)<br>
 <br>
+ 
+ #### 사용자 DB (Authentication)<br>
+ ![DB22 (1)](https://user-images.githubusercontent.com/74412438/121343415-9abab180-c95d-11eb-899a-cae20f1dad80.png)
+<br>
+ 
+ #### 사용자정보 DB (Firestore)<br>
+  ![image](https://user-images.githubusercontent.com/74412438/121343737-f8e79480-c95d-11eb-8fd9-21c61dea3a0a.png)
+<br>
+ 
+ 
+#### 게시글 DB (Firestore)<br>
+  ![DB44 (1)](https://user-images.githubusercontent.com/74412438/121344165-64c9fd00-c95e-11eb-8cd0-5e7215265aa6.png)
+<br>
+ 
+ #### 카메라 및 갤러리 (Storage)<br>
+  ![image](https://user-images.githubusercontent.com/74412438/121343737-f8e79480-c95d-11eb-8fd9-21c61dea3a0a.png)
+<br>
+ 
+ 
 
 
-## 5. 프로젝트 기획서 및 스토리보드 
+ 
+ 
+
+<br>
+
+## Navi-app 기획서 및 스토리보드
    <br><br>
  ![image](https://user-images.githubusercontent.com/74412438/113589170-06d21e00-966c-11eb-93c1-ccde607dd079.png)<br><br>
-![image](https://user-images.githubusercontent.com/74412438/113589185-0a65a500-966c-11eb-8846-a2351ea687ec.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589203-0fc2ef80-966c-11eb-973e-28b63ec8fdb7.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589217-13567680-966c-11eb-81b2-1dc00a3310a7.png)<br><br>
 ![image](https://user-images.githubusercontent.com/74412438/113589230-16e9fd80-966c-11eb-8b90-521744e60b7f.png)<br><br>
