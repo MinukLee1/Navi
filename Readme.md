@@ -95,7 +95,7 @@ e.printStackTrace();
     
 <br><br><br><br>
 
-## Algorithm <br>
+## Algorithm & LifeCycle <br>
 
 
 #### 전체 알고리즘<br>
