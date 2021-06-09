@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class FeedFragment extends Fragment {
 
     FloatingActionButton floatingBtn;
+    Button btnFeed;
 
     private Context context;
 
@@ -41,6 +43,7 @@ public class FeedFragment extends Fragment {
         ViewGroup rootview = (ViewGroup)inflater.inflate(R.layout.feed_fragment,container,false);
 
         floatingBtn = rootview.findViewById(R.id.floatingActionButton);
+        btnFeed = rootview.findViewById(R.id.btnFeed);
         // Inflate the layout for this fragment
         //게시글 작성버튼
         //로그인이 안되어있을시 ,
@@ -63,6 +66,14 @@ public class FeedFragment extends Fragment {
                 }
             });
         }
+
+        btnFeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FeedActivity.class);
+                startActivity(intent);
+            }
+        });
         return rootview;
     }
 }
