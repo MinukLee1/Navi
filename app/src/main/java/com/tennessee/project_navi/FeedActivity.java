@@ -46,6 +46,7 @@ public class FeedActivity extends Activity {
 
     }
 
+    @Override
     protected void onResume() {
         super.onResume();
 
