@@ -1,7 +1,9 @@
 # Navi _ 나만아는 비밀장소<br>
 
 #### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. <br>
-#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country
+#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country<br>
+
+##### https://studio.youtube.com/channel/UCAcJa6Ekl9Tp3jiwvMhnszg/videos/upload?d=ud&filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D
 <br><br><br>
 
 ## Description 
@@ -163,6 +165,8 @@ e.printStackTrace();
 
 ## Code to Follow<br><br>
 
+
+#### 
 
 #### AndroidManifest.xml 에서 프로젝트 진행시 필요한 환경설정을 위한 permission 진행
  
