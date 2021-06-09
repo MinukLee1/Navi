@@ -68,7 +68,15 @@
 
 ##### 1. 깃허브 상단의 Url 클릭후 Navi-app 설치(Clone)
 ##### 2. 하단의 메소드를 내려받은 Android StudioProject/Navi-app/MainActivity 에 추가 후, compile 진행
-##### 3. Logcat 터미널에 나오는 Hashkey를 [KakaoDeveloper](https://developers.kakao.com/) 에 등록
+##### 3. Logcat 터미널에 나오는 Hashkey를 복사 
+##### 4. [KakaoDeveloper](https://developers.kakao.com/) 에 접속
+##### 5. 로그인 > 시작하기 > 애플리케이션 추가하기 클릭
+##### 6. 임의의 앱 이름, 사업자명을 입력 후 저장 클릭
+##### 7. 만들어진 어플리케이션을 클릭한 후 플랫폼 설정하기 클릭
+##### 8. Android 플랫폼 등록 클릭 > 패키지명에 com.tennessee.project_navi 입력 > 키 해시 항목에 복사해둔 Hash Key를 붙여넣기 > 저장 클릭
+##### 9. 요약 정보 > 앱 키 > 네이티브 앱 키 복사
+##### 10. Android Studio > manifests > application- android:value = "" 에 복사한 네이티브 앱 키 붙여넣기
+
 ```c
 main() { 
 Log.i(TAG, "Key Hash Value :" + getHashKey(this as Activity);
