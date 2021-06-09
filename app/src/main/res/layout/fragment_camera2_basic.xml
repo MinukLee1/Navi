@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="picture" />
+            android:text="picture"
+            android:fontFamily="@font/bold"/>
 
         <Button
             android:id="@+id/change"
@@ -51,7 +52,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:text="카메라 전/후면변경" />
+            android:text="카메라 전/후면변경"
+            android:fontFamily="@font/bold"/>
 
 
     </LinearLayout>

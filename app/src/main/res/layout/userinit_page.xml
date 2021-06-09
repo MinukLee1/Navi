@@ -31,6 +31,7 @@
                 android:layout_height="100dp"
                 android:gravity="center"
                 android:text="회원정보"
+                android:fontFamily="@font/bold"
                 android:textColor="#000000"
                 android:textSize="27sp"
                 android:textStyle="bold" />
@@ -109,6 +110,7 @@
                     android:background="@drawable/icondesign"
                     android:textColor="#000000"
                     android:text="확인"
+                    android:fontFamily="@font/bold"
                     app:backgroundTint="#FDF07C"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -145,7 +147,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/icondesign"
                     android:textColor="#000000"
-                    android:text="사진촬영" />
+                    android:text="사진촬영"
+                    android:fontFamily="@font/bold"/>
 
                 <Button
                     android:id="@+id/gallery"
@@ -153,7 +156,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/icondesign"
                     android:textColor="#000000"
-                    android:text="갤러리" />
+                    android:text="갤러리"
+                    android:fontFamily="@font/bold"/>
 
             </LinearLayout>
 
