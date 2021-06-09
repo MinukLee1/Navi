@@ -3657,22 +3657,6 @@ public class Camera2BasicFragment extends Fragment
  
  
  
- <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
-          다음과 같은 과정으로 프로젝트 진행.<br><br>
-        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
-        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
-        - 최종 프로젝트 구상 회의  <br><br>
-
-![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
-
-
-<br><br>
-     
-
-
-    
- 
-
 
 
 
@@ -3708,6 +3692,22 @@ public class Camera2BasicFragment extends Fragment
 <br>
  
  
+
+
+<br><br><br>
+     
+ ## 프로젝트 진행방식  <br>
+
+    
+  <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
+          다음과 같은 과정으로 프로젝트 진행.<br><br>
+        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
+        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
+        - 최종 프로젝트 구상 회의  <br><br>
+
+![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
+
+
 
 
  
