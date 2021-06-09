@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.kakao.usermgmt.response.model.User;
 
 public class JoinActivity extends Activity {
     TextView txtAlert;
@@ -112,14 +113,11 @@ public class JoinActivity extends Activity {
         if(email.length() > 0 && password.length() >0 && passwordCheck.length() > 0){
 
             if (password.equals(passwordCheck)) {
-                RelativeLayout loaderLayout = findViewById(R.id.loaderLayout);
-                loaderLayout.setVisibility(View.VISIBLE);
-
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(this, (task) ->  {
-                            loaderLayout.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
+
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 StartMyActivity(UserInitActivity.class);
                                 finish();

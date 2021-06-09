@@ -160,33 +160,16 @@ public class UserInitActivity extends Activity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
             //사용자 정보 초기화
-            UserInfo userInfo = new UserInfo( name, phoneNumber, birthDay, address, profileImage);
+            UserInfo userInfo = new UserInfo( name, phoneNumber, birthDay, address);
 
             if (user != null  ) {
 
                 db.collection("users").document(user.getUid()).set(userInfo)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
+
                             @Override
                             public void onSuccess(Void aVoid) {
-
-                                final Uri file = Uri.fromFile(new File(pathUri)); // path
-
-                                // 스토리지에 방생성 후 선택한 이미지 넣음
-                                StorageReference storageReference = mStorage.getReference()
-                                        .child("users").child("uid/"+file.getLastPathSegment());
-                                storageReference.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
-                                 @Override
-                                 public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                                     final Task<Uri> imageUrl = task.getResult().getStorage().getDownloadUrl();
-                                              userInfo.setName(name);
-                                             Glide.with(userInfo.getProfileImage()).load(imageUrl.getResult().toString());
-                                             // database에 저장
-                                             mDatabase.getReference().child("users").child(name)
-                                                     .setValue(userInfo);
-                                     }
-                                 });
                                 startToast("회원가입에 성공하였습니다.");
-                                loaderLayout.setVisibility(View.GONE);
                                 finish();
                             }
                         })
@@ -194,13 +177,12 @@ public class UserInitActivity extends Activity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 startToast("회원정보 등록에 실패하였습니다");
-                                loaderLayout.setVisibility(View.GONE);
                                 Log.v(TAG, "Error writting document",e);
                             }
                         });
             }
         } else {
-            startToast("프로필사진 및 회원정보 입력은 필수입니다");
+            startToast("회원정보 입력은 필수입니다");
         }
     }
 

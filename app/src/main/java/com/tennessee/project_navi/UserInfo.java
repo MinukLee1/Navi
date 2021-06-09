@@ -17,14 +17,12 @@ public class UserInfo {
    private String phoneNumber;
    private String birthDay;
    private String address;
-   private ImageView profileImage;
 
-   public UserInfo(String name, String phoneNumber, String birthDay, String address,ImageView profileImage){
+   public UserInfo(String name, String phoneNumber, String birthDay, String address){
          this.name = name;
          this.phoneNumber = phoneNumber;
          this.birthDay = birthDay;
          this.address = address;
-         this.profileImage = profileImage;
    }
 
 
@@ -52,12 +50,6 @@ public class UserInfo {
    }
    public void setAddress(String address){
       this.address = address;
-   }
-   public ImageView getProfileImage(){
-      return this.profileImage;
-   }
-   public void setProfileImage(ImageView address){
-      this.profileImage = profileImage;
    }
 
 }
