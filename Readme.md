@@ -150,8 +150,7 @@ e.printStackTrace();
 ## Code to Follow<br><br>
 
 
-#### AndroidManifest.xml 에서 <application> 태그 설정 및 Kakao맵 사용을 위한 "com.kakao.sdk.AppKey" 해쉬키 입력
- 
+#### AndroidManifest.xml 에서 프로젝트 진행시 필요한 환경설정을 위한 permission 진행
  
 ```c
      //프로젝트 진행시 필요한 환경설정을 위한 permission 진행
@@ -164,13 +163,773 @@ e.printStackTrace();
  
  ```
 
+#### AndroidManifest.xml / <meta-data> 태그추가 및 Kakao맵 사용을 위한 "com.kakao.sdk.AppKey" 해쉬키 입력
+
+```c
+     <meta-data android:name="com.kakao.sdk.AppKey"
+            android:value="f0161a2a261a69601640ef9fd70c9cd4"/>
+ 
+ ```
+ 
+ #### AndroidManifest.xml / App 실행시 최초 대기화면에서 출력되는 Splash 기능 구현을 위한 SplashActivity 생성 및 AndroidManifest에 태그추가 
+
+```c
+     <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+ 
+ ```
+ 
+ #### SplashActivity.java / SplashActivity 최초 실행 (onCreate) 시 이후 출력될 MainActivity로의 이동을 위한 코드 작성 
+
+```c
+    public class SplashActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
+}
+
+ 
+ ```
+ 
+ #### MainActivity.java / App 실행시 최초출력될 메인 Activity에 BottomNavigation 기능 및 fragment 사용을 위한 framelayout 생성 ( id : container )
+
+```c
+
+public class   MainActivity extends AppCompatActivity {
+    private Fragment HomeFragment,SearchFragment,FeedFragment,BookmarkFragment,MypageFragment;
+    private static final String TAG = "MainActivity";
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.main_page);
+
+        FrameLayout frameLayout = findViewById(R.id.container);
+
+        BottomNavigationView BottomNavigation = findViewById(R.id.bottomnavigation);
+
+        BottomNavigation.setOnNavigationItemSelectedListener(listener);
+
+        HomeFragment = new MainFragment();
+        SearchFragment = new SearchFragment();
+        BookmarkFragment = new BookmarkFragment();
+        FeedFragment = new FeedFragment();
+        MypageFragment = new MypageFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, HomeFragment).commit();
+    }
+private BottomNavigationView.OnNavigationItemSelectedListener listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.feed:
+                replaceFragment(FeedFragment);
+                return true;
+            case R.id.search:
+                replaceFragment(SearchFragment);
+                return true;
+            case R.id.main:
+                replaceFragment(HomeFragment);
+                return true;
+            case R.id.bookmark:
+                replaceFragment(BookmarkFragment);
+                return true;
+            case R.id.mypage:
+                replaceFragment(MypageFragment);
+                return true;
+
+        }
+        return false;
+    }
+};
+
+
+        // XML 레이아웃에 정의된 contentsLayout 객체 참조
+        FrameLayout contentsLayout = (FrameLayout) findViewById(R.id.fragment_container_view_tag);
+
+    // 인플레이션 수행
+    LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+
+        // 프래그먼트 전환 메소드
+        public void replaceFragment(Fragment fragment) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.container, fragment).commit();     // Fragment로 사용할 MainActivity내의 layout공간을 선택합니다.
+        }
+ 
+}
+
+ 
+ ```
+ 
+ #### main_page.xml / MainActivity와 연동된 레이아웃단에 <FrameLayout> 과 <BottomNavigation> 만을 RelativeLayout으로 디자인 
+
+```c
+     <?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomnavigation">
+
+    </FrameLayout>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavigation"
+        android:layout_width="409dp"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/com_kakao_button_background_press"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation" />
+
+</RelativeLayout>
+ 
+ ```
+ 
+ #### Feedfragment.java / Feedfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 UI 및 페이지 기능 구현 
+ 
+```c
+    public class FeedFragment extends Fragment {
+
+    FloatingActionButton floatingBtn;
+
+    private Context context;
+
+    public FeedFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        context = container.getContext();
+        ViewGroup rootview = (ViewGroup)inflater.inflate(R.layout.feed_fragment,container,false);
+
+        floatingBtn = rootview.findViewById(R.id.floatingActionButton);
+        // Inflate the layout for this fragment
+        //게시글 작성버튼
+        //로그인이 안되어있을시 ,
+        if (user == null) {
+            floatingBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
+        //로그인 되어있을시 ,
+        if (user != null) {
+
+            floatingBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getActivity(), WritePostActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        return rootview;
+    }
+}
+ 
+ ```
+ 
+ #### Searchfragment.java / Searchfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 UI 및 페이지 기능 구현 
+
+ 
+```c
+     public class SearchFragment extends Fragment {
 
 
 
 
 
+    public SearchFragment() {
+        // Required empty public constructor
+    }
 
 
+    public static SearchFragment newInstance(String param1, String param2) {
+        SearchFragment fragment = new SearchFragment();
+
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.search_fragment, container, false);
+    }
+}
+ 
+ ```
+ 
+ 
+ #### Mainfragment.java / Mainfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 UI 및 페이지 기능 구현 
+
+ 
+```c
+    public class MainFragment extends Fragment implements MapView.MapViewEventListener, MapView.POIItemEventListener
+        {
+            private Context context;
+    private static final String TAG ="HomeFragment";
+            Activity activity;
+    RelativeLayout mapViewContainer;
+
+    public MainFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+        }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        context = container.getContext();
+        View view = inflater.inflate(R.layout.main_fragment,container,false);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        //메인 fragment 시작시, 로그인 여부에 따른 프라그먼트 전환 및 출력조건절
+
+
+        // Initialize Firebase Auth : 회원가입이 안된상태일시 JoinActivity
+        // -> 이 로그인 유무 조건을 통해서, 타 Activity에서도 onCreate에서 똑같이 설정후 기능을 줄수있다 !!
+        //로그인 되어있을시 -> 우측하단버튼 : logout 버튼 / 로그아웃 되어있을시 -> 우측하단버튼 : login버튼
+        //   startLoginActivity();
+
+
+        MapView mapView =  new MapView(getActivity());
+        ViewGroup mapViewContainer = (ViewGroup) view.findViewById(R.id.map_view);
+        mapViewContainer.addView(mapView);
+
+       //트래킹 모드 - Kakao map에서 현재위치 출력 코드 
+        mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode
+                .TrackingModeOnWithoutHeading);
+        mapView.setZoomLevel(1, true);
+
+        //상명대학교로 나비 customMark 임의 지정 
+        MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(36.8336012, 127.1791657);
+
+        MapPOIItem customMarker = new MapPOIItem();
+        customMarker.setItemName("상명대학교");
+        customMarker.setTag(1);
+        customMarker.setMapPoint(mapPoint);
+        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
+        customMarker.setCustomImageAutoscale(false);
+        customMarker.setCustomImageAnchor(0.5f, 1.0f);
+        mapView.addPOIItem(customMarker);
+
+        mapView.setMapViewEventListener(MainFragment.this);
+        mapView.setPOIItemEventListener(MainFragment.this);
+
+
+
+      
+        return view;
+
+    }
+
+    //프라그먼트용으로 변경한 화면전환 메소드
+            // 액티비티 : this / 프라그먼트 : getActivity()
+            private void StartMyActivity(Class c){
+                Intent intent = new Intent(getActivity(), c);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onAttach(Context context) {
+                super.onAttach(context);
+
+                if (context instanceof Activity)
+                    activity = (Activity) context;
+            }
+
+            @Override
+            public void onMapViewInitialized(MapView mapView) {
+
+            }
+
+            @Override
+            public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onMapViewZoomLevelChanged(MapView mapView, int i) {
+
+            }
+
+            @Override
+            public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+
+                MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
+                MapPOIItem customMarker = new MapPOIItem();
+              
+                customMarker.setItemName("게시글 작성하기");
+                customMarker.setTag(1);
+                customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(mapPointGeo.latitude, mapPointGeo.longitude));
+                customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+                customMarker.setCustomImageResourceId(R.drawable.navi_mark);
+                customMarker.setCustomImageAutoscale(false);
+                customMarker.setCustomImageAnchor(0.5f, 1.0f);
+                mapView.addPOIItem(customMarker);
+                Toast.makeText(getActivity(), "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+
+            }
+
+            @Override
+            public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+
+            }
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            @Override
+            public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+
+                //로그인이 안되어있을시 ,
+                if (user == null) {
+                    Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
+                }
+                //로그인 되어있을시 ,
+                if (user != null) {
+
+                    Intent intent = new Intent(getActivity(), WritePostActivity.class);
+                    startActivity(intent);
+                }
+
+
+            }
+
+            @Override
+            public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
+
+            }
+
+            @Override
+            public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {
+
+            }
+        }
+ ```
+ 
+ #### Bookmarkfragment.java / Bookmarkfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 UI 및 페이지 기능 구현 
+
+ 
+```c
+     public class BookmarkFragment extends Fragment {
+
+
+
+    public BookmarkFragment() {
+        // Required empty public constructor
+    }
+
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.bookmark_fragment, container, false);
+    }
+}
+ 
+ ```
+
+ #### Mypagefragment.java / Mypagefragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 UI 및 페이지 기능 구현 
+
+ 
+```c
+   public class MypageFragment extends Fragment {
+
+Button logincheckBtn;
+EditText IdEditText;
+EditText phoneNumber;
+EditText birthDayEditText;
+EditText addressEditText;
+
+    public MypageFragment() {
+        // Required empty public constructor
+    }
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        // Inflate the layout for this fragment
+        ViewGroup rootview = (ViewGroup)inflater.inflate(R.layout.mypage_fragment,container,false);
+
+
+        IdEditText = rootview.findViewById(R.id.IdEditText);
+        phoneNumber = rootview.findViewById(R.id.phoneNumber);
+        birthDayEditText = rootview.findViewById(R.id.birthDayEditText);
+        addressEditText = rootview.findViewById(R.id.addressEditText);
+
+        logincheckBtn = rootview.findViewById(R.id.logincheckBtn);
+
+        //로그인 안되어있을시 ,
+        if(user == null) {
+            IdEditText.setText("로그인 후 확인가능합니다");
+            IdEditText.setEnabled(false);
+            phoneNumber.setText("로그인 후 확인가능합니다");
+            phoneNumber.setEnabled(false);
+            birthDayEditText.setText("로그인 후 확인가능합니다");
+            birthDayEditText.setEnabled(false);
+            addressEditText.setText("로그인 후 확인가능합니다");
+            addressEditText.setEnabled(false);
+
+
+            logincheckBtn.setText("로그인하기");
+            logincheckBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //로그인 성공시 현재 프라그먼트 종료후 새로고침
+                    getActivity().finish();
+                    Intent intent = new Intent(getActivity(), LoginActivity.class);
+                    startActivity(intent);
+
+                }
+            });
+
+        }
+        //로그인 되어있을시 ,
+        if(user != null){
+
+            IdEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+            IdEditText.setEnabled(false);
+            phoneNumber.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+            phoneNumber.setEnabled(false);
+            birthDayEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+            birthDayEditText.setEnabled(false);
+            addressEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+            addressEditText.setEnabled(false);
+
+
+
+            logincheckBtn.setText("로그아웃하기");
+            logincheckBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseAuth.getInstance().signOut();
+                }
+            });
+        }
+
+        return rootview;
+    }
+
+
+
+    private void StartMyActivity(Class c){
+        Intent intent = new Intent(getActivity(), c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+    }
+
+}
+
+ 
+ ```
+
+
+ #### Feedfragment.xml / Feedfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 xml 레이아웃 디자인 
+ 
+  ```c
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".FeedFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="340dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginRight="21dp"
+        android:layout_marginBottom="19dp"
+        android:clickable="true"
+        android:src="@drawable/ic_add_black_24dp"
+        app:backgroundTint="@color/bg_login_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</RelativeLayout>
+ 
+ ```
+ 
+  #### Searchfragment.xml / Searchfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 xml 레이아웃 디자인 
+ 
+  ```c
+ 
+ 
+ ```
+ 
+  #### Mainfragment.xml / Mainfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 xml 레이아웃 디자인 
+ 
+  ```c
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomnavigation">
+
+    </FrameLayout>
+
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomnavigation"
+        android:layout_width="409dp"
+        android:layout_height="66dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/com_kakao_button_background_press"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation" />
+
+</RelativeLayout>
+
+ 
+ ```
+ 
+  #### Bookmarkfragment.xml / Bookmarkfragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 xml 레이아웃 디자인 
+ 
+  ```c
+ 
+ 
+ ```
+ 
+  #### Mypagefragment.xml / Mypagefragment - 위에서 생성해준 BottomNavigaiton에 등록될 5가지의 Fragment 페이지에 대한 xml 레이아웃 디자인 
+ 
+  ```c
+ <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MypageFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:context=".LoginActivity">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:text="마이페이지"
+            android:textSize="27sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="100dp">
+
+                <ImageView
+                    android:id="@+id/profileImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:src="@tools:sample/avatars" />
+            </androidx.cardview.widget.CardView>
+
+            <EditText
+                android:id="@+id/IdEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="이름"
+                android:inputType="text"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="전화번호"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <EditText
+                android:id="@+id/birthDayEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="생년월일"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <EditText
+                android:id="@+id/addressEditText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:ems="10"
+                android:hint="주소"
+                android:inputType="textPassword"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/IdEditText"
+                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+
+            <Button
+                android:id="@+id/logincheckBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/icondesign"
+                android:textColor="#000000"
+                app:backgroundTint="#FDF07C"
+                android:text="로그인" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>
+ 
+ ```
+ 
+ 
+ 
    <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
           다음과 같은 과정으로 프로젝트 진행.<br><br>
         - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
