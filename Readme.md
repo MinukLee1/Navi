@@ -102,7 +102,7 @@ e.printStackTrace();
 ```
     
 <br><br>
-- App 내 사용된 img 파일 <br>
+- App 내 사용된 이미지 파일 원본 <br>
 ![feed](https://user-images.githubusercontent.com/74412438/121339601-9db3a300-c959-11eb-8297-e882f6b831e4.png)
 ![search](https://user-images.githubusercontent.com/74412438/121339622-a1dfc080-c959-11eb-852e-7e47c0288d78.png)
 ![navi](https://user-images.githubusercontent.com/74412438/121339764-cb005100-c959-11eb-9549-530ea651e621.png)
