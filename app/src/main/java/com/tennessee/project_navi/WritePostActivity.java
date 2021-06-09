@@ -197,8 +197,8 @@ public class WritePostActivity extends Activity {
                         }
                     }else {
                         contentsList.add(pathList.get(pathCount));
-                        final StorageReference mountainImagesRef = storageRef.child("feeds/" + documentReference.getId() + "/"+pathCount+".jpg");
-
+                        String[] pathArray = pathList.get(pathCount).split("\\.");
+                        final StorageReference mountainImagesRef = storageRef.child("feeds/" + documentReference.getId() + "/"+pathCount+ "." + pathArray[pathArray.length - 1]);
                         try {
                             InputStream stream = new FileInputStream(new File(pathList.get(pathCount)));
                             StorageMetadata metadata = new StorageMetadata.Builder().setCustomMetadata("index",""+(contentsList.size()-1)).build();
