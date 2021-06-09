@@ -101,6 +101,20 @@ e.printStackTrace();
 
 ```
     
+<br><br>
+- App 내 사용된 img 파일 <br>
+![feed](https://user-images.githubusercontent.com/74412438/121339601-9db3a300-c959-11eb-8297-e882f6b831e4.png)
+![search](https://user-images.githubusercontent.com/74412438/121339622-a1dfc080-c959-11eb-852e-7e47c0288d78.png)
+![navi](https://user-images.githubusercontent.com/74412438/121339764-cb005100-c959-11eb-9549-530ea651e621.png)
+![bookmark](https://user-images.githubusercontent.com/74412438/121339781-ce93d800-c959-11eb-82df-7c0aa941775b.png)
+![mypage](https://user-images.githubusercontent.com/74412438/121339791-d18ec880-c959-11eb-8243-cf4bd1540c25.png) 
+![navi111](https://user-images.githubusercontent.com/74412438/121339946-f97e2c00-c959-11eb-881b-2bfc7f3a92b9.png)
+
+<br><br>
+
+
+
+
 <br><br><br><br>
 
 ## Algorithm & LifeCycle <br>
@@ -3635,24 +3649,10 @@ public class Camera2BasicFragment extends Fragment
  ```
  
  
-   #### Passreset.java / 비밀번호 재설정 페이지에 대한 코드 
 
  
-```c
-
-      
-
- ```
  
- 
-   #### Passreset.java / 비밀번호 재설정 페이지에 대한 코드 
 
- 
-```c
-
-      
-
- ```
  
  
  
@@ -3664,115 +3664,23 @@ public class Camera2BasicFragment extends Fragment
 
 ![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
 
-<br><br>
 
- <strong> - 앱 개발전 프로젝트 계획기간( week05 )까지는 Discord를 통하여 실시간으로 회의 및 weekly report를 작성하였기에, 하나의 Github 계정(MinukLee1)으로 commit 하였음을 알립니다. <br><br> - 추후 앱개발단계인 week06 부터는 개발현황에따른 각 계정별 commit이 진행될 예정입니다. </strong>
-        
 <br><br>
      
-## 2. 유사앱 시장조사 <br><br>
 
 
-   - Soulpicks<br>
-    < 커뮤니티 기반 도시 필터링 서비스 ><br>
-    < 어디에서나 현지인처럼 느낄 수 있게 국/해외 상관없이 사용 가능 ><br>
-      - 프로필에 새로운 장소를 업로드 하고 즐겨찾는 장소를 관리 및 공유 <br>
-      - 취향이 비슷한 사람들을 커뮤니티에서 찾고 메모, 사진업로드, 편집 가능 <br>
-      - 30개 이상의 언어로 전세계에서 호환  <br><br><br>
-                 
-                 
-   - 방방콕콕<br>
-    <국내 관광지와 주변의 다양한 맛집, 숙소, 체험, 축제를 소개 ><br>
-    < 유명한 관광지 외 숨어있는 장소 정보를 제공 ><br>
-      - 영화, 드라마 등에 노출된 명소 추천  <br>
-      - 서울, 경기 등 지역별 명소 추천  <br> <br><br>
-        
-
-   - 와간다(WAGANDA)<br>
-    < 사용자들간의 전 세계 장소 리뷰 ><br>
-    < 전세계 어디든 친구들이 다녀온 장소, 나만의 장소를 손쉽게 공유 ><br>
-      - 지도(MAP MODE)를 이용한 지도 위 표시되는 내 위치와 근처 장소들 <br>
-      - 사용자 위치기반 장소 리스트 안내 <br>
-      - 에디터들의 지역별, 카테고리별 장소 추천 스토리 <br><br><br>
-
-
+    
  
 
 
 
 
-
-<br><br>
-     <strong>구상 및 구현계획</strong><br>
-   - google map API를 이용한 위치서비스 제공 
-   - 사용자 정보 및 앱 데이터 저장을 위한 DB 서버 구축 
-   - UI 구현 및 디자인 구상 
-   - etc..
-   <br><br><br>
-     
-     
-     
-
-
-
-
- ### 기능구현 <br>
- 
- 
-<details>
-    <summary>이민욱</summary>
-
-<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
-
-</details>
-
-<details>
-    <summary>황성택</summary>
-
-<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
-
-</details>
-
-<details>
-    <summary>성주현</summary>
-
-<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
-
-</details>
-
-<details>
-    <summary>박예진</summary>
-
-<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
-
-</details>
-
-<details>
-    <summary>최수빈</summary>
-
-<!-- summary 아래 한칸 공백 두고 내용 삽입 -->
-
-</details>
-
-
-<br>
-<br>
-
- ### 기대 효과 및 활용 분야 <br>
-
-
-
-
 <br>
 <br>
 
 
 
 
-## 사용 API <br>
-
-<br>
-<br>
 
 
 ## Database 테이블 구조 <br>
