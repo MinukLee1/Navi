@@ -67,5 +67,10 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'com.google.firebase:firebase-storage'
+
+    //ads
+    implementation 'com.google.android.gms:play-services-ads:18.0.0'
+
+
 }
 apply plugin: 'com.google.gms.google-services'

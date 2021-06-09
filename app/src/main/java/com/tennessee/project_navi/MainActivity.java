@@ -21,6 +21,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -39,6 +42,8 @@ public class   MainActivity extends AppCompatActivity {
     private Fragment HomeFragment,SearchFragment,FeedFragment,BookmarkFragment,MypageFragment;
     private static final String TAG = "MainActivity";
 
+    //ad
+    private AdView mAdView;
 
 
 
@@ -50,7 +55,11 @@ public class   MainActivity extends AppCompatActivity {
         mContext = getApplication();
         getHashKey(mContext);
 
-
+        //ad
+        MobileAds.initialize(this, getString(R.string.admob_app_id));
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
 //        if(user == null){
@@ -80,6 +89,7 @@ public class   MainActivity extends AppCompatActivity {
 //            });
 //
 //        }
+
         FrameLayout frameLayout = findViewById(R.id.container);
 
         BottomNavigationView BottomNavigation = findViewById(R.id.bottomnavigation);
@@ -94,7 +104,10 @@ public class   MainActivity extends AppCompatActivity {
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, HomeFragment).commit();
     }
-private BottomNavigationView.OnNavigationItemSelectedListener listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+    private BottomNavigationView.OnNavigationItemSelectedListener listener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
@@ -125,10 +138,6 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
 //        fragmentTransaction.add(R.id.container, HomeFragment).commit();
 
 
-
-
-
-
         //로그아웃
        /* btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,9 +160,10 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
     }
 
     @Nullable
-    public static String getHashKey(Context context) {
+    public static String getHashKey (Context context) {
         final String TAG = "KeyHash";
         String keyHash = null;
+
         try {
             PackageInfo info =
                     context.getPackageManager().getPackageInfo(context.getPackageName(), PackageManager.GET_SIGNATURES);
@@ -164,6 +174,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
                 keyHash = new String(Base64.encode(md.digest(), 0));
                 Log.d(TAG, keyHash);
             }
+
         } catch (Exception e) {
             Log.e("name not found", e.toString());
         }
