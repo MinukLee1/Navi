@@ -1,8 +1,10 @@
 # Navi _ 나만아는 비밀장소<br>
 
 #### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. <br>
-#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country
-<br><br><br>
+#### Navi-app which is Easily share your own place, where your friends have been anywhere in the country<br><br>
+
+##### Youtube link : https://studio.youtube.com/channel/UCAcJa6Ekl9Tp3jiwvMhnszg/videos/upload?d=ud&filter=%5B%5D&sort=%7B%22columnType%22%3A%22date%22%2C%22sortOrder%22%3A%22DESCENDING%22%7D
+<br><br>
 
 ## Description 
  
@@ -163,6 +165,8 @@ e.printStackTrace();
 
 ## Code to Follow<br><br>
 
+
+#### 
 
 #### AndroidManifest.xml 에서 프로젝트 진행시 필요한 환경설정을 위한 permission 진행
  
@@ -3653,22 +3657,6 @@ public class Camera2BasicFragment extends Fragment
  
  
  
- <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
-          다음과 같은 과정으로 프로젝트 진행.<br><br>
-        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
-        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
-        - 최종 프로젝트 구상 회의  <br><br>
-
-![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
-
-
-<br><br>
-     
-
-
-    
- 
-
 
 
 
@@ -3682,8 +3670,6 @@ public class Camera2BasicFragment extends Fragment
 
 ## Firebase DB  <br>
 <br>
-#### Navi DB <br>
-![DB11 (1)](https://user-images.githubusercontent.com/74412438/121343142-53ccbc00-c95d-11eb-88ab-75053af4a5ff.png)<br>
 <br>
  
  #### 사용자 DB (Authentication)<br>
@@ -3704,6 +3690,22 @@ public class Camera2BasicFragment extends Fragment
 <br>
  
  
+
+
+<br><br><br>
+     
+ ## 프로젝트 진행방식  <br>
+
+    
+  <strong>  1-1 매 주차 Discord를 이용하였으며, 평균 주 2회의 회의를 진행. </strong><br>
+          다음과 같은 과정으로 프로젝트 진행.<br><br>
+        - 회의 전 각 팀원별 준비자료를 종합하여 회의 간 내용 공유<br>
+        - 공유한 내용을 기반으로 팀원 간 보완점 논의 <br>
+        - 최종 프로젝트 구상 회의  <br><br>
+
+![111 (1)](https://user-images.githubusercontent.com/74412438/120943536-6af78800-c76a-11eb-9e69-e65539cad924.png) <br>Discord 회의화면
+
+
 
 
  
