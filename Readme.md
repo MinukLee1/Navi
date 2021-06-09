@@ -3670,8 +3670,6 @@ public class Camera2BasicFragment extends Fragment
 
 ## Firebase DB  <br>
 <br>
-#### Navi DB <br>
-![DB11 (1)](https://user-images.githubusercontent.com/74412438/121343142-53ccbc00-c95d-11eb-88ab-75053af4a5ff.png)<br>
 <br>
  
  #### 사용자 DB (Authentication)<br>
