@@ -107,9 +107,10 @@ e.printStackTrace();
 
 - App내 Google Ad 추가를 위한 설정 <br><br>
 ##### Manifest 에 하단의 Meta-data 태그  추가 
-
+```c
 <meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id"/><br><br>
+            android:value="@string/admob_app_id"/>
+```
 
 ![1111](https://user-images.githubusercontent.com/74412438/121509578-c010f380-ca21-11eb-99ec-a1278402fa05.png)
 
