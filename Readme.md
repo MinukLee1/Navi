@@ -104,6 +104,17 @@ e.printStackTrace();
 ```
     
 <br><br>
+
+- App내 Google Ad 추가를 위한 설정 <br><br>
+##### Manifest 에 하단의 Meta-data 태그  추가 
+
+<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"/><br><br>
+
+![1111](https://user-images.githubusercontent.com/74412438/121509578-c010f380-ca21-11eb-99ec-a1278402fa05.png)
+
+<br><br>
+
 - App 내 사용된 이미지 파일 원본 <br>
 ![feed](https://user-images.githubusercontent.com/74412438/121339601-9db3a300-c959-11eb-8297-e882f6b831e4.png)
 ![search](https://user-images.githubusercontent.com/74412438/121339622-a1dfc080-c959-11eb-852e-7e47c0288d78.png)
