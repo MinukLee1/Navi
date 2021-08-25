@@ -3,7 +3,6 @@
 #### Navi는 전국 어디에서나 나만의 장소를 친구들과 쉽게 공유 할 수있는 새로운 형태의 SNS입니다. <br>
 #### Navi-app which is Easily share your own place, where your friends have been anywhere in the country<br><br>
 
-##### Youtube link : https://www.youtube.com/watch?v=kU3gNs199i0
 <br><br>
 
 ## Description 
