@@ -46,9 +46,17 @@ public class WritePostActivity extends Activity {
     private RelativeLayout btnBackLayout, loaderLayout;
     private ImageView selectedImageView;
     private EditText selectedEditText;
-
+    private EditText myplaceEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Intent intent = getIntent();
+
+        String myPlace = intent.getStringExtra("my_data");
+
+        myplaceEditText = findViewById(R.id.postPlaceEditText);
+        myplaceEditText.setText(myPlace);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_post);
 

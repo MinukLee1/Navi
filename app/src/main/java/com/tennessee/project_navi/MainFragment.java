@@ -31,11 +31,13 @@ import net.daum.mf.map.api.MapView;
 import java.util.Locale;
 
 
-public class MainFragment extends Fragment implements MapView.MapViewEventListener, MapView.POIItemEventListener
-        {
-            private Context context;
-    private static final String TAG ="HomeFragment";
-            Activity activity;
+public class MainFragment extends Fragment implements MapView.MapViewEventListener, MapView.POIItemEventListener {
+
+
+
+    private Context context;
+    private static final String TAG = "HomeFragment";
+    Activity activity;
     RelativeLayout mapViewContainer;
 
     public MainFragment() {
@@ -47,13 +49,13 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
         super.onCreate(savedInstanceState);
 
-        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         context = container.getContext();
-        View view = inflater.inflate(R.layout.main_fragment,container,false);
+        View view = inflater.inflate(R.layout.main_fragment, container, false);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -66,7 +68,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
         //   startLoginActivity();
 
 
-        MapView mapView =  new MapView(getActivity());
+        MapView mapView = new MapView(getActivity());
         ViewGroup mapViewContainer = (ViewGroup) view.findViewById(R.id.map_view);
         mapViewContainer.addView(mapView);
 
@@ -92,7 +94,6 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
         mapView.setPOIItemEventListener(MainFragment.this);
 
 
-
         //로그아웃
        /* btnFeed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,99 +108,109 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
     }
 
     //프라그먼트용으로 변경한 화면전환 메소드
-            // 액티비티 : this / 프라그먼트 : getActivity()
-            private void StartMyActivity(Class c){
-                Intent intent = new Intent(getActivity(), c);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
-            }
+    // 액티비티 : this / 프라그먼트 : getActivity()
+    private void StartMyActivity(Class c) {
+        Intent intent = new Intent(getActivity(), c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
 
-            @Override
-            public void onAttach(Context context) {
-                super.onAttach(context);
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
-                if (context instanceof Activity)
-                    activity = (Activity) context;
-            }
+        if (context instanceof Activity)
+            activity = (Activity) context;
+    }
 
-            @Override
-            public void onMapViewInitialized(MapView mapView) {
+    @Override
+    public void onMapViewInitialized(MapView mapView) {
 
-            }
+    }
 
-            @Override
-            public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
+    @Override
+    public void onMapViewCenterPointMoved(MapView mapView, MapPoint mapPoint) {
 
-            }
+    }
 
-            @Override
-            public void onMapViewZoomLevelChanged(MapView mapView, int i) {
+    @Override
+    public void onMapViewZoomLevelChanged(MapView mapView, int i) {
 
-            }
+    }
 
-            @Override
-            public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
+    @Override
+    public void onMapViewSingleTapped(MapView mapView, MapPoint mapPoint) {
 
-                MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
-                MapPOIItem customMarker = new MapPOIItem();
-              
-                customMarker.setItemName("게시글 작성하기");
-                customMarker.setTag(1);
-                customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(mapPointGeo.latitude, mapPointGeo.longitude));
-                customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
-                customMarker.setCustomImageResourceId(R.drawable.navi_mark);
-                customMarker.setCustomImageAutoscale(false);
-                customMarker.setCustomImageAnchor(0.5f, 1.0f);
-                mapView.addPOIItem(customMarker);
-                Toast.makeText(getActivity(), "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude, Toast.LENGTH_SHORT).show();
-            }
+        MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
+        MapPOIItem customMarker = new MapPOIItem();
 
-            @Override
-            public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
-
-            }
-
-            @Override
-            public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
-
-            }
-
-            @Override
-            public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
-
-            }
-
-            @Override
-            public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
-
-            }
-
-            @Override
-            public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
-
-            }
-
-            @Override
-            public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
-
-            }
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            @Override
-            public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-
-                //로그인이 안되어있을시 ,
-                if (user == null) {
-                    Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
-                }
-                //로그인 되어있을시 ,
-                if (user != null) {
-
-                    Intent intent = new Intent(getActivity(), WritePostActivity.class);
-                    startActivity(intent);
-                }
+        customMarker.setItemName("게시글 작성하기");
+        customMarker.setTag(1);
+        customMarker.setMapPoint(MapPoint.mapPointWithGeoCoord(mapPointGeo.latitude, mapPointGeo.longitude));
+        customMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage);
+        customMarker.setCustomImageResourceId(R.drawable.navi_mark);
+        customMarker.setCustomImageAutoscale(false);
+        customMarker.setCustomImageAnchor(0.5f, 1.0f);
+        mapView.addPOIItem(customMarker);
+        Toast.makeText(getActivity(), "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude, Toast.LENGTH_SHORT).show();
 
 
-            }
+    }
+
+
+    @Override
+    public void onMapViewDoubleTapped(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewLongPressed(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDragStarted(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewDragEnded(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onMapViewMoveFinished(MapView mapView, MapPoint mapPoint) {
+
+    }
+
+    @Override
+    public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+
+    }
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+    @Override
+    public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
+        MapPoint mapPoint = null;
+        MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
+
+        String place = "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude;
+
+        //로그인이 안되어있을시 ,
+        if (user == null) {
+            Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
+        }
+        //로그인 되어있을시 ,
+        if (user != null) {
+            Intent intent = new Intent(getActivity(), WritePostActivity.class);
+            intent.putExtra("my_data", place);
+            startActivity(intent);
+
+        }
+    }
+
+
 
             @Override
             public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {

@@ -68,6 +68,17 @@
                         android:inputType="textMultiLine"
                         tools:layout_editor_absoluteX="3dp"
                         tools:layout_editor_absoluteY="260dp" />
+
+                    <EditText
+                        android:id="@+id/postPlaceEditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:gravity="top"
+                        android:hint="현재위치(위도,경도)"
+                        android:inputType="textMultiLine"
+                        tools:layout_editor_absoluteX="3dp"
+                        tools:layout_editor_absoluteY="260dp" />
                 </LinearLayout>
 
             </LinearLayout>
