@@ -204,7 +204,7 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
         //로그인 되어있을시 ,
         if (user != null) {
             Intent intent = new Intent(getActivity(), WritePostActivity.class);
-            intent.putExtra("my_data", place);
+           // intent.putExtra("my_data", place);
             startActivity(intent);
 
         }

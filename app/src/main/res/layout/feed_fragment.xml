@@ -26,7 +26,7 @@
         android:layout_marginBottom="19dp"
         android:clickable="true"
         android:src="@drawable/ic_add_black_24dp"
-        app:backgroundTint="@color/bg_login_button"
+        app:backgroundTint="@color/com_kakao_cancel_button_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -40,7 +40,7 @@
         android:layout_marginBottom="17dp"
         android:text="피드"
         android:textColor="#000000"
-        app:backgroundTint="@color/bg_login_button"
+        app:backgroundTint="@color/com_kakao_cancel_button_background"
         app:cornerRadius="20sp" />
 
 </RelativeLayout>

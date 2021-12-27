@@ -107,9 +107,9 @@
                     android:layout_height="32dp"
                     android:layout_marginTop="20dp"
                     android:background="@drawable/icondesign"
-                    android:textColor="#000000"
                     android:text="확인"
-                    app:backgroundTint="#FDF07C"
+                    android:textColor="#000000"
+                    app:backgroundTint="@color/com_kakao_cancel_button_background"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/phoneNumber" />
