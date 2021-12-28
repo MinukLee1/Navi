@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -34,7 +35,7 @@ import com.kakao.usermgmt.response.model.User;
 
 import java.security.MessageDigest;
 
-public class   MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
     private Context mContext;
     private Fragment HomeFragment,SearchFragment,FeedFragment,BookmarkFragment,MypageFragment;
     private static final String TAG = "MainActivity";
@@ -108,6 +109,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
                 replaceFragment(HomeFragment);
                 return true;
             case R.id.bookmark:
+                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
+                startActivity(intent);
                 replaceFragment(BookmarkFragment);
                 return true;
             case R.id.mypage:
