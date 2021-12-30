@@ -1,111 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MypageFragment">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        tools:context=".LoginActivity">
+        android:layout_height="100dp">
 
-        <TextView
-            android:id="@+id/titleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="50dp"
-            android:text="마이페이지"
-            android:textSize="27sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profileImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="100dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:layout_toRightOf="@+id/profileImage"
+            android:id="@+id/account_btn_follow"
+            android:text="follow"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+    <LinearLayout
+
+        android:gravity="center"
+        android:layout_toRightOf="@+id/profileImage"
+        android:layout_above="@+id/account_btn_follow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                app:cardCornerRadius="100dp">
-
-                <ImageView
-                    android:id="@+id/profileImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:src="@tools:sample/avatars" />
-            </androidx.cardview.widget.CardView>
-
-            <EditText
-                android:id="@+id/IdEditText"
+        <TextView
+            android:text="post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/account_tv_post_count"
+                android:text="0"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="이름"
-                android:inputType="text"
-                android:textSize="17sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.497"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/phoneNumber"
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="follower"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="전화번호"
-                android:inputType="textPassword"
-                android:textSize="17sp"
-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
-
-            <EditText
-                android:id="@+id/birthDayEditText"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/account_tv_follower_count"
+                android:text="0"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="생년월일"
-                android:inputType="textPassword"
-                android:textSize="17sp"
-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-            <EditText
-                android:id="@+id/addressEditText"
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="following"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:ems="10"
-                android:hint="주소"
-                android:inputType="textPassword"
-                android:textSize="17sp"
-                app:layout_constraintStart_toStartOf="@+id/IdEditText"
-                app:layout_constraintTop_toBottomOf="@+id/IdEditText" />
-
-            <Button
-                android:id="@+id/logincheckBtn"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/account_tv_following_count"
+                android:text="0"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/icondesign"
-                android:textColor="#000000"
-                app:backgroundTint="@color/com_kakao_cancel_button_background"
-                android:text="로그인" />
-
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
 
+<!--            <Button-->
+<!--                android:id="@+id/logincheckBtn"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginTop="50dp"-->
+<!--                android:background="@drawable/icondesign"-->
+<!--                android:textColor="#000000"-->
+<!--                app:backgroundTint="@color/com_kakao_cancel_button_background"-->
+<!--                android:text="로그인" />-->
+
     </LinearLayout>
 
-</FrameLayout>
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/account_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

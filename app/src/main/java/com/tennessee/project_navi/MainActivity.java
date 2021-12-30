@@ -109,8 +109,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener listener = new Bot
                 replaceFragment(HomeFragment);
                 return true;
             case R.id.bookmark:
-                Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
-                startActivity(intent);
+                /*Intent intent = new Intent(MainActivity.this, BookmarkActivity.class);
+                startActivity(intent);*/
                 replaceFragment(BookmarkFragment);
                 return true;
             case R.id.mypage:

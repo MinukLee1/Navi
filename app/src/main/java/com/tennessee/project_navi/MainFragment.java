@@ -192,16 +192,16 @@ public class MainFragment extends Fragment implements MapView.MapViewEventListen
 
     @Override
     public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {
-        MapPoint mapPoint = null;
-        MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
+       // MapPoint mapPoint = null;
+        //MapPoint.GeoCoordinate mapPointGeo = mapPoint.getMapPointGeoCoord();
 
-        String place = "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude;
+        //String place = "위도 " + mapPointGeo.latitude + " 경도" + mapPointGeo.longitude
 
-        //로그인이 안되어있을시 ,
+        //로그인이 안되어있을시
         if (user == null) {
             Toast.makeText(context, "로그인 후 글 작성이 가능합니다", Toast.LENGTH_LONG).show();
         }
-        //로그인 되어있을시 ,
+        //로그인 되어있을시
         if (user != null) {
             Intent intent = new Intent(getActivity(), WritePostActivity.class);
            // intent.putExtra("my_data", place);

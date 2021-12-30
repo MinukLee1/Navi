@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class BookmarkFragment extends Fragment {
 
-    EditText text;
+    EditText text3;
     public BookmarkFragment() {
         // Required empty public constructor
     }
@@ -30,9 +30,13 @@ public class BookmarkFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View v = inflater.inflate(R.layout.bookmark_fragment, container, false);
-        text = v.findViewById(R.id.text3);
-        text.setText(BookmarkFragment_ktKt.formatMessage("Android with kotlin"));
-        return v;
+        ViewGroup rootview = (ViewGroup)inflater.inflate(R.layout.bookmark_fragment,container,false);
+        text3 = rootview.findViewById(R.id.text3);
+       /* View v = inflater.inflate(R.layout.bookmark_fragment, container, false);
+        text = v.findViewById(R.id.text3);*/
+        //text3.setText(BookmarkFragment_kt.formatMessage("Android with kotlin"));
+        /*text31.setText("로그인 후 확인가능합니다");
+        text31.setEnabled(false);*/
+        return rootview;
     }
 }
