@@ -57,14 +57,14 @@ EditText addressEditText;
 
         //로그인 안되어있을시 ,
         if(user == null) {
-            IdEditText.setText("로그인 후 확인가능합니다");
-            IdEditText.setEnabled(false);
-            phoneNumber.setText("로그인 후 확인가능합니다");
-            phoneNumber.setEnabled(false);
-            birthDayEditText.setText("로그인 후 확인가능합니다");
-            birthDayEditText.setEnabled(false);
-            addressEditText.setText("로그인 후 확인가능합니다");
-            addressEditText.setEnabled(false);
+//            IdEditText.setText("로그인 후 확인가능합니다");
+//            IdEditText.setEnabled(false);
+//            phoneNumber.setText("로그인 후 확인가능합니다");
+//            phoneNumber.setEnabled(false);
+//            birthDayEditText.setText("로그인 후 확인가능합니다");
+//            birthDayEditText.setEnabled(false);
+//            addressEditText.setText("로그인 후 확인가능합니다");
+//            addressEditText.setEnabled(false);
 
 
             logincheckBtn.setText("로그인하기");
@@ -83,14 +83,14 @@ EditText addressEditText;
         //로그인 되어있을시 ,
         if(user != null){
 
-            IdEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
-            IdEditText.setEnabled(false);
-            phoneNumber.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
-            phoneNumber.setEnabled(false);
-            birthDayEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
-            birthDayEditText.setEnabled(false);
-            addressEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
-            addressEditText.setEnabled(false);
+//            IdEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+//            IdEditText.setEnabled(false);
+//            phoneNumber.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+//            phoneNumber.setEnabled(false);
+//            birthDayEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+//            birthDayEditText.setEnabled(false);
+//            addressEditText.setText("파이어베이스에서 가져올 Data 부분 (아직안함)");
+//            addressEditText.setEnabled(false);
 
 
 
