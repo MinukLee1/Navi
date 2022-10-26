@@ -133,20 +133,20 @@ e.printStackTrace();
 ## Algorithm & LifeCycle <br>
 
 
-#### 전체 알고리즘<br>
+#### 전체 플로우차트<br>
 ![image](https://user-images.githubusercontent.com/74412438/121266830-2862b680-c8f6-11eb-8e36-ce976f6937cb.png)
 
 <br><br>
 
-#### MainActivity - Fragment 알고리즘<br>
+#### MainActivity - Fragment 플로우차트<br>
 ![알고리즘예비_Fragment11](https://user-images.githubusercontent.com/74412438/121266967-65c74400-c8f6-11eb-843e-9450a8465985.png)
 <br><br>
 
-#### FeedFragment / SearchFragment / MainFragment 알고리즘<br>
+#### FeedFragment / SearchFragment / MainFragment 플로우차트<br>
 ![알고리즘예비_Fragment111](https://user-images.githubusercontent.com/74412438/121267176-c060a000-c8f6-11eb-9aa9-53c2109bc93a.png)
 <br><br>
 
-#### BookmarkFragment / MypageFragment 알고리즘<br>
+#### BookmarkFragment / MypageFragment 플로우차트<br>
 ![알고리즘예비_Fragment1111](https://user-images.githubusercontent.com/74412438/121267208-cf475280-c8f6-11eb-95dc-b668959da579.png)
 <br><br><br><br>
 
